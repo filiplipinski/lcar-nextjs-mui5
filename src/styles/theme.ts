@@ -1,17 +1,30 @@
-import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { typography } from './typography';
+import { palette } from './palette';
 
-// Create a theme instance.
-export const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#556cd6',
-    },
-    secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
+// color palette: https://mui.com/customization/color/#color-palette
+// default theme: https://mui.com/customization/default-theme/
+const baseTheme = createTheme({
+  palette,
+  typography,
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: palette.background?.default,
+          minHeight: '100vh',
+        },
+      },
     },
   },
 });
+
+export const theme = responsiveFontSizes(baseTheme);
+
+/**
+ * xs:0,
+ * sm: 600,
+ * md: 900,
+ * lg: 1200,
+ * xl: 1536
+ */
