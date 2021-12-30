@@ -1,4 +1,5 @@
 import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box } from '@mui/material';
+import { Phone as PhoneIcon } from '@mui/icons-material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
 
@@ -59,7 +60,7 @@ export const Navbar = () => {
               >
                 {/* TODO: jak jestes w danej sekcji, to ma byc podkreślnik! */}
                 <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
-                  {navItems.map(({ id, title }, i) => (
+                  {navItems.map(({ id, title }) => (
                     <MenuItem
                       onClick={() => handleNavItemClick(id)}
                       key={id}
@@ -81,6 +82,7 @@ export const Navbar = () => {
                   ))}
                 </MenuList>
                 <NumberButton variant="text" color="secondary">
+                  <PhoneIcon color="secondary" fontSize="small" sx={{ mr: 1 }} />
                   +48 539 943 336
                 </NumberButton>
               </Box>

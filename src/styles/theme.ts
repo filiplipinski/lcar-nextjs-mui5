@@ -16,6 +16,11 @@ const baseTheme = createTheme({
         },
       },
     },
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: 'xl',
+      },
+    },
   },
 });
 
