@@ -20,6 +20,11 @@ export const navItems: { id: AnchorElementsEnum; title: string }[] = [
     title: 'Realizacje',
   },
   {
+    // TODO: id
+    id: 'cennik' as AnchorElementsEnum,
+    title: 'Cennik',
+  },
+  {
     id: AnchorElementsEnum.Contact,
     title: 'Kontakt',
   },

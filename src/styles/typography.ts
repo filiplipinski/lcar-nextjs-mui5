@@ -9,14 +9,28 @@ export const typography = (palette: Palette): TypographyOptions => ({
   // fontWeightBold: 700, // default
   h1: {
     color: palette.primary.main,
+    fontWeight: 800,
+    textTransform: 'uppercase',
+    fontSize: '5rem',
   },
   h2: {
     color: palette.primary.main,
+    fontWeight: 800,
+    textTransform: 'uppercase',
   },
   h3: {
     color: palette.primary.main,
+    fontWeight: 800,
+    textTransform: 'uppercase',
   },
   h4: {
+    color: palette.primary.main,
+  },
+  subtitle1: {
+    // fontSize: '1.125rem', // 18px
+    color: palette.primary.main,
+  },
+  subtitle2: {
     color: palette.primary.main,
   },
   body1: {
