@@ -141,9 +141,10 @@ const ImageContainer = styled(Box)({
 
 const NumberButton = styled(Button)(({ theme }) => ({
   fontWeight: 'bold',
-  marginLeft: '32px',
+  marginLeft: 24,
   borderRadius: '10px',
   fontSize: 20,
   letterSpacing: '-1px',
   color: theme.palette.secondary.light,
+  whiteSpace: 'nowrap',
 }));
