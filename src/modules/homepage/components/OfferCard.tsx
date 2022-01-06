@@ -35,7 +35,7 @@ export const OfferCard = ({ title, description, imgSrc }: JobCardProps) => {
           <Typography
             gutterBottom
             color="secondary"
-            variant="h5"
+            variant="h6"
             component="h2"
             sx={{ textTransform: 'uppercase' }}
           >
