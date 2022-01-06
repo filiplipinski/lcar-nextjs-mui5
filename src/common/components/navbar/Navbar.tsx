@@ -30,95 +30,94 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div id={AnchorElementsEnum.Top}>
-      <AppBar
-        position="fixed"
-        sx={{
-          height: navigationHeight,
-          transition: '.4s ease-in',
+    <AppBar
+      id={AnchorElementsEnum.Top}
+      position="fixed"
+      sx={{
+        height: navigationHeight,
+        transition: '.4s ease-in',
 
-          ...(shouldTriggerNavbar
-            ? {
-                backgroundColor: 'background.default',
-              }
-            : {
-                backgroundColor: 'transparent',
-                boxShadow: 'none',
-              }),
-        }}
-      >
-        <Toolbar disableGutters sx={{ height: '100%' }}>
-          <Container
+        ...(shouldTriggerNavbar
+          ? {
+              backgroundColor: 'background.default',
+            }
+          : {
+              backgroundColor: 'transparent',
+              boxShadow: 'none',
+            }),
+      }}
+    >
+      <Toolbar disableGutters sx={{ height: '100%' }}>
+        <Container
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            height: '100%',
+          }}
+        >
+          <ImageContainer
+            role="presentation"
+            tabIndex={0}
+            onClick={() => handleNavItemClick(AnchorElementsEnum.Top)}
+          >
+            <Image
+              src="/img/logo.png"
+              alt="lcar logo"
+              // width={250} // TODO: pomysł: wieksze logo gdy scroll na gorze, gdy idzie w dol to juz normalny rozmiar
+              // height={80}
+              width={180}
+              height={50}
+              // width={150}
+              // height={40}
+              objectFit="contain"
+              unselectable="on"
+            />
+          </ImageContainer>
+
+          <Box
+            component="nav"
             sx={{
-              display: 'flex',
+              display: { xs: 'none', md: 'flex' },
               alignItems: 'center',
-              justifyContent: 'space-between',
               height: '100%',
             }}
           >
-            <ImageContainer
-              role="presentation"
-              tabIndex={0}
-              onClick={() => handleNavItemClick(AnchorElementsEnum.Top)}
-            >
-              <Image
-                src="/img/logo.png"
-                alt="lcar logo"
-                // width={250} // TODO: pomysł: wieksze logo gdy scroll na gorze, gdy idzie w dol to juz normalny rozmiar
-                // height={80}
-                width={180}
-                height={50}
-                // width={150}
-                // height={40}
-                objectFit="contain"
-                unselectable="on"
-              />
-            </ImageContainer>
+            {/* TODO: jak jestes w danej sekcji, to ma byc podkreślnik! */}
+            <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
+              {navItems.map(({ id, title }) => (
+                <MenuItem
+                  onClick={() => handleNavItemClick(id)}
+                  key={id}
+                  tabIndex={0}
+                  sx={{
+                    fontWeight: 'bold',
+                    px: '24px',
+                    transition: '.3s ease',
+                    fontSize: 18,
 
-            <Box
-              component="nav"
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                alignItems: 'center',
-                height: '100%',
-              }}
-            >
-              {/* TODO: jak jestes w danej sekcji, to ma byc podkreślnik! */}
-              <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
-                {navItems.map(({ id, title }) => (
-                  <MenuItem
-                    onClick={() => handleNavItemClick(id)}
-                    key={id}
-                    tabIndex={0}
-                    sx={{
-                      fontWeight: 'bold',
-                      px: '24px',
-                      transition: '.3s ease',
-                      fontSize: 18,
+                    ':hover, :focus': {
+                      color: 'secondary.main',
+                      backgroundColor: 'transparent',
+                    },
+                  }}
+                >
+                  {title}
+                </MenuItem>
+              ))}
+            </MenuList>
+            <NumberButton variant="text">
+              <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
+              +48 539 943 336
+            </NumberButton>
+          </Box>
 
-                      ':hover, :focus': {
-                        color: 'secondary.main',
-                        backgroundColor: 'transparent',
-                      },
-                    }}
-                  >
-                    {title}
-                  </MenuItem>
-                ))}
-              </MenuList>
-              <NumberButton variant="text">
-                <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
-                +48 539 943 336
-              </NumberButton>
-            </Box>
-
-            <SideDrawer onNavItemClick={(id) => handleNavItemClick(id)} />
-          </Container>
-        </Toolbar>
-      </AppBar>
+          <SideDrawer onNavItemClick={(id) => handleNavItemClick(id)} />
+        </Container>
+      </Toolbar>
 
       <BackToTop />
-    </div>
+    </AppBar>
   );
 };
 

@@ -57,18 +57,15 @@ const servicesData = [
 
 export const Offers = () => {
   return (
-    <Container id={AnchorElementsEnum.CompanyOffer} sx={{ mt: 6 }}>
+    <Container id={AnchorElementsEnum.CompanyOffer} sx={{ my: 8 }}>
       <Typography variant="h3" align="center" sx={{ mb: 4 }}>
         Usługi
       </Typography>
 
       <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
-        {/* TODO: przekazac propy przez spread */}
         {servicesData.map((offerCardProps) => (
           <Grid item key={offerCardProps.imgSrc}>
             <OfferCard {...offerCardProps} />
-
-            {/* <div style={{ width: 400 }}>{offerCardProps.title}</div> */}
           </Grid>
         ))}
       </Grid>

@@ -28,7 +28,7 @@ export const BackToTop = () => {
         sx={{ position: 'fixed', bottom: 16, right: 16, zIndex: 1 }}
       >
         <Fab color="secondary" size="large" aria-label="back to top">
-          <KeyboardArrowUpIcon />
+          <KeyboardArrowUpIcon fontSize="large" />
         </Fab>
       </Box>
     </Zoom>

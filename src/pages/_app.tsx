@@ -10,6 +10,7 @@ import 'src/styles/global.css';
 import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
 import { Navbar } from 'src/common/components/navbar/Navbar';
+import { Footer } from 'src/modules/homepage/components/Footer';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -31,7 +32,12 @@ const MyApp = (props: MyAppProps) => {
         <CssBaseline />
 
         <Navbar />
-        <Component {...pageProps} />
+
+        <main>
+          <Component {...pageProps} />
+        </main>
+
+        <Footer />
       </ThemeProvider>
     </CacheProvider>
   );

@@ -30,8 +30,7 @@ export const typography = (palette: Palette): TypographyOptions => ({
   },
   h5: {
     color: palette.primary.main,
-    fontWeight: 700,
-    textTransform: 'uppercase',
+    fontWeight: 800,
   },
   subtitle1: {
     // fontSize: '1.125rem', // 18px

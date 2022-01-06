@@ -6,7 +6,6 @@ import { HeroBanner } from 'src/modules/homepage/components/HeroBanner';
 import { AboutCompany } from 'src/modules/homepage/components/AboutCompany';
 import { CompanyPros } from 'src/modules/homepage/components/CompanyPros';
 import { Offers } from 'src/modules/homepage/components/Offers';
-import { Footer } from 'src/modules/homepage/components/Footer';
 
 const Home: NextPage = () => {
   return (
@@ -63,8 +62,6 @@ const Home: NextPage = () => {
       <Offers />
 
       {/* <div style={{ width: '100%', height: 500, backgroundColor: 'black' }}></div> */}
-
-      <Footer />
     </div>
   );
 };

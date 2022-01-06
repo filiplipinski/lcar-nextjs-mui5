@@ -14,6 +14,9 @@ const baseTheme = createTheme({
           backgroundColor: palette.background?.default,
           minHeight: '100vh',
         },
+        a: {
+          textDecoration: 'none',
+        },
       },
     },
     MuiContainer: {
