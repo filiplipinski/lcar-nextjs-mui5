@@ -47,3 +47,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - podkreslenie w nawigacji
 - mapy google'a
+- pokazac opinie google?
+- https://fotopro360.pl/pytania/jak-usunac-zdjecia-z-map-google-z-wizytowki-firmy-2-sposoby/

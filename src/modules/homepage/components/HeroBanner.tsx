@@ -29,6 +29,7 @@ export const HeroBanner = () => {
           </Box>
         </CustomText>
 
+        {/* TODO: moze to nie ma byc custom button, tylko taki styl na stałe? */}
         <CustomButton
           variant="contained"
           color="secondary"
@@ -71,6 +72,5 @@ const CustomText = styled(Typography)(({ theme }) => ({
 
 const CustomButton = styled(Button)(({ theme }) => ({
   border: `1px solid ${theme.palette.common.white}`,
-  fontWeight: 'bold',
   letterSpacing: 1,
 }));

@@ -6,6 +6,7 @@ export enum AnchorElementsEnum {
   Contact = 'anchorContact',
 }
 
+// TODO: usługi bedzie mialo jeszcze menu rozsuwane, klik w podmenu otwiera nowa strone
 export const navItems: { id: AnchorElementsEnum; title: string }[] = [
   {
     id: AnchorElementsEnum.AboutCompany,
