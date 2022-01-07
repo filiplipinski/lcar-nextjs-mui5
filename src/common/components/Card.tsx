@@ -1,6 +1,6 @@
 import {
   Typography,
-  Card,
+  Card as MuiCard,
   CardActionArea,
   CardMedia,
   CardContent,
@@ -9,15 +9,15 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 
-export type JobCardProps = {
+export type CardProps = {
   title: string;
   description: string;
   imgSrc: string;
 };
 
-export const OfferCard = ({ title, description, imgSrc }: JobCardProps) => {
+export const Card = ({ title, description, imgSrc }: CardProps) => {
   return (
-    <Card key={title} sx={{ maxWidth: { xs: 'auto', sm: 324, xl: 348 }, height: '100%' }}>
+    <MuiCard key={title} sx={{ maxWidth: { xs: 'auto', sm: 324, xl: 348 }, height: '100%' }}>
       <CardActionArea
         sx={{
           height: '100%',
@@ -53,6 +53,6 @@ export const OfferCard = ({ title, description, imgSrc }: JobCardProps) => {
           </CardActions>
         </CardContent>
       </CardActionArea>
-    </Card>
+    </MuiCard>
   );
 };

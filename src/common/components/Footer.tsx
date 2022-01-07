@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import { Facebook, ExpandLess, Phone, Instagram } from '@mui/icons-material';
 import Image from 'next/image';
 
-import Link from 'src/common/components/link/Link';
+import Link from 'src/common/components/Link';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
 

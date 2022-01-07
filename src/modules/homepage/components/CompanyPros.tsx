@@ -52,7 +52,7 @@ export const CompanyPros = () => {
       >
         {items.map(({ title, iconSrc, description }) => (
           <SwiperSlide key={title}>
-            <Stack spacing={2} sx={{ height: 250 }}>
+            <Stack spacing={2} sx={{ height: { sx: 260, sm: 240, md: 200 } }}>
               <Image src={iconSrc} alt="" height={55} width={55} />
 
               <Typography variant="h4" align="center">
