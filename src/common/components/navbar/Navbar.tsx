@@ -8,7 +8,7 @@ import { Link } from 'src/common/components/Link';
 
 import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
-import { AnchorElementsEnum, navItems } from './Navbar.types';
+import { navItems } from './Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';
 
 export const navigationHeight = 80;
@@ -28,7 +28,6 @@ export const Navbar = () => {
 
   return (
     <AppBar
-      id={AnchorElementsEnum.Top}
       position="fixed"
       sx={{
         height: navigationHeight,

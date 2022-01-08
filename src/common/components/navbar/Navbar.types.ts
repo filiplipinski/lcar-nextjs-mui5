@@ -1,7 +1,7 @@
 export enum AnchorElementsEnum {
   Top = 'top',
   AboutCompany = 'o-firmie',
-  CompanyOffer = 'usługi',
+  CompanyOffer = 'uslugi',
   Realizations = 'realizacje',
   Contact = 'kontakt',
 }

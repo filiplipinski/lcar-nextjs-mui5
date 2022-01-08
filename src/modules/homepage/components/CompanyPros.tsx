@@ -44,7 +44,7 @@ export const CompanyPros = () => {
     <Container sx={{ mt: 10 }}>
       <Swiper
         modules={[Autoplay, Pagination, A11y]}
-        spaceBetween={50}
+        spaceBetween={25}
         autoplay
         loop={!isDesktop}
         pagination={{ clickable: true }}
@@ -52,8 +52,7 @@ export const CompanyPros = () => {
       >
         {items.map(({ title, iconSrc, description }) => (
           <SwiperSlide key={title}>
-            <Stack spacing={2} sx={{ height: { sx: 260, sm: 240, md: 200 } }}>
-              {/* TODO: zamienic na img chyba */}
+            <Stack spacing={2} sx={{ height: { xs: 260, md: 280, lg: 240, xl: 220 } }}>
               <Image src={iconSrc} alt="" height={55} width={55} />
 
               <Typography variant="h4" align="center">

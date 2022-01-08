@@ -11,6 +11,7 @@ import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
 import { Navbar } from 'src/common/components/navbar/Navbar';
 import { Footer } from 'src/common/components/Footer';
+import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -33,7 +34,7 @@ const MyApp = (props: MyAppProps) => {
 
         <Navbar />
 
-        <main>
+        <main id={AnchorElementsEnum.Top}>
           <Component {...pageProps} />
         </main>
 

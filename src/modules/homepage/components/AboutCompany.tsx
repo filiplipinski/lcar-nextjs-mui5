@@ -13,9 +13,14 @@ export const AboutCompany = () => {
       <Stack
         alignItems="center"
         justifyContent="space-between"
-        sx={{ flexDirection: { xs: 'column', md: 'row' } }}
+        sx={{
+          flexDirection: { xs: 'column', md: 'row' },
+          '& > *': {
+            width: { xs: '100%', md: '50%' },
+          },
+        }}
       >
-        <Typography sx={{ width: { md: '50%' }, mb: { xs: 4, md: 0 }, mr: { xs: 0, md: 4 } }}>
+        <Typography sx={{ mb: { xs: 6, md: 0 }, mr: { xs: 0, md: 4 } }}>
           Po 15 latach działania w branży motoryzacyjnej przyszła kolej na otwarcie własnego{' '}
           <strong>STUDIA AUTODETAILIGU</strong>. Doświadczenie zdobyte w autoryzowanych serwisach
           światowych marek postanowiliśmy przenieść na rynek radomski. <br /> <br />
@@ -30,7 +35,14 @@ export const AboutCompany = () => {
         </Typography>
 
         <Box>
-          <Image src="/img/cars.png" alt="cars" width={560} height={220} objectFit="contain" />
+          <Image
+            src="/img/cars.png"
+            alt="cars"
+            layout="responsive"
+            width={560}
+            height={220}
+            objectFit="contain"
+          />
         </Box>
       </Stack>
     </Container>
