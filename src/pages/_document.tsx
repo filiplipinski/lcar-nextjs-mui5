@@ -17,11 +17,12 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Sen:300,400,500,700,800&subset=latin,latin-ext&display=swap"
           />
-          {/* TODO: przemyslec */}
+          {/* eslint-disable @next/next/google-font-display */}
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Russo+One:400&subset=latin,latin-ext&display=block"
           />
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>

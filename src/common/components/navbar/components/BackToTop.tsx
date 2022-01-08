@@ -20,6 +20,7 @@ export const BackToTop = () => {
     }
   };
 
+  // TODO: przestalo dzialac
   return (
     <Zoom in={trigger}>
       <Box

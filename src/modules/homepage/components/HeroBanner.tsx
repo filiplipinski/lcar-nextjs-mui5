@@ -14,7 +14,8 @@ export const HeroBanner = () => {
   return (
     <Box sx={{ position: 'relative', width: '100vw', height: 'calc(100vh + 1px)' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
-        <CustomText variant={isDesktop ? 'h1' : 'h2'}>
+        {/* <CustomText variant={isDesktop ? 'h1' : 'h2'}> */}
+        <CustomText variant={'h1'}>
           Z miłości
           <br />
           do{' '}
@@ -29,8 +30,7 @@ export const HeroBanner = () => {
           </Box>
         </CustomText>
 
-        {/* TODO: moze to nie ma byc custom button, tylko taki styl na stałe? */}
-        <CustomButton
+        <Button
           variant="contained"
           color="secondary"
           size={isDesktop ? 'large' : 'medium'}
@@ -38,12 +38,11 @@ export const HeroBanner = () => {
           sx={{ mt: 4 }}
         >
           Poznaj nas!
-        </CustomButton>
+        </Button>
       </Box>
 
       <Image
         src="/img/hero.jpeg"
-        // src="/img/hero-fullsize.jpg" // TODO: ktore zdjecie?
         alt="hero banner"
         layout="fill"
         objectFit="cover"
@@ -68,9 +67,4 @@ const CustomText = styled(Typography)(({ theme }) => ({
 
   color: 'transparent',
   WebkitTextStroke: `1px ${theme.palette.primary.main}`,
-}));
-
-const CustomButton = styled(Button)(({ theme }) => ({
-  border: `1px solid ${theme.palette.common.white}`,
-  letterSpacing: 1,
 }));

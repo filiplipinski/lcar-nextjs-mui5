@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box } from '@mui/material';
 import { Phone as PhoneIcon } from '@mui/icons-material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
 
+import { Link } from 'src/common/components/Link';
+
 import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
 import { AnchorElementsEnum, navItems } from './Navbar.types';
-import { useEffect } from 'react';
 
 export const navigationHeight = 80;
 
@@ -56,20 +57,12 @@ export const Navbar = () => {
             height: '100%',
           }}
         >
-          <ImageContainer
-            role="presentation"
-            tabIndex={0}
-            onClick={() => handleNavItemClick(AnchorElementsEnum.Top)}
-          >
+          <ImageContainer href="/">
             <Image
               src="/img/logo.png"
               alt="lcar logo"
-              // width={250} // TODO: pomysł: wieksze logo gdy scroll na gorze, gdy idzie w dol to juz normalny rozmiar
-              // height={80}
               width={180}
               height={50}
-              // width={150}
-              // height={40}
               objectFit="contain"
               unselectable="on"
             />
@@ -83,7 +76,7 @@ export const Navbar = () => {
               height: '100%',
             }}
           >
-            {/* TODO: jak jestes w danej sekcji, to ma byc podkreślnik! */}
+            {/* TODO later: jak jestes w danej sekcji, to ma byc podkreślnik! */}
             <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
               {navItems.map(({ id, title }) => (
                 <MenuItem
@@ -121,7 +114,7 @@ export const Navbar = () => {
   );
 };
 
-const ImageContainer = styled(Box)({
+const ImageContainer = styled(Link)({
   height: '100%',
   cursor: 'pointer',
   userSelect: 'none',

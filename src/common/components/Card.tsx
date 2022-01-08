@@ -9,7 +9,10 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 
+// import { Link } from 'src/common/components/Link';
+
 export type CardProps = {
+  slug: string;
   title: string;
   description: string;
   imgSrc: string;
@@ -17,7 +20,12 @@ export type CardProps = {
 
 export const Card = ({ title, description, imgSrc }: CardProps) => {
   return (
-    <MuiCard key={title} sx={{ maxWidth: { xs: 'auto', sm: 324, xl: 348 }, height: '100%' }}>
+    <MuiCard
+      // component={Link}
+      // href={`/realizacje/${slug}`}
+      key={title}
+      sx={{ maxWidth: { xs: 'auto', sm: 324, xl: 348 }, height: '100%' }}
+    >
       <CardActionArea
         sx={{
           height: '100%',

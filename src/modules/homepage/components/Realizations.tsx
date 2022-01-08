@@ -5,16 +5,19 @@ import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
 
 const realizationsMock = [
   {
+    slug: 'volvo-v12',
     title: 'Volvo v6',
     description: 'Renowacja tapicerki, usuwanie wgnieceń oraz czyszczenie srodka',
     imgSrc: '/img/realizations/bmw.jpg',
   },
   {
+    slug: 'bmw-x6',
     title: 'BMW M3',
     description: 'Polerowanie lakieru - dzięki nałożeniu kilku warstw materiałów eliminujemy hałas',
     imgSrc: '/img/realizations/bmw.jpg',
   },
   {
+    slug: 'honda-civic-ix',
     title: 'Honda Civic IX',
     description:
       'Połozenie warstwy ceramicznej - powłoka zapewnia przez hydrofobowość oraz zwiększenie gładkości lakieru',

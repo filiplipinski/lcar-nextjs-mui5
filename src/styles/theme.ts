@@ -10,12 +10,24 @@ const baseTheme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        html: {
+          height: '100%',
+          scrollBehavior: 'smooth', // it's for working "#" scroll animation
+        },
         body: {
-          backgroundColor: palette.background?.default,
-          minHeight: '100vh',
+          backgroundColor: palette.background.default,
+          height: '100%',
+        },
+        '#__next': {
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        main: {
+          flexGrow: 1,
         },
         a: {
-          textDecoration: 'none',
+          textDecoration: 'none !important', // important, so it work also for MuiLink
         },
       },
     },
@@ -29,7 +41,21 @@ const baseTheme = createTheme({
         root: {
           fontWeight: 'bold',
         },
+        containedSecondary: {
+          border: `1px solid ${palette.common.white}`,
+          letterSpacing: 1,
+        },
       },
+    },
+    MuiTypography: {
+      variants: [
+        {
+          props: { color: 'secondary2' },
+          style: {
+            color: palette.common.white,
+          },
+        },
+      ],
     },
   },
 });

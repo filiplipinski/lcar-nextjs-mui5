@@ -1,34 +1,32 @@
-import {
-  Container,
-  Typography,
-  Box,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  IconButton,
-} from '@mui/material';
+import { Container, Typography, Box, ImageList, ImageListItem } from '@mui/material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
 import { Phone as PhoneIcon } from '@mui/icons-material';
+import { Link } from 'src/common/components/Link';
 
 import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
 
 // TODO: ladne opisy porobic
+// Info: te dane są tutaj zahardcodowane, ale mogą równiez być pobrane z API, ale tego nie robię gdy nie chce obciąać strony głownej requestami
 const servicesData = [
   {
+    slug: 'detailing-wnetrza',
     title: 'Detailing wnętrza',
     imgSrc: '/img/offer/detailing-wnetrza.jpg',
     iconSrc: '/icons/car-service.svg',
   },
   {
+    slug: 'korekta-lakieru',
     title: 'Korekta lakieru',
     imgSrc: '/img/offer/korekta-lakieru.jpg',
   },
   {
+    slug: 'powloki-ochronne',
     title: 'Powłoki ochronne',
     imgSrc: '/img/offer/korekta-lakieru.jpg', // TODO
   },
   {
+    slug: 'usuwanie-wgniecen-pdr',
     title: 'Usuwanie wgnieceń (PDR)',
     imgSrc: '/img/offer/usuwanie-wgniecen.jpg',
   },
@@ -45,7 +43,7 @@ const servicesData = [
     imgSrc: '/img/offer/polerowanie.jpg', // TODO
   },
   {
-    title: 'Wyciszanie auta',
+    title: 'Wyciszanie auta2',
     imgSrc: '/img/offer/polerowanie.jpg', // TODO
   },
   // {
@@ -92,26 +90,23 @@ export const Offers = () => {
           return (
             <ImageListItem key={item.title}>
               <ImageContainer>
-                <Image src={item.imgSrc} alt={item.title} layout="fill" objectFit="cover" />
+                <Image
+                  src={item.imgSrc}
+                  alt={item.title}
+                  layout="fill"
+                  objectFit="cover"
+                  // placeholder="blur"
+                  // TODO later: dodaj: https://plaiceholder.co/docs/examples/next
+                  // https://github.com/joe-bell/plaiceholder/blob/main/examples/next/src/pages/base64/single.tsx
+                />
               </ImageContainer>
 
-              <ShadowAndTextContainer>
-                <PhoneIcon sx={{ fontSize: 48 }} />
-
-                {/* <CarService sx={{ fontSize: 48 }} /> */}
-                {/* 
-                <Image
-                  src="/icons/car-service.png"
-                  alt={item.title}
-                  color="white"
-                  width={48}
-                  height={48}
-                  objectFit="contain"
-                /> */}
+              <ShadowAndTextContainer href={`/uslugi/${item.slug}`}>
+                <PhoneIcon sx={{ color: 'common.white', fontSize: 48 }} />
 
                 <Typography
                   variant="h5"
-                  color="inherit"
+                  color="secondary2"
                   align="center"
                   sx={{
                     mt: 2,
@@ -135,12 +130,10 @@ const ImageContainer = styled('div')({
   position: 'relative',
 });
 
-// zamienic na Link!
-const ShadowAndTextContainer = styled('div')({
+const ShadowAndTextContainer = styled(Link)({
   position: 'absolute',
   inset: 0,
   backgroundColor: 'rgba(0,0,0, .5)',
-  color: 'white',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',

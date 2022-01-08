@@ -53,6 +53,7 @@ export const CompanyPros = () => {
         {items.map(({ title, iconSrc, description }) => (
           <SwiperSlide key={title}>
             <Stack spacing={2} sx={{ height: { sx: 260, sm: 240, md: 200 } }}>
+              {/* TODO: zamienic na img chyba */}
               <Image src={iconSrc} alt="" height={55} width={55} />
 
               <Typography variant="h4" align="center">
