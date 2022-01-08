@@ -1,58 +1,61 @@
 import { Container, Typography, Box, ImageList, ImageListItem } from '@mui/material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
-import { Phone as PhoneIcon } from '@mui/icons-material';
 import { Link } from 'src/common/components/Link';
 
 import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
 
-// TODO: ladne opisy porobic
-// Info: te dane są tutaj zahardcodowane, ale mogą równiez być pobrane z API, ale tego nie robię gdy nie chce obciąać strony głownej requestami
+// FYI: te dane są tutaj zahardcodowane, ale mogą równiez być pobrane z API, ale tego nie robię gdy nie chce obciąać strony głownej requestami
 const servicesData = [
   {
     slug: 'detailing-wnetrza',
     title: 'Detailing wnętrza',
     imgSrc: '/img/offer/detailing-wnetrza.jpg',
-    iconSrc: '/icons/car-service.svg',
+    iconSrc: '/icons/offer/detailing-wnetrza.png',
   },
   {
     slug: 'korekta-lakieru',
     title: 'Korekta lakieru',
     imgSrc: '/img/offer/korekta-lakieru.jpg',
+    iconSrc: '/icons/offer/korekta-lakieru.png',
   },
   {
     slug: 'powloki-ochronne',
     title: 'Powłoki ochronne',
-    imgSrc: '/img/offer/korekta-lakieru.jpg', // TODO
+    imgSrc: '/img/offer/powloki-ochronne.jpg',
+    iconSrc: '/icons/offer/powloki-ochronne.png',
   },
   {
     slug: 'usuwanie-wgniecen-pdr',
     title: 'Usuwanie wgnieceń (PDR)',
     imgSrc: '/img/offer/usuwanie-wgniecen.jpg',
+    iconSrc: '/icons/offer/usuwanie-wgniecen.png',
   },
   {
+    slug: 'renowacja-tapicerki-skorzanej',
     title: 'Renowacja tapicerki skórzanej',
     imgSrc: '/img/offer/renowacja-tapicerki.jpg',
+    iconSrc: '/icons/offer/renowacja-tapicerki.png',
   },
   {
     title: 'Usługi tapicerskie',
     imgSrc: '/img/offer/uslugi-tapicerskie.jpg',
+    iconSrc: '/icons/offer/uslugi-tapicerskie.png',
   },
   {
     title: 'Wyciszanie auta',
-    imgSrc: '/img/offer/polerowanie.jpg', // TODO
+    imgSrc: '/img/offer/wyciszanie-auta.jpg',
+    iconSrc: '/icons/offer/wyciszanie-auta.png',
   },
   {
-    title: 'Wyciszanie auta2',
-    imgSrc: '/img/offer/polerowanie.jpg', // TODO
+    title: 'Usługi dodatkowe',
+    imgSrc: '/img/offer/uslugi-dodatkowe.jpg',
+    iconSrc: '/icons/offer/uslugi-dodatkowe.png',
   },
-  // {
-  //   title: 'Renowacja pojazów specjalnych',
-  //   imgSrc: '/img/offer/uslugi-dodatkowe.jpg',
-  // },
 ];
 
 // TODO: RWD
+// TODO: animacja ze pokazuje sie od calkowicie czarnego tla
 export const Offers = () => {
   return (
     <Box id={AnchorElementsEnum.CompanyOffer} sx={{ pt: 8 }}>
@@ -103,7 +106,9 @@ export const Offers = () => {
               </ImageContainer>
 
               <ShadowAndTextContainer href={`/uslugi/${item.slug}`}>
-                <PhoneIcon sx={{ color: 'common.white', fontSize: 48 }} />
+                <div>
+                  <Image src={item.iconSrc} alt={item.title} width={64} height={64} />
+                </div>
 
                 <Typography
                   variant="h5"
@@ -140,18 +145,23 @@ const ShadowAndTextContainer = styled(Link)({
   justifyContent: 'center',
   alignItems: 'center',
   cursor: 'pointer',
-  transition: 'background-color .4s ease-in-out',
+  transition: 'background-color .3s ease-in-out',
+
+  '& > div': {
+    transition: 'transform .8s ease-in-out',
+  },
+  '& h5': {
+    transition: 'transform .3s ease-in-out',
+  },
 
   ':hover': {
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(0,0,0, .2)',
 
-    '& svg': {
-      transition: 'transform .8s ease-in-out',
+    '& > div': {
       transform: 'rotate(360deg)',
     },
 
     '& h5': {
-      transition: 'transform .4s ease-in-out',
       transform: 'scale(1.1)',
     },
   },
