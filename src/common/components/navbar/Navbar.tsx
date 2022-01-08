@@ -9,16 +9,12 @@ import { Link } from 'src/common/components/Link';
 import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
 import { AnchorElementsEnum, navItems } from './Navbar.types';
+import { scrollToElement } from 'src/common/utils/scroll';
 
 export const navigationHeight = 80;
 
 export const Navbar = () => {
   const [shouldTriggerNavbar, setShouldTriggerNavbar] = useState(false);
-
-  const handleNavItemClick = (elementId: AnchorElementsEnum) => {
-    const topOfElement = (document.getElementById(elementId)?.offsetTop || 0) - navigationHeight;
-    window.scroll({ top: topOfElement, behavior: 'smooth' });
-  };
 
   const handleScroll = () => {
     setShouldTriggerNavbar(window.scrollY > navigationHeight);
@@ -80,7 +76,7 @@ export const Navbar = () => {
             <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
               {navItems.map(({ id, title }) => (
                 <MenuItem
-                  onClick={() => handleNavItemClick(id)}
+                  onClick={() => scrollToElement(id)}
                   key={id}
                   tabIndex={0}
                   sx={{
@@ -105,7 +101,7 @@ export const Navbar = () => {
             </NumberButton>
           </Box>
 
-          <SideDrawer onNavItemClick={(id) => handleNavItemClick(id)} />
+          <SideDrawer onNavItemClick={scrollToElement} />
         </Container>
       </Toolbar>
 

@@ -52,6 +52,7 @@ const servicesData = [
   // },
 ];
 
+// TODO: RWD
 export const Offers = () => {
   return (
     <Box id={AnchorElementsEnum.CompanyOffer} sx={{ pt: 8 }}>
