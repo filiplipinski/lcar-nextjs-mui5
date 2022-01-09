@@ -5,40 +5,46 @@ import { styled } from '@mui/system';
 
 import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';
+import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
+
 import { moveXAnimation } from '../utils/keyframes';
 
 export const HeroBanner = () => {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const theme2 = useTheme();
+  const isDesktop = useMediaQuery(theme2.breakpoints.up('md'));
 
   return (
-    <Box sx={{ position: 'relative', width: '100vw', height: 'calc(100vh + 1px)' }}>
+    <Box sx={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
-        {/* <CustomText variant={isDesktop ? 'h1' : 'h2'}> */}
-        <CustomText variant={'h1'}>
-          Z miłości
-          <br />
-          do{' '}
-          <Box
-            component="span"
-            sx={{
-              color: 'primary.dark',
-              WebkitTextStrokeWidth: 0,
-            }}
-          >
-            motoryzacji
-          </Box>
-        </CustomText>
+        <FlyIn>
+          <CustomText variant={isDesktop ? 'h1' : 'h2'}>Z miłości</CustomText>{' '}
+        </FlyIn>
+        <FlyIn delay={0.8}>
+          <CustomText variant={isDesktop ? 'h1' : 'h2'}>
+            do{' '}
+            <Box
+              component="span"
+              sx={{
+                color: 'primary.dark',
+                WebkitTextStrokeWidth: 0,
+              }}
+            >
+              motoryzacji
+            </Box>
+          </CustomText>
+        </FlyIn>
 
-        <Button
-          variant="contained"
-          color="secondary"
-          size={isDesktop ? 'large' : 'medium'}
-          onClick={() => scrollToElement(AnchorElementsEnum.AboutCompany)}
-          sx={{ mt: 4 }}
-        >
-          Poznaj nas!
-        </Button>
+        <FadeIn duration={2} delay={1.6}>
+          <Button
+            variant="contained"
+            color="secondary"
+            size={isDesktop ? 'large' : 'medium'}
+            onClick={() => scrollToElement(AnchorElementsEnum.AboutCompany)}
+            sx={{ mt: 4 }}
+          >
+            Poznaj nas!
+          </Button>
+        </FadeIn>
       </Box>
 
       <Image

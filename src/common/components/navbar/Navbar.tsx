@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { styled } from '@mui/system';
 
 import { Link } from 'src/common/components/Link';
+import { scrollToElement } from 'src/common/utils/scroll';
+import { FadeIn } from 'src/lib/gsap/animations/FadeIn';
 
 import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
 import { navItems } from './Navbar.types';
-import { scrollToElement } from 'src/common/utils/scroll';
 
 export const navigationHeight = 80;
 
@@ -52,16 +53,18 @@ export const Navbar = () => {
             height: '100%',
           }}
         >
-          <ImageContainer href="/">
-            <Image
-              src="/img/logo.png"
-              alt="lcar logo"
-              width={180}
-              height={50}
-              objectFit="contain"
-              unselectable="on"
-            />
-          </ImageContainer>
+          <FadeIn delay={0.3}>
+            <ImageContainer href="/">
+              <Image
+                src="/img/logo.png"
+                alt="lcar logo"
+                width={180}
+                height={50}
+                objectFit="contain"
+                unselectable="on"
+              />
+            </ImageContainer>
+          </FadeIn>
 
           <Box
             component="nav"

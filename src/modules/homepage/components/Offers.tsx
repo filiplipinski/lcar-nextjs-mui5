@@ -1,9 +1,10 @@
 import { Container, Typography, Box, ImageList, ImageListItem } from '@mui/material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
-import { Link } from 'src/common/components/Link';
 
+import { Link } from 'src/common/components/Link';
 import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { FadeOnScrollTrigger } from 'src/lib/gsap/animations';
 
 // FYI: te dane są tutaj zahardcodowane, ale mogą równiez być pobrane z API, ale tego nie robię gdy nie chce obciąać strony głownej requestami
 const servicesData = [
@@ -55,7 +56,6 @@ const servicesData = [
 ];
 
 // TODO: RWD
-// TODO: animacja ze pokazuje sie od calkowicie czarnego tla
 export const Offers = () => {
   return (
     <Box id={AnchorElementsEnum.CompanyOffer} sx={{ pt: 8 }}>
@@ -80,53 +80,55 @@ export const Offers = () => {
         </Typography>
       </Container>
 
-      <ImageList
-        sx={{
-          mt: 4,
-          // Promote the list into its own layer in Chrome. This costs memory, but helps keeping high FPS.
-          transform: 'translateZ(0)',
-        }}
-        rowHeight={250}
-        gap={0}
-        cols={4}
-      >
-        {servicesData.map((item) => {
-          return (
-            <ImageListItem key={item.title}>
-              <ImageContainer>
-                <Image
-                  src={item.imgSrc}
-                  alt={item.title}
-                  layout="fill"
-                  objectFit="cover"
-                  // placeholder="blur"
-                  // TODO later: dodaj: https://plaiceholder.co/docs/examples/next
-                  // https://github.com/joe-bell/plaiceholder/blob/main/examples/next/src/pages/base64/single.tsx
-                />
-              </ImageContainer>
+      <FadeOnScrollTrigger>
+        <ImageList
+          sx={{
+            mt: 4,
+            // Promote the list into its own layer in Chrome. This costs memory, but helps keeping high FPS.
+            transform: 'translateZ(0)',
+          }}
+          rowHeight={250}
+          gap={0}
+          cols={4}
+        >
+          {servicesData.map((item) => {
+            return (
+              <ImageListItem key={item.title}>
+                <ImageContainer>
+                  <Image
+                    src={item.imgSrc}
+                    alt={item.title}
+                    layout="fill"
+                    objectFit="cover"
+                    // placeholder="blur"
+                    // TODO later: dodaj: https://plaiceholder.co/docs/examples/next
+                    // https://github.com/joe-bell/plaiceholder/blob/main/examples/next/src/pages/base64/single.tsx
+                  />
+                </ImageContainer>
 
-              <ShadowAndTextContainer href={`/uslugi/${item.slug}`}>
-                <div>
-                  <Image src={item.iconSrc} alt={item.title} width={64} height={64} />
-                </div>
+                <ShadowAndTextContainer href={`/uslugi/${item.slug}`}>
+                  <div>
+                    <Image src={item.iconSrc} alt={item.title} width={64} height={64} />
+                  </div>
 
-                <Typography
-                  variant="h5"
-                  color="secondary2"
-                  align="center"
-                  sx={{
-                    mt: 2,
-                    textTransform: 'uppercase',
-                    textShadow: '0px 0px 4px rgba(0, 0, 0, .5)',
-                  }}
-                >
-                  {item.title}
-                </Typography>
-              </ShadowAndTextContainer>
-            </ImageListItem>
-          );
-        })}
-      </ImageList>
+                  <Typography
+                    variant="h5"
+                    color="secondary2"
+                    align="center"
+                    sx={{
+                      mt: 2,
+                      textTransform: 'uppercase',
+                      textShadow: '0px 0px 4px rgba(0, 0, 0, .5)',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                </ShadowAndTextContainer>
+              </ImageListItem>
+            );
+          })}
+        </ImageList>
+      </FadeOnScrollTrigger>
     </Box>
   );
 };

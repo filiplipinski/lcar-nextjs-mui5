@@ -12,6 +12,7 @@ import { createEmotionCache } from 'src/styles/createEmotionCache';
 import { Navbar } from 'src/common/components/navbar/Navbar';
 import { Footer } from 'src/common/components/Footer';
 import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { GsapTransitionContextController } from 'src/lib/gsap/context/GsapTransitionController';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -32,13 +33,15 @@ const MyApp = (props: MyAppProps) => {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
 
-        <Navbar />
+        <GsapTransitionContextController>
+          <Navbar />
 
-        <main id={AnchorElementsEnum.Top}>
-          <Component {...pageProps} />
-        </main>
+          <main id={AnchorElementsEnum.Top}>
+            <Component {...pageProps} />
+          </main>
 
-        <Footer />
+          <Footer />
+        </GsapTransitionContextController>
       </ThemeProvider>
     </CacheProvider>
   );
