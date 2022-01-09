@@ -34,10 +34,11 @@ export const typography = (palette: Palette): TypographyOptions => ({
   },
   h6: {
     color: palette.primary.main,
-    fontWeight: 700,
+    fontWeight: 800,
+    textTransform: 'uppercase',
+    fontSize: '1.125rem', // 18px
   },
   subtitle1: {
-    // fontSize: '1.125rem', // 18px
     color: palette.primary.main,
   },
   subtitle2: {

@@ -1,4 +1,12 @@
-import { Container, Typography, Box, ImageList, ImageListItem } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Box,
+  ImageList,
+  ImageListItem,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
 
@@ -55,8 +63,12 @@ const servicesData = [
   },
 ];
 
-// TODO: RWD
 export const Offers = () => {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
+  const iconSize = isDesktop ? 64 : 48;
+
   return (
     <Box id={AnchorElementsEnum.CompanyOffer} sx={{ pt: 8 }}>
       <Typography variant="h3" align="center" sx={{ mb: 4 }}>
@@ -87,9 +99,9 @@ export const Offers = () => {
             // Promote the list into its own layer in Chrome. This costs memory, but helps keeping high FPS.
             transform: 'translateZ(0)',
           }}
-          rowHeight={250}
+          rowHeight={isDesktop ? 250 : 150}
           gap={0}
-          cols={4}
+          cols={isDesktop ? 4 : 2}
         >
           {servicesData.map((item) => {
             return (
@@ -108,16 +120,16 @@ export const Offers = () => {
 
                 <ShadowAndTextContainer href={`/uslugi/${item.slug}`}>
                   <div>
-                    <Image src={item.iconSrc} alt={item.title} width={64} height={64} />
+                    {/* Div for styling purposes */}
+                    <Image src={item.iconSrc} alt={item.title} width={iconSize} height={iconSize} />
                   </div>
 
                   <Typography
-                    variant="h5"
+                    variant={isDesktop ? 'h5' : 'h6'}
                     color="secondary2"
                     align="center"
                     sx={{
-                      mt: 2,
-                      textTransform: 'uppercase',
+                      mt: isDesktop ? 2 : 1,
                       textShadow: '0px 0px 4px rgba(0, 0, 0, .5)',
                     }}
                   >

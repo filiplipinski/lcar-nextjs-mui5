@@ -54,7 +54,7 @@ const baseTheme = createTheme({
         {
           props: { color: 'secondary2' },
           style: {
-            color: palette.common.white,
+            color: palette.background.default,
           },
         },
       ],
