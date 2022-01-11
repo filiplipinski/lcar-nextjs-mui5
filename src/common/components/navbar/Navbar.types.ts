@@ -1,4 +1,4 @@
-export enum AnchorElementsEnum {
+export enum AnchorElementsIdEnum {
   Top = 'top',
   AboutCompany = 'o-firmie',
   CompanyOffer = 'uslugi',
@@ -7,26 +7,30 @@ export enum AnchorElementsEnum {
 }
 
 // TODO later: usługi bedzie mialo jeszcze menu rozsuwane, klik w podmenu otwiera nowa strone
-export const navItems: { id: AnchorElementsEnum; title: string }[] = [
+export const navItems: { id: AnchorElementsIdEnum; title: string; href: string }[] = [
   {
-    id: AnchorElementsEnum.AboutCompany,
+    id: AnchorElementsIdEnum.AboutCompany,
     title: 'O firmie',
+    href: '/#o-firmie',
   },
   {
-    id: AnchorElementsEnum.CompanyOffer,
+    id: AnchorElementsIdEnum.CompanyOffer,
     title: 'Usługi',
+    href: '/#uslugi',
   },
   {
-    id: AnchorElementsEnum.Realizations,
+    id: AnchorElementsIdEnum.Realizations,
     title: 'Realizacje',
+    href: '/#realizacje',
   },
+  // {
+  //   // TODO later: id
+  //   id: 'cennik' as AnchorElementsIdEnum,
+  //   title: 'Cennik',
+  // },
   {
-    // TODO later: id
-    id: 'cennik' as AnchorElementsEnum,
-    title: 'Cennik',
-  },
-  {
-    id: AnchorElementsEnum.Contact,
+    id: AnchorElementsIdEnum.Contact,
     title: 'Kontakt',
+    href: '/kontakt',
   },
 ];

@@ -11,7 +11,7 @@ import Image from 'next/image';
 import { styled } from '@mui/system';
 
 import { Link } from 'src/common/components/Link';
-import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from 'src/common/components/navbar/Navbar.types';
 import { FadeOnScrollTrigger } from 'src/lib/gsap/animations';
 
 // FYI: te dane są tutaj zahardcodowane, ale mogą równiez być pobrane z API, ale tego nie robię gdy nie chce obciąać strony głownej requestami
@@ -70,7 +70,7 @@ export const Offers = () => {
   const iconSize = isDesktop ? 64 : 48;
 
   return (
-    <Box id={AnchorElementsEnum.CompanyOffer} sx={{ pt: 8 }}>
+    <Box id={AnchorElementsIdEnum.CompanyOffer} sx={{ pt: 8 }}>
       <Typography variant="h3" align="center" sx={{ mb: 4 }}>
         Usługi
       </Typography>

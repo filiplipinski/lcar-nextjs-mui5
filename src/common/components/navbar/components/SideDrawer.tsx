@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Stack, Typography, Drawer, IconButton, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { AnchorElementsEnum, navItems } from '../Navbar.types';
+import { AnchorElementsIdEnum, navItems } from '../Navbar.types';
 
 type Props = {
-  onNavItemClick: (id: AnchorElementsEnum) => void;
+  onNavItemClick: (id: AnchorElementsIdEnum) => void;
 };
 
 export const SideDrawer = ({ onNavItemClick }: Props) => {

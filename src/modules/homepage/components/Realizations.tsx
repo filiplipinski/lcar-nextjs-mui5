@@ -1,7 +1,7 @@
 import { Container, Typography, Grid } from '@mui/material';
 
 import { Card } from 'src/common/components/Card';
-import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from 'src/common/components/navbar/Navbar.types';
 
 const realizationsMock = [
   {
@@ -27,7 +27,7 @@ const realizationsMock = [
 
 export const Realizations = () => {
   return (
-    <Container id={AnchorElementsEnum.Realizations} sx={{ pt: 10, mb: 8 }}>
+    <Container id={AnchorElementsIdEnum.Realizations} sx={{ pt: 10, mb: 8 }}>
       <Typography variant="h3" align="center" sx={{ mb: 4 }}>
         Realizacje
       </Typography>

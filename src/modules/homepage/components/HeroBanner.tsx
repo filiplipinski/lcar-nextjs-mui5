@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import NextImage from 'next/image';
 import { styled } from '@mui/system';
 
-import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from 'src/common/components/navbar/Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
 
@@ -39,7 +39,7 @@ export const HeroBanner = () => {
             variant="contained"
             color="secondary"
             size={isDesktop ? 'large' : 'medium'}
-            onClick={() => scrollToElement(AnchorElementsEnum.AboutCompany)}
+            onClick={() => scrollToElement(AnchorElementsIdEnum.AboutCompany)}
             sx={{ mt: 4 }}
           >
             Poznaj nas!

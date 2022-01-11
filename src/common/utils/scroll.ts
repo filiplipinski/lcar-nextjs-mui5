@@ -1,8 +1,8 @@
 import { navigationHeight } from '../components/navbar/Navbar';
-import { AnchorElementsEnum } from '../components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from '../components/navbar/Navbar.types';
 
-export const scrollToElement = (elementAnchor: AnchorElementsEnum) => {
-  const element = document.getElementById(elementAnchor);
+export const scrollToElement = (elementId: AnchorElementsIdEnum | string) => {
+  const element = document.getElementById(elementId);
 
   if (!element) {
     return;

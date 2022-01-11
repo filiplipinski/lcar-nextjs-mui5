@@ -1,6 +1,7 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { typography } from './typography';
 import { palette } from './palette';
+import { navigationHeight } from 'src/common/components/navbar/Navbar';
 
 // TODO: zrobic scrollbar przezroczysty
 
@@ -15,6 +16,7 @@ const baseTheme = createTheme({
         html: {
           height: '100%',
           scrollBehavior: 'smooth', // it's for working "#" scroll animation
+          scrollPaddingTop: navigationHeight,
         },
         body: {
           backgroundColor: palette.background.default,

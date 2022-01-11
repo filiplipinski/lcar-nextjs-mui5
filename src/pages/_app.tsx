@@ -11,7 +11,7 @@ import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
 import { Navbar } from 'src/common/components/navbar/Navbar';
 import { Footer } from 'src/common/components/Footer';
-import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from 'src/common/components/navbar/Navbar.types';
 import { GsapTransitionContextController } from 'src/lib/gsap/context/GsapTransitionController';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -36,7 +36,8 @@ const MyApp = (props: MyAppProps) => {
         <GsapTransitionContextController>
           <Navbar />
 
-          <main id={AnchorElementsEnum.Top}>
+          <div id={AnchorElementsIdEnum.Top} />
+          <main>
             <Component {...pageProps} />
           </main>
 

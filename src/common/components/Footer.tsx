@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElement } from 'src/common/utils/scroll';
-import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from 'src/common/components/navbar/Navbar.types';
 
 export const Footer = () => {
   const theme = useTheme();
@@ -103,7 +103,7 @@ export const Footer = () => {
             </Stack>
 
             <ExpandLess
-              onClick={() => scrollToElement(AnchorElementsEnum.Top)}
+              onClick={() => scrollToElement(AnchorElementsIdEnum.Top)}
               sx={{ color: 'common.white', fontSize: 96, mb: 4 }}
             />
 

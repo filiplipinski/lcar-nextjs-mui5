@@ -1,11 +1,11 @@
 import { Container, Typography, Stack, Box } from '@mui/material';
 import Image from 'next/image';
 
-import { AnchorElementsEnum } from 'src/common/components/navbar/Navbar.types';
+import { AnchorElementsIdEnum } from 'src/common/components/navbar/Navbar.types';
 
 export const AboutCompany = () => {
   return (
-    <Container id={AnchorElementsEnum.AboutCompany} sx={{ pt: 8 }}>
+    <Container id={AnchorElementsIdEnum.AboutCompany} sx={{ pt: 8 }}>
       <Typography variant="h3" align="center" sx={{ mb: 4 }}>
         O firmie
       </Typography>

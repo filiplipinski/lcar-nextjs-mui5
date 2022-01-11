@@ -4,10 +4,3 @@ declare namespace NodeJS {
     CF_ACCESS_TOKEN: string;
   }
 }
-
-
-declare module '@mui/material/Button' {
-    interface ButtonPropsVariantOverrides {
-      dashed: true;
-    }
-  }

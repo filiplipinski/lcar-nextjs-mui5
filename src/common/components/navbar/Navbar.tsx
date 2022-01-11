@@ -3,6 +3,7 @@ import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box } from '@mu
 import { Phone as PhoneIcon } from '@mui/icons-material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
+import { useRouter } from 'next/router';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElement } from 'src/common/utils/scroll';
@@ -14,7 +15,9 @@ import { navItems } from './Navbar.types';
 
 export const navigationHeight = 80;
 
+// TODO: ikonki insta i face
 export const Navbar = () => {
+  const router = useRouter();
   const [shouldTriggerNavbar, setShouldTriggerNavbar] = useState(false);
 
   const handleScroll = () => {
@@ -54,7 +57,7 @@ export const Navbar = () => {
           }}
         >
           <FadeIn delay={0.3}>
-            <ImageContainer href="/">
+            <ImageContainer href="/#top">
               <Image
                 src="/img/logo.png"
                 alt="lcar logo"
@@ -76,9 +79,9 @@ export const Navbar = () => {
           >
             {/* TODO later: jak jestes w danej sekcji, to ma byc podkreślnik! */}
             <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
-              {navItems.map(({ id, title }) => (
+              {navItems.map(({ id, title, href }) => (
                 <MenuItem
-                  onClick={() => scrollToElement(id)}
+                  onClick={() => router.push(href)}
                   key={id}
                   tabIndex={0}
                   sx={{
