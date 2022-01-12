@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { Stack, Typography, Drawer, IconButton, Divider } from '@mui/material';
+import { Stack, Drawer, IconButton, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { AnchorElementsIdEnum, navItems } from '../Navbar.types';
+import { Link } from 'src/common/components/Link';
 
-type Props = {
-  onNavItemClick: (id: AnchorElementsIdEnum) => void;
-};
+import { navItems } from '../Navbar.types';
 
-export const SideDrawer = ({ onNavItemClick }: Props) => {
+export const SideDrawer = () => {
   const [isOpen, setState] = useState(false);
 
   const closeDrawer = () => setState(false);
@@ -28,6 +26,7 @@ export const SideDrawer = ({ onNavItemClick }: Props) => {
       </IconButton>
 
       <Drawer anchor="right" open={isOpen} onClose={closeDrawer}>
+        {/* TODO later: ewentualnie ogarnac to jako ul/li */}
         <Stack
           sx={{
             width: 250,
@@ -40,19 +39,19 @@ export const SideDrawer = ({ onNavItemClick }: Props) => {
           onClick={closeDrawer}
           onKeyDown={closeDrawer}
         >
-          {navItems.map(({ id, title }) => (
-            <Typography
-              variant="button"
-              key={id}
+          {navItems.map(({ title, href }) => (
+            // TODO later: focus na przycisk moglby byc nie niebieski, a czerwony
+            <Link
+              key={href}
+              href={href}
               sx={{
-                ml: 5,
-                my: 2,
+                pl: 5,
+                py: 2,
                 textTransform: 'uppercase',
               }}
-              onClick={() => onNavItemClick(id)}
             >
               {title}
-            </Typography>
+            </Link>
           ))}
         </Stack>
       </Drawer>

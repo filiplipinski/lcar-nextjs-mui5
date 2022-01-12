@@ -3,10 +3,8 @@ import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box } from '@mu
 import { Phone as PhoneIcon } from '@mui/icons-material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
-import { useRouter } from 'next/router';
 
 import { Link } from 'src/common/components/Link';
-import { scrollToElement } from 'src/common/utils/scroll';
 import { FadeIn } from 'src/lib/gsap/animations/FadeIn';
 
 import { SideDrawer } from './components/SideDrawer';
@@ -17,7 +15,6 @@ export const navigationHeight = 80;
 
 // TODO: ikonki insta i face
 export const Navbar = () => {
-  const router = useRouter();
   const [shouldTriggerNavbar, setShouldTriggerNavbar] = useState(false);
 
   const handleScroll = () => {
@@ -57,7 +54,7 @@ export const Navbar = () => {
           }}
         >
           <FadeIn delay={0.3}>
-            <ImageContainer href="/#top">
+            <ImageContainer href="/">
               <Image
                 src="/img/logo.png"
                 alt="lcar logo"
@@ -79,14 +76,13 @@ export const Navbar = () => {
           >
             {/* TODO later: jak jestes w danej sekcji, to ma byc podkreślnik! */}
             <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
-              {navItems.map(({ id, title, href }) => (
+              {navItems.map(({ title, href }) => (
                 <MenuItem
-                  onClick={() => router.push(href)}
-                  key={id}
+                  key={href}
                   tabIndex={0}
                   sx={{
+                    p: 0,
                     fontWeight: 'bold',
-                    px: '24px',
                     transition: '.3s ease',
                     fontSize: 18,
 
@@ -96,7 +92,18 @@ export const Navbar = () => {
                     },
                   }}
                 >
-                  {title}
+                  <Link
+                    href={href}
+                    sx={{
+                      px: 4,
+                      height: '100%',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    {title}
+                  </Link>
                 </MenuItem>
               ))}
             </MenuList>
@@ -106,7 +113,7 @@ export const Navbar = () => {
             </NumberButton>
           </Box>
 
-          <SideDrawer onNavItemClick={scrollToElement} />
+          <SideDrawer />
         </Container>
       </Toolbar>
 
