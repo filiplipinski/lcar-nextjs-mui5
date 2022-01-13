@@ -1,10 +1,10 @@
 import type { NextPage, GetServerSideProps } from 'next';
 
-import { HeroBanner } from 'src/modules/homepage/components/HeroBanner';
-import { AboutCompany } from 'src/modules/homepage/components/AboutCompany';
-import { CompanyPros } from 'src/modules/homepage/components/CompanyPros';
-import { Offers } from 'src/modules/homepage/components/Offers';
-import { Realizations } from 'src/modules/homepage/components/Realizations';
+import { HeroBanner } from 'src/modules/home/components/HeroBanner';
+import { AboutCompany } from 'src/modules/home/components/AboutCompany';
+import { CompanyPros } from 'src/modules/home/components/CompanyPros';
+import { Offers } from 'src/modules/home/components/Offers';
+import { Realizations } from 'src/modules/home/components/Realizations';
 import { getRealizationsEntries } from 'src/lib/contentful/api';
 
 type Props = {
