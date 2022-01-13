@@ -29,6 +29,7 @@ export const ServicePage: NextPage<Props> = ({ service }) => {
   );
 };
 
+// TODO: getServerSide or getStaticProps?
 export const getServerSideProps = async ({
   params,
 }: GetServerSidePropsContext<{ slug: string }>) => {
@@ -48,5 +49,13 @@ export const getServerSideProps = async ({
     props: { service: serviceEntry.fields },
   };
 };
+
+// TODO: uzyc tutaj getStatisPaths?: https://dev.to/akuks/what-is-getstaticpaths-in-nextjs-5ee5
+// export async function getStaticPaths() {
+//   return {
+//     paths: [{ params: { slug: 'detailing-wnetrza' } }, { params: { slug: 'korekta-lakieru' } }],
+//     fallback: true,
+//   };
+// }
 
 export default ServicePage;

@@ -1,7 +1,7 @@
 import { navigationHeight } from '../components/navbar/Navbar';
-import { AnchorElementsIdEnum } from '../components/navbar/Navbar.types';
 
-export const scrollToElement = (elementId: AnchorElementsIdEnum | string) => {
+// TODO: daloby sie ogarnac typ na podstawie scrollToElementsId?
+export const scrollToElement = (elementId: string) => {
   const element = document.getElementById(elementId);
 
   if (!element) {

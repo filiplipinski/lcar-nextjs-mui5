@@ -1,7 +1,7 @@
 import { useScrollTrigger, Zoom, Box, Fab } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-import { AnchorElementsIdEnum } from '../Navbar.types';
+import { scrollToElementsId } from '../Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';
 
 export const BackToTop = () => {
@@ -10,7 +10,7 @@ export const BackToTop = () => {
   return (
     <Zoom in={trigger}>
       <Box
-        onClick={() => scrollToElement(AnchorElementsIdEnum.Top)}
+        onClick={() => scrollToElement(scrollToElementsId.top)}
         role="presentation"
         sx={{ position: 'fixed', bottom: 16, right: 16, zIndex: 1 }}
       >
