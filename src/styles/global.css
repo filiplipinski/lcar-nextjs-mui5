@@ -6,3 +6,14 @@
 .swiper-pagination-bullet-active {
   background-color: #d32f2f; /* red['700'] */
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #d32f2f; /* red['700'] */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 24px;
+  font-weight: bold;
+}

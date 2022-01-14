@@ -64,10 +64,10 @@ export const Footer = () => {
               Media
             </Typography>
 
-            <Stack direction="row" spacing={2}>
-              <FacebookIconLink noPaddings />
+            <Stack direction="row" spacing={2} alignItems="center">
+              <FacebookIconLink iconFontSize={64} noPaddings />
 
-              <InstagramIconLink noPaddings />
+              <InstagramIconLink iconFontSize={64} noPaddings />
             </Stack>
 
             <ExpandLess

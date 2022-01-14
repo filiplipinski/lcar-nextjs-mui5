@@ -71,7 +71,7 @@ export const Offers = () => {
 
   return (
     <Box id={scrollToElementsId.offer} sx={{ pt: 8 }}>
-      <Typography variant="h3" align="center" sx={{ mb: 4 }}>
+      <Typography variant="h3" align="center" sx={{ mb: 2 }}>
         Usługi
       </Typography>
 

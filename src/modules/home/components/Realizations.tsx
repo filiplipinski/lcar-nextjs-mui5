@@ -28,8 +28,12 @@ const realizationsMock = [
 export const Realizations = () => {
   return (
     <Container id={scrollToElementsId.realizations} sx={{ pt: 10, mb: 8 }}>
-      <Typography variant="h3" align="center" sx={{ mb: 4 }}>
+      <Typography variant="h3" align="center" sx={{ mb: 2 }}>
         Realizacje
+      </Typography>
+
+      <Typography align="center">
+        Sprawdź nasze najlepsze, takze najnowsze realizacje detailingu samochodów.
       </Typography>
 
       <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>

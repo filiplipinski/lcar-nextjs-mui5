@@ -5,6 +5,7 @@ import { AboutCompany } from 'src/modules/home/components/AboutCompany';
 import { CompanyPros } from 'src/modules/home/components/CompanyPros';
 import { Offers } from 'src/modules/home/components/Offers';
 import { Realizations } from 'src/modules/home/components/Realizations';
+import { Brands } from 'src/modules/home/components/Brands';
 import { getRealizationsEntries } from 'src/lib/contentful/api';
 
 type Props = {
@@ -25,6 +26,8 @@ const Home: NextPage<Props> = ({ realizations }) => {
       <Offers />
 
       <Realizations />
+
+      <Brands />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import { useRouter } from 'next/router';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import 'src/styles/global.css';
 
 import { theme } from 'src/styles/theme';
