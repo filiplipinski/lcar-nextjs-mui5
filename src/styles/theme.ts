@@ -61,6 +61,30 @@ const baseTheme = createTheme({
         },
       ],
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          border: `1px solid ${palette.background.default}`,
+          backgroundColor: '#fafafa',
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+        },
+      },
+    },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          minHeight: 20,
+          color: palette.secondary.main,
+          marginBottom: '3px',
+        },
+      },
+    },
   },
 });
 

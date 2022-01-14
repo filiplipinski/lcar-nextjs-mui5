@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 
 export const ContactInfo = () => {
   return (
-    <Stack spacing={4} sx={{ mt: 6 }}>
+    <Stack spacing={4} sx={{ mt: { md: 6 } }}>
       <Stack direction="row" alignItems="center">
         <IconContainer>
           <Home sx={{ color: 'secondary.main', fontSize: 48 }} />
