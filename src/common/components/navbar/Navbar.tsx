@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box, Stack } from '@mui/material';
 import { Phone as PhoneIcon } from '@mui/icons-material';
 import Image from 'next/image';
 import { styled } from '@mui/system';
@@ -10,10 +10,10 @@ import { FadeIn } from 'src/lib/gsap/animations/FadeIn';
 import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
 import { navItems } from './Navbar.types';
+import { FacebookIconLink, InstagramIconLink } from '../ColoredIconLinks';
 
 export const navigationHeight = 80;
 
-// TODO: ikonki insta i face
 export const Navbar = () => {
   const [shouldTriggerNavbar, setShouldTriggerNavbar] = useState(false);
 
@@ -107,10 +107,16 @@ export const Navbar = () => {
                 </MenuItem>
               ))}
             </MenuList>
+
             <NumberButton variant="text">
               <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
               +48 539 943 336
             </NumberButton>
+
+            <Stack alignItems="center" sx={{ ml: 1 }}>
+              <FacebookIconLink iconFontSize={24} />
+              <InstagramIconLink iconFontSize={24} />
+            </Stack>
           </Box>
 
           <SideDrawer />

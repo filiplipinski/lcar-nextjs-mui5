@@ -1,11 +1,12 @@
 import { Typography, Container, useMediaQuery, useTheme, Stack, Box } from '@mui/material';
 import { styled } from '@mui/system';
-import { Facebook, ExpandLess, Phone, Instagram } from '@mui/icons-material';
+import { ExpandLess, Phone } from '@mui/icons-material';
 import Image from 'next/image';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
+import { FacebookIconLink, InstagramIconLink } from './ColoredIconLinks';
 
 export const Footer = () => {
   const theme = useTheme();
@@ -21,26 +22,9 @@ export const Footer = () => {
                 Media
               </Typography>
 
-              <Link
-                href="https://www.facebook.com/Lcar-105024021544930"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ mr: 2 }}
-              >
-                <FacebookIcon />
-              </Link>
+              <FacebookIconLink iconFontSize={64} noPaddings sx={{ mr: 2 }} />
 
-              {/* <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                  <YouTube />
-                </Link> */}
-
-              <Link
-                href="https://www.instagram.com/lcarradom"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <InstagramIcon />
-              </Link>
+              <InstagramIconLink iconFontSize={64} noPaddings />
             </div>
 
             <div>
@@ -81,25 +65,9 @@ export const Footer = () => {
             </Typography>
 
             <Stack direction="row" spacing={2}>
-              <Link
-                href="https://www.facebook.com/Lcar-105024021544930"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FacebookIcon />
-              </Link>
+              <FacebookIconLink noPaddings />
 
-              {/* <Link href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-                <YouTube />
-              </Link> */}
-
-              <Link
-                href="https://www.instagram.com/lcarradom"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <InstagramIcon />
-              </Link>
+              <InstagramIconLink noPaddings />
             </Stack>
 
             <ExpandLess
@@ -148,17 +116,4 @@ const FooterContainer = styled('footer')(({ theme }) => ({
   backgroundColor: theme.palette.common.black,
   paddingTop: 48,
   paddingBottom: 24,
-}));
-
-const FacebookIcon = styled(Facebook)({
-  fontSize: 64,
-  color: '#4267B2',
-});
-
-const InstagramIcon = styled(Instagram)(({ theme }) => ({
-  fontSize: 64,
-  borderRadius: 20,
-  color: theme.palette.common.black,
-  background:
-    'radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%)',
 }));

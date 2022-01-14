@@ -83,7 +83,7 @@ export const ContactForm = () => {
       <Typography variant="h5" sx={{ textTransform: 'initial' }}>
         Skontaktuj się z nami!
       </Typography>
-      <Typography variant="body2" sx={{ mb: 4 }}>
+      <Typography variant="body2" sx={{ mb: 3 }}>
         Formularz kontaktowy
       </Typography>
 
