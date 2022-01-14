@@ -29,7 +29,7 @@ export const ServicePage: NextPage<Props> = ({ service }) => {
   );
 };
 
-// TODO: getServerSide or getStaticProps?
+// TODO: getServerSide or getStaticProps? ZMIENIC NA STATIC PROPS + STATIC PATHS
 export const getServerSideProps = async ({
   params,
 }: GetServerSidePropsContext<{ slug: string }>) => {

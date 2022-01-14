@@ -1,3 +1,4 @@
+import { useState, SyntheticEvent } from 'react';
 import {
   Box,
   Typography,
@@ -6,6 +7,9 @@ import {
   FormHelperText,
   Stack,
   Button,
+  Snackbar,
+  Alert,
+  CircularProgress,
 } from '@mui/material';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
@@ -16,16 +20,57 @@ type FormValues = {
   message: string;
 };
 
+const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+
 export const ContactForm = () => {
   const {
-    register,
     handleSubmit,
-    watch,
+    reset,
     control,
     formState: { errors },
   } = useForm<FormValues>();
+  const [isSubmitLoading, setSubmitLoading] = useState(false);
+  const [isSuccessAlertOpen, setSuccessAlertOpen] = useState(false);
+  const [isErrorAlertOpen, setErrorAlertOpen] = useState(false);
 
-  const handleSubmitCallback: SubmitHandler<FormValues> = ({ name, email, phone, message }) => {};
+  const handleClose = (e?: SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSuccessAlertOpen(false);
+    setErrorAlertOpen(false);
+  };
+
+  const handleSubmitCallback: SubmitHandler<FormValues> = async ({
+    name,
+    email,
+    phone,
+    message,
+  }) => {
+    try {
+      setSubmitLoading(true);
+      const emailjsSend = (await import('@emailjs/browser')).send;
+
+      const templateParams = {
+        from_name: name,
+        reply_to: email,
+        phone,
+        message,
+      };
+
+      await emailjsSend(serviceId, templateId, templateParams, userId);
+
+      reset();
+      setSuccessAlertOpen(true);
+    } catch (err) {
+      setErrorAlertOpen(true);
+    } finally {
+      setSubmitLoading(false);
+    }
+  };
 
   return (
     <Box
@@ -132,6 +177,7 @@ export const ContactForm = () => {
         </FormControl>
 
         <Button
+          disabled={isSubmitLoading}
           color="secondary"
           type="submit"
           variant="contained"
@@ -139,8 +185,37 @@ export const ContactForm = () => {
           sx={{ alignSelf: 'center', width: 150 }}
         >
           Wyślij
+          {isSubmitLoading && <CircularProgress size={20} sx={{ ml: '5px' }} />}
         </Button>
       </Stack>
+
+      <Snackbar
+        open={isSuccessAlertOpen}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        autoHideDuration={5000}
+        onClose={handleClose}
+      >
+        <Alert severity="success" elevation={6} variant="filled" onClose={handleClose}>
+          Wiadomość została wysłana! Odezwiemy się najszybciej jak możemy
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={isErrorAlertOpen}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        autoHideDuration={5000}
+        onClose={handleClose}
+      >
+        <Alert severity="error" elevation={6} variant="filled" onClose={handleClose}>
+          Coś poszło nie tak :( Skontaktuj się z nami: +48 539 943 336
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
