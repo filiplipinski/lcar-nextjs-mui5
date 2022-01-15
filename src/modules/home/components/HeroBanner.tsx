@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import NextImage from 'next/image';
@@ -9,17 +10,50 @@ import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
 
 import { moveXAnimation } from '../utils/keyframes';
 
+// TODO: kondycyjne wylaczanie scrollownia
+// function useImperativeDisableScroll({ element, disabled }) {
+//   useEffect(() => {
+//       if (!element) {
+//           return
+//       }
+
+//       element.style.overflowY = disabled ? 'hidden' : 'scroll'
+
+//       return () => {
+//           element.style.overflowY = 'scroll'
+//       }
+//   }, [disabled])
+// }
+
+{
+  /* <Fade in={!isImgLoaded}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'white',
+            zIndex: isImgLoaded ? -99 : 999999,
+            overflow: 'hidden',
+          }}
+        ></Box>
+      </Fade> */
+}
+
 export const HeroBanner = () => {
   const theme2 = useTheme();
   const isDesktop = useMediaQuery(theme2.breakpoints.up('md'));
+  const [isImgLoaded, setImgLoaded] = useState(false);
 
   return (
     <Box sx={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
-        <FlyIn>
+        <FlyIn shouldStart={isImgLoaded}>
           <CustomText variant={isDesktop ? 'h1' : 'h2'}>Z miłości</CustomText>{' '}
         </FlyIn>
-        <FlyIn delay={0.8}>
+        <FlyIn shouldStart={isImgLoaded} delay={0.8}>
           <CustomText variant={isDesktop ? 'h1' : 'h2'}>
             do{' '}
             <Box
@@ -34,7 +68,7 @@ export const HeroBanner = () => {
           </CustomText>
         </FlyIn>
 
-        <FadeIn duration={2} delay={1.6}>
+        <FadeIn shouldStart={isImgLoaded} duration={2} delay={1.6}>
           <Button
             variant="contained"
             color="secondary"
@@ -56,6 +90,7 @@ export const HeroBanner = () => {
         unselectable="on"
         quality={100}
         priority
+        onLoadingComplete={() => setImgLoaded(true)}
       />
     </Box>
   );

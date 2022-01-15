@@ -35,7 +35,7 @@ export const Brands = () => {
   const isTablet = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <Box sx={{ mt: 4, mb: 8 }}>
+    <Box sx={{ my: 8 }}>
       <Container>
         <Typography variant="h5" align="center" sx={{ mb: 1, textTransform: 'uppercase' }}>
           Marki na których pracujemy

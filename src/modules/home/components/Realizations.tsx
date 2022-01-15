@@ -27,7 +27,7 @@ const realizationsMock = [
 
 export const Realizations = () => {
   return (
-    <Container id={scrollToElementsId.realizations} sx={{ pt: 10, mb: 8 }}>
+    <Container id={scrollToElementsId.realizations} sx={{ pt: 8, mb: 8 }}>
       <Typography variant="h3" align="center" sx={{ mb: 2 }}>
         Realizacje
       </Typography>

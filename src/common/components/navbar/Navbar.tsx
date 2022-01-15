@@ -53,7 +53,7 @@ export const Navbar = () => {
             height: '100%',
           }}
         >
-          <FadeIn delay={0.3}>
+          <FadeIn shouldStart>
             <ImageContainer href="/">
               <Image
                 src="/img/logo.png"
