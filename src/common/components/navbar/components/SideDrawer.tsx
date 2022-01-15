@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'src/common/components/Link';
 
 import { navItems } from '../Navbar.types';
+import { FacebookIconLink, InstagramIconLink } from '../../ColoredIconLinks';
 
 export const SideDrawer = () => {
   const [isOpen, setState] = useState(false);
@@ -53,6 +54,17 @@ export const SideDrawer = () => {
               {title}
             </Link>
           ))}
+        </Stack>
+
+        <Stack
+          direction="row"
+          alignItems="center"
+          sx={{ ml: '29px' }}
+          onClick={closeDrawer}
+          onKeyDown={closeDrawer}
+        >
+          <FacebookIconLink iconFontSize={32} sx={{ mr: 1 }} />
+          <InstagramIconLink iconFontSize={32} />
         </Stack>
       </Drawer>
     </>

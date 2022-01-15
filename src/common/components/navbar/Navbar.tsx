@@ -115,7 +115,7 @@ export const Navbar = () => {
 
             <Stack alignItems="center" sx={{ ml: 1 }}>
               <FacebookIconLink iconFontSize={24} />
-              <InstagramIconLink iconFontSize={24} />
+              <InstagramIconLink iconFontSize={24} sx={{ ml: '1px' }} />
             </Stack>
           </Box>
 
