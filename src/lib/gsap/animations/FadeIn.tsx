@@ -32,6 +32,6 @@ const FadeInRaw = ({ children, duration, delay }: Props) => {
   return <div ref={elementRef}>{children}</div>;
 };
 
-// TODO: czy potrzebne memo, jezeli przekazujemy obiekt - children
+// TODO rozkmina: czy potrzebne memo, jezeli przekazujemy obiekt - children
 
 export const FadeIn = memo(FadeInRaw);

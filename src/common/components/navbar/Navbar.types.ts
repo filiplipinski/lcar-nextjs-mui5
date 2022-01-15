@@ -25,11 +25,6 @@ export const navItems: { title: string; href: string }[] = [
     title: 'Realizacje',
     href: '/#realizacje',
   },
-  // {
-  //   // TODO later: id
-  //   id: 'cennik' as AnchorElementsIdEnum,
-  //   title: 'Cennik',
-  // },
   {
     title: 'Kontakt',
     href: '/kontakt',

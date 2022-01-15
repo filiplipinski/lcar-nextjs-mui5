@@ -1,6 +1,6 @@
 import { navigationHeight } from '../components/navbar/Navbar';
 
-// TODO: daloby sie ogarnac typ na podstawie scrollToElementsId?
+// TODO rozkmina: daloby sie ogarnac typ na podstawie scrollToElementsId?
 export const scrollToElement = (elementId: string) => {
   const element = document.getElementById(elementId);
 
