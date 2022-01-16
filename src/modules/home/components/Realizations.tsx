@@ -2,6 +2,7 @@ import { Container, Typography, Grid } from '@mui/material';
 
 import { Card } from 'src/common/components/Card';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
+import { FadeUp, FlyIn } from 'src/lib/gsap/animations';
 
 const realizationsMock = [
   {
@@ -28,18 +29,24 @@ const realizationsMock = [
 export const Realizations = () => {
   return (
     <Container id={scrollToElementsId.realizations} sx={{ pt: 8, mb: 8 }}>
-      <Typography variant="h3" align="center" sx={{ mb: 2 }}>
-        Realizacje
-      </Typography>
+      <FadeUp triggerOnScroll>
+        <Typography variant="h3" align="center" sx={{ mb: 2 }}>
+          Realizacje
+        </Typography>
+      </FadeUp>
 
-      <Typography align="center">
-        Sprawdź nasze najlepsze, takze najnowsze realizacje detailingu samochodów.
-      </Typography>
+      <FadeUp triggerOnScroll>
+        <Typography align="center">
+          Sprawdź nasze najlepsze, takze najnowsze realizacje detailingu samochodów.
+        </Typography>
+      </FadeUp>
 
       <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
-        {realizationsMock.map((offerCardProps) => (
+        {realizationsMock.map((offerCardProps, index) => (
           <Grid item key={offerCardProps.title}>
-            <Card {...offerCardProps} />
+            <FlyIn direction="right" triggerOnScroll delay={index / 3} sx={{ height: '100%' }}>
+              <Card {...offerCardProps} />
+            </FlyIn>
           </Grid>
         ))}
       </Grid>

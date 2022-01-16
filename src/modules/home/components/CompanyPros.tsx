@@ -3,6 +3,8 @@ import { Pagination, Autoplay, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 
+import { FadeIn } from 'src/lib/gsap/animations';
+
 const items = [
   {
     iconSrc: '/icons/happy-clients.svg',
@@ -50,17 +52,19 @@ export const CompanyPros = () => {
         pagination={{ clickable: true }}
         slidesPerView={isDesktop ? 3 : 1}
       >
-        {items.map(({ title, iconSrc, description }) => (
+        {items.map(({ title, iconSrc, description }, index) => (
           <SwiperSlide key={title}>
-            <Stack spacing={2} sx={{ height: { xs: 260, md: 280, lg: 240, xl: 220 } }}>
-              <Image src={iconSrc} alt="" height={55} width={55} />
+            <FadeIn triggerOnScroll delay={index / 3}>
+              <Stack spacing={2} sx={{ height: { xs: 260, md: 280, lg: 240, xl: 220 } }}>
+                <Image src={iconSrc} alt="" height={55} width={55} />
 
-              <Typography variant="h4" align="center">
-                {title}
-              </Typography>
+                <Typography variant="h4" align="center">
+                  {title}
+                </Typography>
 
-              <Typography align="center">{description}</Typography>
-            </Stack>
+                <Typography align="center">{description}</Typography>
+              </Stack>
+            </FadeIn>
           </SwiperSlide>
         ))}
       </Swiper>

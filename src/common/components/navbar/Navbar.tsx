@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { styled } from '@mui/system';
 
 import { Link } from 'src/common/components/Link';
-import { FadeIn } from 'src/lib/gsap/animations/FadeIn';
+import { FadeUp } from 'src/lib/gsap/animations';
 
 import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
@@ -44,16 +44,16 @@ export const Navbar = () => {
             }),
       }}
     >
-      <Toolbar disableGutters sx={{ height: '100%' }}>
-        <Container
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            height: '100%',
-          }}
-        >
-          <FadeIn shouldStart>
+      <FadeUp y={-40} sx={{ height: '100%' }}>
+        <Toolbar disableGutters sx={{ height: '100%' }}>
+          <Container
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              height: '100%',
+            }}
+          >
             <ImageContainer href="/">
               <Image
                 src="/img/logo.png"
@@ -64,64 +64,64 @@ export const Navbar = () => {
                 unselectable="on"
               />
             </ImageContainer>
-          </FadeIn>
 
-          <Box
-            component="nav"
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              alignItems: 'center',
-              height: '100%',
-            }}
-          >
-            {/* TODO later: jak jestes w danej sekcji, to ma byc podkreślnik! */}
-            <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
-              {navItems.map(({ title, href }) => (
-                <MenuItem
-                  key={href}
-                  tabIndex={0}
-                  sx={{
-                    p: 0,
-                    fontWeight: 'bold',
-                    transition: '.3s ease',
-                    fontSize: 18,
-
-                    ':hover, :focus': {
-                      color: 'secondary.main',
-                      backgroundColor: 'transparent',
-                    },
-                  }}
-                >
-                  <Link
-                    href={href}
+            <Box
+              component="nav"
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                alignItems: 'center',
+                height: '100%',
+              }}
+            >
+              {/* TODO later: jak jestes w danej sekcji, to ma byc podkreślnik! */}
+              <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
+                {navItems.map(({ title, href }) => (
+                  <MenuItem
+                    key={href}
+                    tabIndex={0}
                     sx={{
-                      px: 4,
-                      height: '100%',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
+                      p: 0,
+                      fontWeight: 'bold',
+                      transition: '.3s ease',
+                      fontSize: 18,
+
+                      ':hover, :focus': {
+                        color: 'secondary.main',
+                        backgroundColor: 'transparent',
+                      },
                     }}
                   >
-                    {title}
-                  </Link>
-                </MenuItem>
-              ))}
-            </MenuList>
+                    <Link
+                      href={href}
+                      sx={{
+                        px: 4,
+                        height: '100%',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                      {title}
+                    </Link>
+                  </MenuItem>
+                ))}
+              </MenuList>
 
-            <NumberButton variant="text">
-              <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
-              +48 539 943 336
-            </NumberButton>
+              <NumberButton variant="text">
+                <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
+                +48 539 943 336
+              </NumberButton>
 
-            <Stack alignItems="center" sx={{ ml: 1 }}>
-              <FacebookIconLink iconFontSize={24} />
-              <InstagramIconLink iconFontSize={24} sx={{ ml: '1px' }} />
-            </Stack>
-          </Box>
+              <Stack alignItems="center" sx={{ ml: 1 }}>
+                <FacebookIconLink iconFontSize={24} />
+                <InstagramIconLink iconFontSize={24} sx={{ ml: '1px' }} />
+              </Stack>
+            </Box>
 
-          <SideDrawer />
-        </Container>
-      </Toolbar>
+            <SideDrawer />
+          </Container>
+        </Toolbar>
+      </FadeUp>
 
       <BackToTop />
     </AppBar>

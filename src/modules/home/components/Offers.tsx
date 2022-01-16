@@ -13,7 +13,7 @@ import { styled } from '@mui/system';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
-import { FadeOnScrollTrigger } from 'src/lib/gsap/animations';
+import { FadeIn, FadeUp, FlyIn } from 'src/lib/gsap/animations';
 
 type Props = {
   offers: Offer[];
@@ -28,28 +28,34 @@ export const Offers = ({ offers }: Props) => {
 
   return (
     <Box id={scrollToElementsId.offer} sx={{ pt: 8 }}>
-      <Typography variant="h3" align="center" sx={{ mb: 2 }}>
-        Usługi
-      </Typography>
+      <FadeUp triggerOnScroll>
+        <Typography variant="h3" align="center" sx={{ mb: 2 }}>
+          Usługi
+        </Typography>
+      </FadeUp>
 
       <Container maxWidth="lg">
-        <Typography align="center">
-          <strong>Auto detailing</strong> to specjalistyczna, wieloetapowa i świadoma pielęgnacja
-          całego pojazdu lub jego poszczególnych elementów. Ma na celu oczyszczenie, konserwację,
-          renowację i zabezpieczenie samochodu. Taką usługę warto wykonać zarówno w przypadku aut
-          używanych, jak i nowych.
-        </Typography>
+        <FlyIn direction="right" triggerOnScroll>
+          <Typography align="center">
+            <strong>Auto detailing</strong> to specjalistyczna, wieloetapowa i świadoma pielęgnacja
+            całego pojazdu lub jego poszczególnych elementów. Ma na celu oczyszczenie, konserwację,
+            renowację i zabezpieczenie samochodu. Taką usługę warto wykonać zarówno w przypadku aut
+            używanych, jak i nowych.
+          </Typography>
+        </FlyIn>
         <br />
 
-        <Typography align="center">
-          <strong>Detailing samochodowy</strong> w równym stopniu dba o stronę zewnętrzną pojazdu
-          oraz jego wnętrze. W efekcie dzięki przemyślanym działaniom indywidualnie dopasowanymi do
-          potrzeb samochodu oraz oczekiwań właściciela, klient otrzymuje samochód w zachwycającym
-          stanie.
-        </Typography>
+        <FlyIn direction="left" triggerOnScroll>
+          <Typography align="center">
+            <strong>Detailing samochodowy</strong> w równym stopniu dba o stronę zewnętrzną pojazdu
+            oraz jego wnętrze. W efekcie dzięki przemyślanym działaniom indywidualnie dopasowanymi
+            do potrzeb samochodu oraz oczekiwań właściciela, klient otrzymuje samochód w
+            zachwycającym stanie.
+          </Typography>
+        </FlyIn>
       </Container>
 
-      <FadeOnScrollTrigger>
+      <FadeIn triggerOnScroll>
         <ImageList
           sx={{
             mt: 4,
@@ -99,7 +105,7 @@ export const Offers = ({ offers }: Props) => {
             );
           })}
         </ImageList>
-      </FadeOnScrollTrigger>
+      </FadeIn>
     </Box>
   );
 };

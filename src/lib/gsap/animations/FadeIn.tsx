@@ -6,11 +6,23 @@ type Props = {
   children: ReactNode;
   duration?: number;
   delay?: number;
-  shouldStart?: boolean;
+  manualTriggerMode?: boolean; // if true, then must use shouldTrigger
+  triggerManually?: boolean;
+  triggerOnScroll?: boolean;
 };
 
-const FadeInRaw = ({ children, duration, delay, shouldStart }: Props) => {
+// Pojawia się element od przezroczystosci
+const FadeInRaw = ({
+  children,
+  duration,
+  delay,
+  manualTriggerMode = false,
+  triggerManually,
+  triggerOnScroll,
+}: Props) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
+
+  const shouldStart = manualTriggerMode ? triggerManually : true;
 
   useIsomorphicLayoutEffect(() => {
     if (!shouldStart) {
@@ -27,6 +39,13 @@ const FadeInRaw = ({ children, duration, delay, shouldStart }: Props) => {
         ease: 'power4.out',
         delay: delay ?? 0,
         duration: duration ?? 0.5,
+        scrollTrigger: triggerOnScroll
+          ? {
+              trigger: elementRef.current,
+              start: 'top bottom-=200', // when the top of the trigger hits the bottom of the viewport - 300px
+              // toggleActions: 'play none none reverse', // reverse animation when going up
+            }
+          : undefined,
       }
     );
 

@@ -50,10 +50,10 @@ export const HeroBanner = () => {
   return (
     <Box sx={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
-        <FlyIn shouldStart={isImgLoaded}>
+        <FlyIn manualTriggerMode triggerManually={isImgLoaded}>
           <CustomText variant={isDesktop ? 'h1' : 'h2'}>Z miłości</CustomText>{' '}
         </FlyIn>
-        <FlyIn shouldStart={isImgLoaded} delay={0.8}>
+        <FlyIn manualTriggerMode triggerManually={isImgLoaded} delay={0.8}>
           <CustomText variant={isDesktop ? 'h1' : 'h2'}>
             do{' '}
             <Box
@@ -68,7 +68,7 @@ export const HeroBanner = () => {
           </CustomText>
         </FlyIn>
 
-        <FadeIn shouldStart={isImgLoaded} duration={2} delay={1.6}>
+        <FadeIn manualTriggerMode triggerManually={isImgLoaded} duration={2} delay={1.6}>
           <Button
             variant="contained"
             color="secondary"

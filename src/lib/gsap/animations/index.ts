@@ -1,3 +1,3 @@
 export * from './FadeIn';
+export * from './FadeUp';
 export * from './FlyIn';
-export * from './FadeOnScrollTrigger';
