@@ -96,6 +96,7 @@ export const Offers = ({ offers }: Props) => {
                       opacity: areImagesLoaded ? 1 : 0,
                       mt: isDesktop ? 2 : 1,
                       textShadow: '0px 0px 4px rgba(0, 0, 0, .5)',
+                      fontSize: 14,
                     }}
                   >
                     {item.title}

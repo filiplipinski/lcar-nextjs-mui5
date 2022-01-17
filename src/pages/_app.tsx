@@ -30,6 +30,11 @@ const MyApp = (props: MyAppProps) => {
   const router = useRouter();
 
   useEffect(() => {
+    // do not use classic import, it's won't work because of library problem in nextjs project (window object undefined)
+    import('smoothscroll-polyfill').then(({ polyfill }) => polyfill());
+  }, []);
+
+  useEffect(() => {
     if (router.asPath.includes('#')) {
       const sectionId = router.asPath.split('#')?.[1];
       const id = `scrollto-${sectionId}`; // look Navbar.types.ts for more details

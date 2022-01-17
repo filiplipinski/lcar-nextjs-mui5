@@ -12,19 +12,17 @@ const baseTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         html: {
-          height: '100%',
-          width: '100%',
+          minHeight: '100%',
+          overflowX: 'hidden',
           scrollBehavior: 'smooth', // it's for working "#" scroll animation
           scrollPaddingTop: navigationHeight,
         },
         body: {
+          minHeight: '100%',
           backgroundColor: palette.background.default,
-          height: '100%',
-          width: '100%',
-          overflowX: 'hidden',
         },
         '#__next': {
-          height: '100%',
+          minHeight: '100%',
           display: 'flex',
           flexDirection: 'column',
         },

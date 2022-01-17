@@ -51,3 +51,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://fotopro360.pl/pytania/jak-usunac-zdjecia-z-map-google-z-wizytowki-firmy-2-sposoby/
 - loading gdy wyoknuje sie SSR: https://stackoverflow.com/questions/60755316/nextjs-getserversideprops-show-loading -> NGprogress
 - SEO, favicon, inne grafiki OG, PWA
+- podepnij dzownienie pod numer z nawigacji
+- w chrome mobile devtools header ma 1280px, ale na realnym tel dobrze dziala. ED. na realnym telefonie dziala
