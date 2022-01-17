@@ -6,12 +6,11 @@ export const getOffScreenLength = (el: HTMLElement | null, direction: 'left' | '
   }
 
   const rect = el.getBoundingClientRect();
-  const justInCase = el.offsetWidth; // na wszelki wypadek
   // TODO: to chyba jednak nie wsyatrcza, i tak by trzeba fixnac ten h2/h1 hero title
 
   if (direction === 'left') {
-    return 0 - rect.left - el.offsetWidth - justInCase;
+    return 0 - rect.left - el.offsetWidth;
   } else {
-    return screen.width - rect.left + el.offsetWidth / 2 + justInCase;
+    return screen.width - rect.left + el.offsetWidth / 2;
   }
 };
