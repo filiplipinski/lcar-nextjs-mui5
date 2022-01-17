@@ -73,7 +73,6 @@ export const Navbar = () => {
                 height: '100%',
               }}
             >
-              {/* TODO later: jak jestes w danej sekcji, to ma byc podkreślnik! */}
               <MenuList disablePadding sx={{ display: 'flex', height: '100%' }}>
                 {navItems.map(({ title, href }) => (
                   <MenuItem

@@ -42,7 +42,6 @@ export const SideDrawer = () => {
           onKeyDown={closeDrawer}
         >
           {navItems.map(({ title, href }) => (
-            // TODO later: focus na przycisk moglby byc nie niebieski, a czerwony
             <Link
               key={href}
               href={href}
