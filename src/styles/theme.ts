@@ -13,7 +13,6 @@ const baseTheme = createTheme({
       styleOverrides: {
         html: {
           minHeight: '100%',
-          overflowX: 'hidden',
           scrollBehavior: 'smooth', // it's for working "#" scroll animation
           scrollPaddingTop: navigationHeight,
         },
@@ -23,6 +22,7 @@ const baseTheme = createTheme({
         },
         '#__next': {
           minHeight: '100%',
+          overflowX: 'hidden',
           display: 'flex',
           flexDirection: 'column',
         },

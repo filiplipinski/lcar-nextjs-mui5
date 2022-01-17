@@ -90,6 +90,7 @@ export const HeroBanner = () => {
         unselectable="on"
         quality={100}
         priority
+        loading="eager"
         onLoadingComplete={() => setImgLoaded(true)}
       />
     </Box>

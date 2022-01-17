@@ -14,7 +14,6 @@ import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
 import { Navbar } from 'src/common/components/navbar/Navbar';
 import { Footer } from 'src/common/components/Footer';
-import { GsapTransitionContextController } from 'src/lib/gsap/context/GsapTransitionController';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 
@@ -54,16 +53,14 @@ const MyApp = (props: MyAppProps) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <GsapTransitionContextController>
-          <Navbar />
-          <div id={scrollToElementsId.top} />
+        <Navbar />
+        <div id={scrollToElementsId.top} />
 
-          <main>
-            <Component {...pageProps} />
-          </main>
+        <main>
+          <Component {...pageProps} />
+        </main>
 
-          <Footer />
-        </GsapTransitionContextController>
+        <Footer />
       </ThemeProvider>
     </CacheProvider>
   );
