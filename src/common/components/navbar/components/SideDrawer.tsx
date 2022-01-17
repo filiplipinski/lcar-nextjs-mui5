@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Stack, Drawer, IconButton, Divider } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Stack, Drawer, IconButton, Divider, Button, Box } from '@mui/material';
+import { Menu as MenuIcon, Phone as PhoneIcon } from '@mui/icons-material';
+import { styled } from '@mui/system';
 
 import { Link } from 'src/common/components/Link';
 
@@ -15,7 +16,7 @@ export const SideDrawer = () => {
   return (
     <>
       <IconButton
-        edge="start"
+        edge="end"
         aria-label="menu"
         onClick={() => setState(true)}
         sx={{
@@ -56,17 +57,33 @@ export const SideDrawer = () => {
           ))}
         </Stack>
 
+        <Box sx={{ pl: 4 }}>
+          <NumberButton href="tel:+48539943336" variant="text">
+            <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
+            +48 539 943 336
+          </NumberButton>
+        </Box>
+
         <Stack
           direction="row"
           alignItems="center"
-          sx={{ ml: '29px' }}
+          justifyContent="center"
           onClick={closeDrawer}
           onKeyDown={closeDrawer}
         >
-          <FacebookIconLink iconFontSize={32} sx={{ mr: 1 }} />
-          <InstagramIconLink iconFontSize={32} />
+          <FacebookIconLink iconFontSize={40} sx={{ mr: 1 }} />
+          <InstagramIconLink iconFontSize={40} />
         </Stack>
       </Drawer>
     </>
   );
 };
+
+const NumberButton = styled(Button)(({ theme }) => ({
+  fontWeight: 'bold',
+  borderRadius: '10px',
+  fontSize: 20,
+  letterSpacing: '-1px',
+  color: theme.palette.secondary.light,
+  whiteSpace: 'nowrap',
+}));

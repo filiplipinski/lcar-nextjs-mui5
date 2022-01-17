@@ -107,7 +107,7 @@ export const Navbar = () => {
                 ))}
               </MenuList>
 
-              <NumberButton variant="text">
+              <NumberButton href="tel:+48539943336" variant="text">
                 <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'secondary.light' }} />
                 +48 539 943 336
               </NumberButton>
