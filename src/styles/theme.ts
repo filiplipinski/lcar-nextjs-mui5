@@ -13,7 +13,6 @@ const baseTheme = createTheme({
       styleOverrides: {
         html: {
           minHeight: '100%',
-          scrollBehavior: 'smooth', // it's for working "#" scroll animation
           scrollPaddingTop: navigationHeight,
         },
         body: {
