@@ -53,3 +53,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - SEO, favicon, inne grafiki OG, PWA
 - podepnij dzownienie pod numer z nawigacji
 - w chrome mobile devtools header ma 1280px, ale na realnym tel dobrze dziala. ED. na realnym telefonie dziala
+- lepsze UX ladowanie obrazkow: https://networkteam.com/journal/2021/lazy-and-eager-images-with-nextjs

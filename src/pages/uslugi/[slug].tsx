@@ -1,17 +1,15 @@
+import type { NextPage, GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { Typography, Container } from '@mui/material';
-import type { NextPage, GetServerSidePropsContext } from 'next';
 import Image from 'next/image';
 
 import { getServiceEntry } from 'src/lib/contentful/api';
+import { offersData } from 'src/modules/home/components/Offers';
 import { ServiceEntry } from 'src/lib/contentful/types';
 
-type Props = {
-  service: ServiceEntry['fields'];
-};
-
-export const ServicePage: NextPage<Props> = ({ service }) => {
+export const ServicePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  service,
+}) => {
   const { title, description, slug, gallery } = service;
-  console.log('service w kliencie,', service);
 
   const imgSrc = `https:${gallery[0].fields.file.url}`;
 
@@ -29,19 +27,17 @@ export const ServicePage: NextPage<Props> = ({ service }) => {
   );
 };
 
-// TODO: getServerSide or getStaticProps? ZMIENIC NA STATIC PROPS + STATIC PATHS
-export const getServerSideProps = async ({
-  params,
-}: GetServerSidePropsContext<{ slug: string }>) => {
-  const slug = params?.slug || '/';
+type Props = {
+  service: ServiceEntry['fields'];
+};
+
+export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (context) => {
+  const slug = context.params?.slug || '/';
 
   const serviceEntry = await getServiceEntry(slug);
   if (!serviceEntry) {
     return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
+      notFound: true,
     };
   }
 
@@ -50,12 +46,16 @@ export const getServerSideProps = async ({
   };
 };
 
-// TODO: uzyc tutaj getStatisPaths?: https://dev.to/akuks/what-is-getstaticpaths-in-nextjs-5ee5
-// export async function getStaticPaths() {
-//   return {
-//     paths: [{ params: { slug: 'detailing-wnetrza' } }, { params: { slug: 'korekta-lakieru' } }],
-//     fallback: true,
-//   };
-// }
+export const getStaticPaths: GetStaticPaths = async () => {
+  const offerSlugs = offersData.map((offer) => offer.slug);
+
+  const paths = offerSlugs.map((slug) => {
+    return {
+      params: { slug },
+    };
+  });
+
+  return { paths, fallback: false };
+};
 
 export default ServicePage;

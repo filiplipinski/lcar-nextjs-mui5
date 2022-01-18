@@ -1,4 +1,4 @@
-import type { NextPage, InferGetStaticPropsType, GetStaticPropsResult } from 'next';
+import type { NextPage, InferGetStaticPropsType, GetStaticProps } from 'next';
 import { getPlaiceholder } from 'plaiceholder';
 
 import { HeroBanner } from 'src/modules/home/components/HeroBanner';
@@ -27,7 +27,11 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ offers
   );
 };
 
-export const getStaticProps = async (): Promise<GetStaticPropsResult<{ offers: Offer[] }>> => {
+type Props = {
+  offers: Offer[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
   // DOCS: https://plaiceholder.co/docs/examples/next
   const offers = await Promise.all(
     offersData.map(async (offer) => {

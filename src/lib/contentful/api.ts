@@ -1,5 +1,5 @@
 import { createClient, Entry } from 'contentful';
-import { ContentTypeEnum, RealizationEntry, ServiceEntry } from './types';
+import { ContentTypeEnum, RealizationEntry, ServiceEntry, Service, Realization } from './types';
 // DOCS: https://contentful.github.io/contentful.js
 
 const client = createClient({
@@ -7,7 +7,7 @@ const client = createClient({
   accessToken: process.env.CF_ACCESS_TOKEN,
 });
 
-export const getServiceEntry = async (slug: string): Promise<Entry<ServiceEntry> | null> => {
+export const getServiceEntry = async (slug: string): Promise<ServiceEntry | null> => {
   const query = {
     limit: 1,
     include: 10, // to jest chyba liczba zagniezdzen
@@ -16,16 +16,16 @@ export const getServiceEntry = async (slug: string): Promise<Entry<ServiceEntry>
   };
 
   // TODO later: add try/catch i obsluge bledow
+  // TODO: inaczej ta destrukturyzacje
   const {
     items: [service],
-  } = await client.getEntries<ServiceEntry>(query);
+  } = await client.getEntries<Service>(query);
 
+  // TODO: a moze tu od razu zwracac fields
   return service || null;
 };
 
-export const getRealizationEntry = async (
-  slug: string
-): Promise<Entry<RealizationEntry> | null> => {
+export const getRealizationEntry = async (slug: string): Promise<RealizationEntry | null> => {
   const query = {
     limit: 1,
     include: 10,
@@ -34,7 +34,7 @@ export const getRealizationEntry = async (
   };
   const {
     items: [realization],
-  } = await client.getEntries<RealizationEntry>(query);
+  } = await client.getEntries<Realization>(query);
 
   return realization || null;
 };
