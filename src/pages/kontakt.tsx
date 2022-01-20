@@ -6,7 +6,7 @@ import { ContactInfo } from 'src/modules/kontakt/components/ContactInfo';
 
 const ContactPage = () => {
   return (
-    <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 6 }} maxWidth="lg">
+    <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
       <Typography variant="h3">Kontakt</Typography>
 
       <Typography sx={{ mt: 2 }}>

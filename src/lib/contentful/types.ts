@@ -1,4 +1,5 @@
-import { Entry, Asset } from 'contentful';
+import { Asset } from 'contentful';
+import { Document } from '@contentful/rich-text-types';
 
 export enum ContentTypeEnum {
   Service = 'service',
@@ -8,7 +9,9 @@ export enum ContentTypeEnum {
 export type Service = {
   slug: string;
   title: string;
-  description: string;
+  introduction: Document;
+  mainImage: Asset;
+  content: Document;
   gallery: Asset[];
 };
 
@@ -17,6 +20,3 @@ export type Realization = {
   title: string;
   description: string;
 };
-
-export type ServiceEntry = Entry<Service>;
-export type RealizationEntry = Entry<Realization>;

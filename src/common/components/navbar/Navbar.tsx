@@ -18,7 +18,7 @@ export const Navbar = () => {
   const [shouldTriggerNavbar, setShouldTriggerNavbar] = useState(false);
 
   const handleScroll = () => {
-    setShouldTriggerNavbar(window.scrollY > navigationHeight);
+    setShouldTriggerNavbar(window.scrollY > navigationHeight * 0.8); // launch a bit earlier than navigationHeight
   };
 
   useEffect(() => {

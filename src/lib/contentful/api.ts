@@ -1,5 +1,5 @@
-import { createClient, Entry } from 'contentful';
-import { ContentTypeEnum, RealizationEntry, ServiceEntry, Service, Realization } from './types';
+import { createClient } from 'contentful';
+import { ContentTypeEnum, Service, Realization } from './types';
 // DOCS: https://contentful.github.io/contentful.js
 
 const client = createClient({
@@ -7,7 +7,7 @@ const client = createClient({
   accessToken: process.env.CF_ACCESS_TOKEN,
 });
 
-export const getServiceEntry = async (slug: string): Promise<ServiceEntry | null> => {
+export const getService = async (slug: string): Promise<Service | null> => {
   const query = {
     limit: 1,
     include: 10, // to jest chyba liczba zagniezdzen
@@ -16,36 +16,32 @@ export const getServiceEntry = async (slug: string): Promise<ServiceEntry | null
   };
 
   // TODO later: add try/catch i obsluge bledow
-  // TODO: inaczej ta destrukturyzacje
-  const {
-    items: [service],
-  } = await client.getEntries<Service>(query);
+  const { items } = await client.getEntries<Service>(query);
 
-  // TODO: a moze tu od razu zwracac fields
-  return service || null;
+  return items.length ? items[0].fields : null;
 };
 
-export const getRealizationEntry = async (slug: string): Promise<RealizationEntry | null> => {
+export const getRealization = async (slug: string): Promise<Realization | null> => {
   const query = {
     limit: 1,
     include: 10,
     content_type: ContentTypeEnum.Realization,
     'fields.slug': slug,
   };
-  const {
-    items: [realization],
-  } = await client.getEntries<Realization>(query);
+  const { items } = await client.getEntries<Realization>(query);
 
-  return realization || null;
+  return items.length ? items[0].fields : null;
 };
 
-export const getRealizationsEntries = async (): Promise<Entry<RealizationEntry>[] | null> => {
+export const getRealizationsEntries = async (): Promise<Realization[] | null> => {
   const query = {
     limit: 8,
     include: 10,
     content_type: ContentTypeEnum.Realization,
   };
-  const { items } = await client.getEntries<RealizationEntry>(query);
+  const { items } = await client.getEntries<Realization>(query);
 
-  return items || null;
+  const realizations = items.map((item) => item.fields);
+
+  return realizations.length ? realizations : null;
 };
