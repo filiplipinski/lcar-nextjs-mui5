@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'src/styles/global.css';
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
@@ -50,18 +51,21 @@ const MyApp = (props: MyAppProps) => {
         <title>LCAR Auto Detailing - Radom</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
 
-        <Navbar />
-        <div id={scrollToElementsId.top} />
+      <SimpleReactLightbox>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
 
-        <main>
-          <Component {...pageProps} />
-        </main>
+          <Navbar />
+          <div id={scrollToElementsId.top} />
 
-        <Footer />
-      </ThemeProvider>
+          <main>
+            <Component {...pageProps} />
+          </main>
+
+          <Footer />
+        </ThemeProvider>
+      </SimpleReactLightbox>
     </CacheProvider>
   );
 };

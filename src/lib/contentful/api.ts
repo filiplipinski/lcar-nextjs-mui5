@@ -16,6 +16,7 @@ export const getService = async (slug: string): Promise<Service | null> => {
   };
 
   // TODO later: add try/catch i obsluge bledow
+  // TODO: buildUrl() po stronie API a nie w kliencie
   const { items } = await client.getEntries<Service>(query);
 
   return items.length ? items[0].fields : null;

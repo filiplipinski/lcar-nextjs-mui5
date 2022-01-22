@@ -14,7 +14,6 @@ type Props = {
 export const HyperLink: NodeRenderer = ({ data, content }: Props) => {
   const href = data.uri;
 
-  console.log('content', content);
   const isExternal = typeof href === 'string' && (href.includes('http') || href.includes('www'));
 
   // Link text has to be rendered itself as rich text

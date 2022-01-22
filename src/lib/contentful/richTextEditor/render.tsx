@@ -49,4 +49,9 @@ const options: Options = {
   },
 };
 
-export const renderRichText = (rtd: Document) => documentToReactComponents(rtd, options);
+export const renderRichText = (rtd: Document | undefined) => {
+  if (!rtd) {
+    return null;
+  }
+  return documentToReactComponents(rtd, options);
+};

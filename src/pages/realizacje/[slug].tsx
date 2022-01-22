@@ -2,11 +2,11 @@ import { Typography, Container } from '@mui/material';
 import type { NextPage, GetServerSidePropsContext } from 'next';
 // import Image from 'next/image';
 
-import { getRealizationEntry } from 'src/lib/contentful/api';
-import { RealizationEntry } from 'src/lib/contentful/types';
+import { getRealization } from 'src/lib/contentful/api';
+import { Realization } from 'src/lib/contentful/types';
 
 type Props = {
-  realization: RealizationEntry['fields'];
+  realization: Realization;
 };
 
 export const RealizationPage: NextPage<Props> = ({ realization }) => {
@@ -15,7 +15,7 @@ export const RealizationPage: NextPage<Props> = ({ realization }) => {
   //   console.log('RealizationEntry w kliencie,', realization);
 
   return (
-    //   ZROBIC Z TEGO TEMPLATE!! z marginem TOP
+    // TODO: uzyc tempaltu
     <Container sx={{ pt: 10 }}>
       <Typography variant="h3" align="center" sx={{ mb: 4 }}>
         {title}
@@ -33,8 +33,8 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext<{ slug: string }>) => {
   const slug = params?.slug || '/';
 
-  const realizationEntry = await getRealizationEntry(slug);
-  if (!realizationEntry) {
+  const realization = await getRealization(slug);
+  if (!realization) {
     return {
       redirect: {
         destination: '/',
@@ -44,7 +44,7 @@ export const getServerSideProps = async ({
   }
 
   return {
-    props: { realization: realizationEntry.fields },
+    props: { realization },
   };
 };
 
