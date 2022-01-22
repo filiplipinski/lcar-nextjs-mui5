@@ -90,7 +90,7 @@ const Ribbon = styled('div')({
   position: 'absolute',
   height: 40,
   width: 200,
-  backgroundColor: '#0000ffab',
+  backgroundColor: '#ff0000d6',
   top: 20,
   right: -60,
   transform: 'rotate(45deg)',

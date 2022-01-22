@@ -21,7 +21,7 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
 
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
-      <Typography variant="h3">Wszystkie realizacje</Typography>
+      <Typography variant="h3">Realizacje</Typography>
 
       <Button
         LinkComponent={Link}
