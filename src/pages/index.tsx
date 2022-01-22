@@ -7,9 +7,14 @@ import { CompanyPros } from 'src/modules/home/components/CompanyPros';
 import { Offer, Offers, offersData } from 'src/modules/home/components/Offers';
 import { Realizations } from 'src/modules/home/components/Realizations';
 import { Brands } from 'src/modules/home/components/Brands';
+import { getHomePageRealizations } from 'src/lib/contentful/api';
+import { Realization } from 'src/lib/contentful/types';
 // import { getRealizationsEntries } from 'src/lib/contentful/api'; // TODO
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ offers }) => {
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  offers,
+  realizations,
+}) => {
   return (
     <div>
       <HeroBanner />
@@ -20,7 +25,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ offers
 
       <Offers offers={offers} />
 
-      <Realizations />
+      <Realizations realizations={realizations} />
 
       <Brands />
     </div>
@@ -29,6 +34,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ offers
 
 type Props = {
   offers: Offer[];
+  realizations: Realization[];
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
@@ -40,22 +46,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     })
   );
 
+  const realizations = await getHomePageRealizations();
+
   return {
     props: {
       offers,
+      realizations,
     },
   };
 };
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   // const slug = String(params.slug ?? '/');
-
-//   // const realizations = await getRealizationsEntries();
-
-//   // console.log('services', services);
-//   return {
-//     props: { realizations: null },
-//   };
-// };
 
 export default Home;

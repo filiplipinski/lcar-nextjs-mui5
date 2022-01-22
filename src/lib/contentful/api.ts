@@ -2,6 +2,7 @@ import { createClient } from 'contentful';
 import { ContentTypeEnum, Service, Realization } from './types';
 // DOCS: https://contentful.github.io/contentful.js
 
+// jakie properties mozndac podać do query: https://www.contentful.com/developers/docs/android/tutorials/advanced-filtering-and-searching/
 const client = createClient({
   space: process.env.CF_SPACE_ID,
   accessToken: process.env.CF_ACCESS_TOKEN,
@@ -34,15 +35,32 @@ export const getRealization = async (slug: string): Promise<Realization | null> 
   return items.length ? items[0].fields : null;
 };
 
-export const getRealizationsEntries = async (): Promise<Realization[] | null> => {
-  const query = {
-    limit: 8,
+export const getHomePageRealizations = async (): Promise<Realization[]> => {
+  const bestRealizationsQuery = {
+    limit: 3,
     include: 10,
+    order: 'sys.createdAt',
     content_type: ContentTypeEnum.Realization,
+    'fields.isMainRealization': true,
   };
-  const { items } = await client.getEntries<Realization>(query);
 
-  const realizations = items.map((item) => item.fields);
+  const newestRealizationQuery = {
+    limit: 1,
+    include: 10,
+    order: 'sys.createdAt',
+    content_type: ContentTypeEnum.Realization,
+    'fields.isMainRealization': false, // najnowszy nie moze byc "best", bo juz tam bedzie :)
+  };
 
-  return realizations.length ? realizations : null;
+  const [bestRealizationsEntry, newestRealizationEntry] = await Promise.all([
+    client.getEntries<Realization>(bestRealizationsQuery),
+    client.getEntries<Realization>(newestRealizationQuery),
+  ]);
+
+  const realizations = [
+    ...bestRealizationsEntry.items.map((item) => item.fields),
+    ...(newestRealizationEntry.items?.[0]?.fields ? [newestRealizationEntry.items[0].fields] : []),
+  ];
+
+  return realizations;
 };

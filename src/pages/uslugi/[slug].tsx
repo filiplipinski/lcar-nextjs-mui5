@@ -28,6 +28,7 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (co
 
   return {
     props: { service },
+    revalidate: 60, // re-generate the page every 1min
   };
 };
 

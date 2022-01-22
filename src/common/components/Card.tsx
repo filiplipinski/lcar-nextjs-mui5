@@ -8,6 +8,7 @@ import {
   Button,
 } from '@mui/material';
 import Image from 'next/image';
+import { styled } from '@mui/system';
 
 // import { Link } from 'src/common/components/Link';
 
@@ -16,15 +17,16 @@ export type CardProps = {
   title: string;
   description: string;
   imgSrc: string;
+  withRibbon?: boolean;
 };
 
-export const Card = ({ title, description, imgSrc }: CardProps) => {
+export const Card = ({ title, description, imgSrc, withRibbon }: CardProps) => {
   return (
     <MuiCard
       // component={Link}
       // href={`/realizacje/${slug}`}
       key={title}
-      sx={{ maxWidth: { xs: 'auto', sm: 324, xl: 348 }, height: '100%' }}
+      sx={{ height: '100%' }}
     >
       <CardActionArea
         sx={{
@@ -36,10 +38,32 @@ export const Card = ({ title, description, imgSrc }: CardProps) => {
         }}
       >
         <CardMedia sx={{ height: 200, width: '100%', position: 'relative' }}>
-          <Image layout="fill" src={imgSrc} alt={title} objectFit="cover" />
+          {imgSrc && <Image layout="fill" src={imgSrc} alt={title} objectFit="cover" />}
+
+          {withRibbon && (
+            <Ribbon>
+              <Typography
+                variant="subtitle1"
+                color="common.white"
+                align="center"
+                sx={{ fontWeight: 700, fontSize: 24 }}
+              >
+                NOWE
+              </Typography>
+            </Ribbon>
+          )}
         </CardMedia>
 
-        <CardContent sx={{ mb: 0, pb: 1, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <CardContent
+          sx={{
+            mb: 0,
+            pb: 1,
+            flexGrow: 1,
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <Typography
             gutterBottom
             color="secondary"
@@ -64,3 +88,13 @@ export const Card = ({ title, description, imgSrc }: CardProps) => {
     </MuiCard>
   );
 };
+
+const Ribbon = styled('div')({
+  position: 'absolute',
+  height: 40,
+  width: 200,
+  backgroundColor: '#0000ffab',
+  top: 20,
+  right: -60,
+  transform: 'rotate(45deg)',
+});

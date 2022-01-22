@@ -19,6 +19,11 @@ export type Service = {
 
 export type Realization = {
   slug: string;
+  isMainRealization: boolean;
+  shortDescription?: string;
   title?: string;
-  description?: string;
+  introduction?: Document;
+  mainImage?: Asset;
+  content?: Document;
+  gallery?: Asset[];
 };

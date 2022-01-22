@@ -1,32 +1,16 @@
-import { Container, Typography, Grid } from '@mui/material';
+import { Container, Typography, Grid, Button } from '@mui/material';
 
 import { Card } from 'src/common/components/Card';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
+import { Realization } from 'src/lib/contentful/types';
 import { FadeUp, FlyIn } from 'src/lib/gsap/animations';
+import { buildUrl } from 'src/lib/contentful/utils';
 
-const realizationsMock = [
-  {
-    slug: 'volvo-v12',
-    title: 'Volvo v6',
-    description: 'Renowacja tapicerki, usuwanie wgnieceń oraz czyszczenie srodka',
-    imgSrc: '/img/realizations/bmw.jpg',
-  },
-  {
-    slug: 'bmw-x6',
-    title: 'BMW M3',
-    description: 'Polerowanie lakieru - dzięki nałożeniu kilku warstw materiałów eliminujemy hałas',
-    imgSrc: '/img/realizations/bmw.jpg',
-  },
-  {
-    slug: 'honda-civic-ix',
-    title: 'Honda Civic IX',
-    description:
-      'Połozenie warstwy ceramicznej - powłoka zapewnia przez hydrofobowość oraz zwiększenie gładkości lakieru',
-    imgSrc: '/img/realizations/bmw.jpg',
-  },
-];
+type Props = {
+  realizations: Realization[];
+};
 
-export const Realizations = () => {
+export const Realizations = ({ realizations }: Props) => {
   return (
     <Container id={scrollToElementsId.realizations} sx={{ pt: 8, mb: 8 }}>
       <FadeUp triggerOnScroll>
@@ -37,19 +21,34 @@ export const Realizations = () => {
 
       <FadeUp triggerOnScroll>
         <Typography align="center">
-          Sprawdź nasze najlepsze, takze najnowsze realizacje detailingu samochodów.
+          Sprawdź nasze najlepsze oraz najnowsze realizacje detailingu samochodów.
         </Typography>
       </FadeUp>
 
       <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
-        {realizationsMock.map((offerCardProps, index) => (
-          <Grid item key={offerCardProps.title}>
+        {realizations.map((realization, index) => (
+          <Grid item xs={12} sm={6} md={3} key={realization.slug}>
             <FlyIn direction="right" triggerOnScroll delay={index / 3} sx={{ height: '100%' }}>
-              <Card {...offerCardProps} />
+              <Card
+                slug={realization.slug}
+                title={realization?.title || ''}
+                description={realization?.shortDescription || ''}
+                imgSrc={buildUrl(realization.mainImage?.fields.file.url)}
+                withRibbon={!realization.isMainRealization} // bo są 3 glowne i jedna najnowsza
+              />
             </FlyIn>
           </Grid>
         ))}
       </Grid>
+
+      <Button
+        variant="contained"
+        size="large"
+        color="secondary"
+        sx={{ ml: 'auto', mt: 2, display: 'block' }}
+      >
+        Zobacz wszystkie realizacje
+      </Button>
     </Container>
   );
 };
