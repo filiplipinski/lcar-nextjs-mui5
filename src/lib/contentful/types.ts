@@ -19,8 +19,8 @@ export type Service = {
 
 export type Realization = {
   slug: string;
-  isMainRealization: boolean;
-  shortDescription?: string;
+  isMainRealization: boolean; // only for homepage
+  shortDescription?: string; // only for homepage
   title?: string;
   introduction?: Document;
   mainImage?: Asset;

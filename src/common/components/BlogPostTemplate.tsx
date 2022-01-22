@@ -2,13 +2,13 @@ import { Typography, Container, Box, Grid } from '@mui/material';
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
-import { Service } from 'src/lib/contentful/types';
+import { Service, Realization } from 'src/lib/contentful/types';
 import { navigationHeight } from 'src/common/components/navbar/Navbar';
 import { renderRichText } from 'src/lib/contentful/richTextEditor/render';
 import { buildUrl } from 'src/lib/contentful/utils';
 
 type Props = {
-  data: Service; // TODO: or Realization
+  data: Service | Realization;
 };
 
 export const BlogPostTemplate = ({ data }: Props) => {

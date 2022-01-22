@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 import { styled } from '@mui/system';
 
-// import { Link } from 'src/common/components/Link';
+import { Link } from 'src/common/components/Link';
 
 export type CardProps = {
   slug: string;
@@ -20,15 +20,12 @@ export type CardProps = {
   withRibbon?: boolean;
 };
 
-export const Card = ({ title, description, imgSrc, withRibbon }: CardProps) => {
+export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps) => {
   return (
-    <MuiCard
-      // component={Link}
-      // href={`/realizacje/${slug}`}
-      key={title}
-      sx={{ height: '100%' }}
-    >
+    <MuiCard key={slug} sx={{ height: '100%' }}>
       <CardActionArea
+        component={Link}
+        href={`/realizacje/${slug}`}
         sx={{
           height: '100%',
           display: 'flex',
