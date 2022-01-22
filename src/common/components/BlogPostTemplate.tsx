@@ -28,7 +28,7 @@ export const BlogPostTemplate = ({ data }: Props) => {
 
         {mainImageSrc && (
           <Grid item xs={12} sm={5} sx={{ position: 'relative', minHeight: 300 }}>
-            <Image src={mainImageSrc} alt={slug} layout="fill" objectFit="cover" />
+            <Image src={mainImageSrc} alt={slug} priority layout="fill" objectFit="cover" />
           </Grid>
         )}
       </Grid>

@@ -18,7 +18,7 @@ export const Navbar = () => {
   const [shouldTriggerNavbar, setShouldTriggerNavbar] = useState(false);
 
   const handleScroll = () => {
-    setShouldTriggerNavbar(window.scrollY > navigationHeight * 0.8); // launch a bit earlier than navigationHeight
+    setShouldTriggerNavbar(window.scrollY > navigationHeight * 0.5); // launch a bit earlier than navigationHeight
   };
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const Navbar = () => {
       position="fixed"
       sx={{
         height: navigationHeight,
-        transition: '.4s ease-in',
+        transition: '.3s ease-in',
 
         ...(shouldTriggerNavbar
           ? {
