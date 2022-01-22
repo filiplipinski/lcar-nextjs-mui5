@@ -5,6 +5,7 @@ import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { Realization } from 'src/lib/contentful/types';
 import { FadeUp, FlyIn } from 'src/lib/gsap/animations';
 import { buildUrl } from 'src/lib/contentful/utils';
+import { Link } from 'src/common/components/Link';
 
 type Props = {
   realizations: Realization[];
@@ -42,10 +43,12 @@ export const Realizations = ({ realizations }: Props) => {
       </Grid>
 
       <Button
+        LinkComponent={Link}
+        href="/wszystkie-realizacje"
         variant="contained"
         size="large"
         color="secondary"
-        sx={{ ml: 'auto', mt: 2, display: 'block' }}
+        sx={{ ml: 'auto', mt: 3, display: 'block', maxWidth: 325 }}
       >
         Zobacz wszystkie realizacje
       </Button>

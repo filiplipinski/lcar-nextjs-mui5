@@ -39,7 +39,6 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
   const bestRealizationsQuery = {
     limit: 3,
     include: 10,
-    order: 'sys.createdAt',
     content_type: ContentTypeEnum.Realization,
     'fields.isMainRealization': true,
   };
@@ -47,7 +46,7 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
   const newestRealizationQuery = {
     limit: 1,
     include: 10,
-    order: 'sys.createdAt',
+    order: '-sys.createdAt', // newest
     content_type: ContentTypeEnum.Realization,
     'fields.isMainRealization': false, // najnowszy nie moze byc "best", bo juz tam bedzie :)
   };
@@ -61,6 +60,21 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
     ...bestRealizationsEntry.items.map((item) => item.fields),
     ...(newestRealizationEntry.items?.[0]?.fields ? [newestRealizationEntry.items[0].fields] : []),
   ];
+
+  return realizations;
+};
+
+export const getAllRealizations = async (): Promise<Realization[]> => {
+  const query = {
+    limit: 100,
+    include: 10,
+    order: '-sys.createdAt',
+    content_type: ContentTypeEnum.Realization,
+  };
+
+  const { items } = await client.getEntries<Realization>(query);
+
+  const realizations = items.map((item) => item.fields);
 
   return realizations;
 };
