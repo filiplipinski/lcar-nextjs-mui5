@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { useRouter } from 'next/router';
+import SimpleReactLightbox from 'simple-react-lightbox';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'src/styles/global.css';
-import SimpleReactLightbox from 'simple-react-lightbox';
 
 import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
@@ -17,6 +17,8 @@ import { Navbar } from 'src/common/components/navbar/Navbar';
 import { Footer } from 'src/common/components/Footer';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
+
+import { defaultSeo } from '../../next-seo.config';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -47,10 +49,7 @@ const MyApp = (props: MyAppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <Head>
-        <title>LCAR Auto Detailing - Radom</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
+      <DefaultSeo {...defaultSeo} />
 
       <SimpleReactLightbox>
         <ThemeProvider theme={theme}>

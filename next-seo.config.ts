@@ -1,0 +1,26 @@
+import { DefaultSeoProps } from 'next-seo';
+
+const title = 'LCAR Auto Detailing - Radom';
+const description =
+  'Specjalizujemy się w naprawach bezinwazyjnych PDR (wyciąganie wgnieceń), wykonujemy korekty lakieru, polerowanie reflektorów, nanoszenie powłok i wosków ochronnych.';
+
+export const defaultSeo: DefaultSeoProps = {
+  defaultTitle: title,
+  titleTemplate: '%s | Lcar Radom',
+  description,
+  openGraph: {
+    title,
+    description,
+    type: 'website',
+    url: 'https://www.lcar.pl/',
+    site_name: 'Lcar',
+    images: [
+      {
+        url: '/img/meta-tags-image.png',
+        width: 1200,
+        height: 627,
+        alt: 'Lcar',
+      },
+    ],
+  },
+};

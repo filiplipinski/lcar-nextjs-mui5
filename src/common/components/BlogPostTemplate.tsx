@@ -1,6 +1,7 @@
 import { Typography, Container, Box, Grid } from '@mui/material';
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
+import { NextSeo } from 'next-seo';
 
 import { Service, Realization } from 'src/lib/contentful/types';
 import { navigationHeight } from 'src/common/components/navbar/Navbar';
@@ -20,6 +21,9 @@ export const BlogPostTemplate = ({ data, breadcrumbsProps }: Props) => {
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
       <Breadcrumbs {...breadcrumbsProps} />
+
+      {/* TODO: uzyc short opisu który bedzie do SEO i do karty realizacji w homepage. */}
+      <NextSeo title={title} />
 
       <Typography variant="h3" sx={{ mb: 4 }}>
         {title}

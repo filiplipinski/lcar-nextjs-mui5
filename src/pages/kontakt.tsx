@@ -1,5 +1,7 @@
 import { Container, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/system';
+import { NextSeo } from 'next-seo';
+
 import { navigationHeight } from 'src/common/components/navbar/Navbar';
 import { ContactForm } from 'src/modules/kontakt/components/ContactForm';
 import { ContactInfo } from 'src/modules/kontakt/components/ContactInfo';
@@ -7,6 +9,8 @@ import { ContactInfo } from 'src/modules/kontakt/components/ContactInfo';
 const ContactPage = () => {
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
+      <NextSeo title="Kontakt" />
+
       <Typography variant="h3">Kontakt</Typography>
 
       <Typography sx={{ mt: 2 }}>

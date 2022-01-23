@@ -1,5 +1,6 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import { Grid, Container, Typography, Button } from '@mui/material';
+import { NextSeo } from 'next-seo';
 
 import { Card } from 'src/common/components/Card';
 import { Realization } from 'src/lib/contentful/types';
@@ -18,6 +19,8 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
 
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
+      <NextSeo title="Realizacje" />
+
       <Typography variant="h3">Realizacje</Typography>
 
       <Button
