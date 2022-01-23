@@ -46,7 +46,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Do zrobienia TODO:
 
 - 404 strone troszke popraw
-- lepsze zdjecie do meta tags
 - przygotuj ikony wszystkich rozmiarow, az do 512. tutaj uzyskac 100/100 z pwa: https://www.seochecker.it/pwa-tester-online
 - pomysl: mapy google'a
 - pomysl: pokazac opinie google?

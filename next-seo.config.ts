@@ -16,7 +16,7 @@ export const defaultSeo: DefaultSeoProps = {
     site_name: 'Lcar',
     images: [
       {
-        url: '/img/meta-tags-image.png',
+        url: '/img/meta-tags-image.jpg',
         width: 1200,
         height: 627,
         alt: 'Lcar',
