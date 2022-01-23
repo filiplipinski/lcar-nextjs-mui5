@@ -26,14 +26,14 @@ const FlyInRaw = ({
   sx,
 }: Props) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
-
   const shouldStart = manualTriggerMode ? triggerManually : true;
-  const x = getOffScreenLength(elementRef.current, direction);
 
   useIsomorphicLayoutEffect(() => {
     if (!shouldStart) {
       return;
     }
+
+    const x = getOffScreenLength(elementRef.current, direction);
 
     const animation = gsap.fromTo(
       elementRef.current,
@@ -62,7 +62,7 @@ const FlyInRaw = ({
   }, [shouldStart]);
 
   return (
-    <Box ref={elementRef} sx={{ ...sx, transform: `translateX(${x}px)`, opacity: 0 }}>
+    <Box ref={elementRef} sx={{ ...sx, opacity: 0 }}>
       {children}
     </Box>
   );

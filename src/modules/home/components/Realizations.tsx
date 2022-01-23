@@ -49,7 +49,13 @@ export const Realizations = ({ realizations }: Props) => {
           variant="contained"
           size="large"
           color="secondary"
-          sx={{ ml: 'auto', mt: 3, display: 'block', maxWidth: 325 }}
+          sx={{
+            ml: 'auto',
+            mt: 3,
+            display: 'block',
+            maxWidth: { xs: 'none', sm: 325 },
+            textAlign: 'center',
+          }}
         >
           Zobacz wszystkie realizacje
         </Button>

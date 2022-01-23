@@ -81,9 +81,10 @@ export const HeroBanner = () => {
         </FadeIn>
       </Box>
 
+      {/* TODO: onError other image */}
       <Image
         src="/img/hero.jpeg"
-        alt="hero banner"
+        alt=""
         layout="fill"
         objectFit="cover"
         objectPosition="0% bottom"

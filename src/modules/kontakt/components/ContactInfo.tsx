@@ -24,7 +24,12 @@ export const ContactInfo = () => {
           <PhoneAndroid sx={{ color: 'secondary.main', fontSize: 48 }} />
         </IconContainer>
         <div>
-          <Typography variant="h5" component="a" href="tel:+48539943336">
+          <Typography
+            variant="h5"
+            component="a"
+            href="tel:+48539943336"
+            sx={{ textDecoration: 'none' }}
+          >
             <Typography variant="h5" component="span" color="secondary">
               +48
             </Typography>{' '}
@@ -43,7 +48,7 @@ export const ContactInfo = () => {
             component="a"
             href="mailto:karol.lipinski@lcar.pl"
             variant="h5"
-            sx={{ textTransform: 'lowercase' }}
+            sx={{ textTransform: 'lowercase', textDecoration: 'none' }}
           >
             <Typography
               variant="h5"
