@@ -45,11 +45,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Do zrobienia TODO:
 
+- 404 strone troszke popraw
 - lepsze zdjecie do meta tags
-- mapy google'a
-- pokazac opinie google?
+- przygotuj ikony wszystkich rozmiarow, az do 512. tutaj uzyskac 100/100 z pwa: https://www.seochecker.it/pwa-tester-online
+- pomysl: mapy google'a
+- pomysl: pokazac opinie google?
 - https://fotopro360.pl/pytania/jak-usunac-zdjecia-z-map-google-z-wizytowki-firmy-2-sposoby/
 - loading gdy wyoknuje sie SSR: https://stackoverflow.com/questions/60755316/nextjs-getserversideprops-show-loading -> NGprogress
-- add PWA
-- w chrome mobile devtools header ma 1280px, ale na realnym tel dobrze dziala. ED. na realnym telefonie dziala
 - lepsze UX ladowanie obrazkow: https://networkteam.com/journal/2021/lazy-and-eager-images-with-nextjs

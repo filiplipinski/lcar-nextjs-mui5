@@ -57,7 +57,7 @@ export const Navbar = () => {
             <ImageContainer href="/">
               <Image
                 src="/img/logo.png"
-                alt="lcar logo"
+                alt=""
                 width={180}
                 height={50}
                 objectFit="contain"

@@ -44,7 +44,7 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
         <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
           {realizations.map((realization, index) => (
             <Grid item xs={12} sm={6} md={3} key={realization.slug}>
-              <FlyIn direction="right" triggerOnScroll delay={index / 3} sx={{ height: '100%' }}>
+              <FlyIn direction="right" triggerOnScroll delay={index / 4} sx={{ height: '100%' }}>
                 <Card
                   slug={realization.slug}
                   title={realization?.title || ''}
