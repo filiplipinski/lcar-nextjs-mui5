@@ -1,13 +1,16 @@
-import type { NextPage, GetServerSideProps, InferGetStaticPropsType } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import { BlogPostTemplate } from 'src/common/components/BlogPostTemplate';
 
 import { getRealization } from 'src/lib/contentful/api';
 import { Realization } from 'src/lib/contentful/types';
 
-export const RealizationPage: NextPage<InferGetStaticPropsType<typeof getServerSideProps>> = ({
-  realization,
-}) => {
-  return <BlogPostTemplate data={realization} />;
+export const RealizationPage: NextPage<Props> = ({ realization }) => {
+  return (
+    <BlogPostTemplate
+      data={realization}
+      breadcrumbsProps={{ type: 'realizations', lastCrumbName: realization.title }}
+    />
+  );
 };
 
 type Props = {

@@ -42,16 +42,18 @@ export const Realizations = ({ realizations }: Props) => {
         ))}
       </Grid>
 
-      <Button
-        LinkComponent={Link}
-        href="/wszystkie-realizacje"
-        variant="contained"
-        size="large"
-        color="secondary"
-        sx={{ ml: 'auto', mt: 3, display: 'block', maxWidth: 325 }}
-      >
-        Zobacz wszystkie realizacje
-      </Button>
+      <FadeUp triggerOnScroll>
+        <Button
+          LinkComponent={Link}
+          href="/wszystkie-realizacje"
+          variant="contained"
+          size="large"
+          color="secondary"
+          sx={{ ml: 'auto', mt: 3, display: 'block', maxWidth: 325 }}
+        >
+          Zobacz wszystkie realizacje
+        </Button>
+      </FadeUp>
     </Container>
   );
 };

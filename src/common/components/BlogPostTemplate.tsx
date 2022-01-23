@@ -6,17 +6,21 @@ import { Service, Realization } from 'src/lib/contentful/types';
 import { navigationHeight } from 'src/common/components/navbar/Navbar';
 import { renderRichText } from 'src/lib/contentful/richTextEditor/render';
 import { buildUrl } from 'src/lib/contentful/utils';
+import { Breadcrumbs, BreadcrumbsProps } from 'src/common/components/Breadcrumbs';
 
 type Props = {
   data: Service | Realization;
+  breadcrumbsProps: BreadcrumbsProps;
 };
 
-export const BlogPostTemplate = ({ data }: Props) => {
+export const BlogPostTemplate = ({ data, breadcrumbsProps }: Props) => {
   const { title, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
 
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
+      <Breadcrumbs {...breadcrumbsProps} />
+
       <Typography variant="h3" sx={{ mb: 4 }}>
         {title}
       </Typography>

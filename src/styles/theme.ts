@@ -12,24 +12,20 @@ const baseTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         html: {
-          minHeight: '100%',
           scrollPaddingTop: navigationHeight,
         },
         body: {
-          minHeight: '100%',
+          minHeight: '100vh',
           backgroundColor: palette.background.default,
         },
         '#__next': {
-          minHeight: '100%',
+          minHeight: '100vh',
           overflowX: 'hidden',
           display: 'flex',
           flexDirection: 'column',
         },
         main: {
           flexGrow: 1,
-        },
-        a: {
-          textDecoration: 'none !important', // important, so it work also for MuiLink
         },
       },
     },

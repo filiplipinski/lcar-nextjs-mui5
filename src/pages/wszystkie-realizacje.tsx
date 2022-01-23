@@ -14,10 +14,7 @@ type Props = {
 };
 
 export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
-  // TODO: breadcrumbs
   // TODO: moze wydzielic taki podstawowy template, Container + Typography (uzywane tu i w /kontakt)
-
-  //   TODO !!!: obsluga bledu gdy nic nie ma, mysle ze to w kliencie, gdy pusty array to pokaz brak wynikow
 
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
@@ -27,26 +24,35 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
         LinkComponent={Link}
         href="/"
         variant="contained"
+        size="small"
         color="secondary"
-        sx={{ ml: 'auto', mt: 3 }}
+        sx={{ mt: 1 }}
       >
         Wróć do strony głównej
       </Button>
 
-      <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
-        {realizations.map((realization, index) => (
-          <Grid item xs={12} sm={6} md={3} key={realization.slug}>
-            <FlyIn direction="right" triggerOnScroll delay={index / 3} sx={{ height: '100%' }}>
-              <Card
-                slug={realization.slug}
-                title={realization?.title || ''}
-                description={realization?.shortDescription || ''}
-                imgSrc={buildUrl(realization.mainImage?.fields.file.url)}
-              />
-            </FlyIn>
-          </Grid>
-        ))}
-      </Grid>
+      {!realizations.length && (
+        <Typography variant="h5" align="center" sx={{ mt: 4 }}>
+          Brak wyników
+        </Typography>
+      )}
+
+      {realizations.length && (
+        <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
+          {realizations.map((realization, index) => (
+            <Grid item xs={12} sm={6} md={3} key={realization.slug}>
+              <FlyIn direction="right" triggerOnScroll delay={index / 3} sx={{ height: '100%' }}>
+                <Card
+                  slug={realization.slug}
+                  title={realization?.title || ''}
+                  description={realization?.shortDescription || ''}
+                  imgSrc={buildUrl(realization.mainImage?.fields.file.url)}
+                />
+              </FlyIn>
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Container>
   );
 };

@@ -57,6 +57,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
     href,
     noLinkStyle,
     role, // Link don't have roles.
+    underline = 'none',
     ...other
   } = props;
 
@@ -74,7 +75,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
       return <Anchor className={className} href={href} ref={ref} {...other} />;
     }
 
-    return <MuiLink className={className} href={href} ref={ref} {...other} />;
+    return <MuiLink className={className} href={href} ref={ref} underline={underline} {...other} />;
   }
 
   if (noLinkStyle) {
@@ -88,6 +89,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
       className={className}
       ref={ref}
       to={href}
+      underline={underline}
       {...other}
     />
   );

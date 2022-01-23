@@ -76,7 +76,7 @@ export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps
 
           {/* mr:-1 to have the same spaces in X and Y */}
           <CardActions sx={{ marginTop: 'auto', alignSelf: 'flex-end', p: 0, pt: 1, mr: -1 }}>
-            <Button component="a" disableTouchRipple sx={{ ml: 'auto' }}>
+            <Button component="span" disableTouchRipple sx={{ ml: 'auto' }}>
               Więcej
             </Button>
           </CardActions>

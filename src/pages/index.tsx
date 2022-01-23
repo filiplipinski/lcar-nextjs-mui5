@@ -9,7 +9,6 @@ import { Realizations } from 'src/modules/home/components/Realizations';
 import { Brands } from 'src/modules/home/components/Brands';
 import { getHomePageRealizations } from 'src/lib/contentful/api';
 import { Realization } from 'src/lib/contentful/types';
-// import { getRealizationsEntries } from 'src/lib/contentful/api'; // TODO
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   offers,
@@ -53,6 +52,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       offers,
       realizations,
     },
+    revalidate: 60,
   };
 };
 
