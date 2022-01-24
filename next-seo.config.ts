@@ -6,7 +6,7 @@ const description =
 
 export const defaultSeo: DefaultSeoProps = {
   defaultTitle: title,
-  titleTemplate: '%s | Lcar Radom',
+  titleTemplate: '%s | Lcar Auto Detaling',
   description,
   openGraph: {
     title,
