@@ -18,7 +18,7 @@ import { Footer } from 'src/common/components/Footer';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 
-import { defaultSeo } from '../../next-seo.config';
+import { defaultSeo } from '../next-seo.config';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
