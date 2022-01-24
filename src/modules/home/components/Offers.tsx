@@ -70,7 +70,6 @@ export const Offers = ({ offers }: Props) => {
             return (
               <ImageListItem key={item.title}>
                 <ImageContainer>
-                  {/* TODO important: zmiejszyc rozmiar (wys x szer) zdjec, 2000x1500 to przesada. ale czekaj jak to bedzie wygladac na blogu */}
                   <Image
                     src={item.imgSrc}
                     alt={item.title}

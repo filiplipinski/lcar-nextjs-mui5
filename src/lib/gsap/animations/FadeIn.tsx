@@ -42,7 +42,7 @@ const FadeInRaw = ({
         scrollTrigger: triggerOnScroll
           ? {
               trigger: elementRef.current,
-              start: 'top bottom-=200', // when the top of the trigger hits the bottom of the viewport - 300px
+              start: 'top bottom-=100', // when the top of the trigger hits the bottom of the viewport - 300px
               // toggleActions: 'play none none reverse', // reverse animation when going up
             }
           : undefined,

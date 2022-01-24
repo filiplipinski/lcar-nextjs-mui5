@@ -32,7 +32,7 @@ const FadeUpRaw = ({ children, duration, delay, y, triggerOnScroll, sx }: Props)
         scrollTrigger: triggerOnScroll
           ? {
               trigger: elementRef.current,
-              start: 'top bottom-=100',
+              start: 'top bottom-=50',
             }
           : undefined,
       }

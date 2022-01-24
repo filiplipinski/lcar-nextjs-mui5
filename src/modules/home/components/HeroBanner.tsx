@@ -10,38 +10,6 @@ import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
 
 import { moveXAnimation } from '../utils/keyframes';
 
-// TODO: kondycyjne wylaczanie scrollownia
-// function useImperativeDisableScroll({ element, disabled }) {
-//   useEffect(() => {
-//       if (!element) {
-//           return
-//       }
-
-//       element.style.overflowY = disabled ? 'hidden' : 'scroll'
-
-//       return () => {
-//           element.style.overflowY = 'scroll'
-//       }
-//   }, [disabled])
-// }
-
-{
-  /* <Fade in={!isImgLoaded}>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'white',
-            zIndex: isImgLoaded ? -99 : 999999,
-            overflow: 'hidden',
-          }}
-        ></Box>
-      </Fade> */
-}
-
 export const HeroBanner = () => {
   const theme2 = useTheme();
   const isDesktop = useMediaQuery(theme2.breakpoints.up('md'));

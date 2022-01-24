@@ -11,7 +11,6 @@ export const scrollToElementsId = {
   realizations: `${scrollToId}-realizacje`,
 } as const;
 
-// TODO later: usługi bedzie mialo jeszcze menu rozsuwane, klik w podmenu otwiera nowa strone
 export const navItems: { title: string; href: string }[] = [
   {
     title: 'O firmie',
