@@ -14,13 +14,11 @@ type Props = {
 };
 
 export const BlogPostTemplate = ({ data, crumbs }: Props) => {
-  const { title, introduction, slug, mainImage, content, gallery } = data;
+  const { title, shortDescription, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
 
   return (
-    <PageTemplate title={title || ''} crumbs={crumbs}>
-      {/* TODO: SEO: uzyc short opisu który bedzie do SEO i do karty realizacji w homepage. */}
-
+    <PageTemplate title={title || ''} description={shortDescription} crumbs={crumbs}>
       <Grid container direction="row" sx={{ mt: 2, mb: 4 }}>
         <Grid item xs={12} sm={7} sx={{ pb: { xs: 2, sm: 0 }, pr: { xs: 0, sm: 2 } }}>
           {renderRichText(introduction)}

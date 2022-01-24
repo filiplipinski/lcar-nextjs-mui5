@@ -8,14 +8,15 @@ import { Breadcrumbs, Crumbs } from 'src/common/components/Breadcrumbs';
 type Props = {
   children: ReactNode;
   title: string;
+  description?: string;
   withSeo?: boolean;
   crumbs?: Crumbs;
 };
 
-export const PageTemplate = ({ title, withSeo = true, crumbs, children }: Props) => {
+export const PageTemplate = ({ title, description, withSeo = true, crumbs, children }: Props) => {
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
-      {withSeo && <NextSeo title={title} />}
+      {withSeo && <NextSeo title={title} description={description} />}
 
       {crumbs && <Breadcrumbs crumbs={crumbs} />}
 

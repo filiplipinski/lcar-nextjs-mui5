@@ -34,8 +34,8 @@ export const Realizations = ({ realizations }: Props) => {
                 slug={realization.slug}
                 title={realization?.title || ''}
                 description={realization?.shortDescription || ''}
-                imgSrc={buildUrl(realization.mainImage?.fields.file.url)}
-                withRibbon={!realization.isMainRealization} // bo są 3 glowne i jedna najnowsza
+                imgSrc={buildUrl(realization?.mainImage?.fields.file.url)}
+                withRibbon={!realization?.isMainRealization} // bo są 3 glowne i jedna najnowsza
               />
             </FlyIn>
           </Grid>
