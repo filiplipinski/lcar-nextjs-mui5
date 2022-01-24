@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.lcar.pl
+
+# Sitemaps
+Sitemap: https://www.lcar.pl/sitemap.xml
+Sitemap: https://www.lcar.pl/sitemap-0.xml
