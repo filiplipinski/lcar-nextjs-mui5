@@ -45,10 +45,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Do zrobienia TODO:
 
-- 404 strone troszke popraw
 - pomysl: mapy google'a
 - pomysl: pokazac opinie google?
 - https://fotopro360.pl/pytania/jak-usunac-zdjecia-z-map-google-z-wizytowki-firmy-2-sposoby/
 - loading gdy wyoknuje sie SSR: https://stackoverflow.com/questions/60755316/nextjs-getserversideprops-show-loading -> NGprogress
 - lepsze UX ladowanie obrazkow: https://networkteam.com/journal/2021/lazy-and-eager-images-with-nextjs
-- redirectowanie z http na https
+- na koniec: redirectowanie z http na https

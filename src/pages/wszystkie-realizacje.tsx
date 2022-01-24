@@ -1,27 +1,24 @@
 import type { NextPage, GetServerSideProps } from 'next';
-import { Grid, Container, Typography, Button } from '@mui/material';
-import { NextSeo } from 'next-seo';
+import { Grid, Typography, Button } from '@mui/material';
 
 import { Card } from 'src/common/components/Card';
 import { Realization } from 'src/lib/contentful/types';
 import { FlyIn } from 'src/lib/gsap/animations';
 import { buildUrl } from 'src/lib/contentful/utils';
 import { getAllRealizations } from 'src/lib/contentful/api';
-import { navigationHeight } from 'src/common/components/navbar/Navbar';
 import { Link } from 'src/common/components/Link';
+import { PageTemplate } from 'src/common/components/PageTemplate';
 
 type Props = {
   realizations: Realization[];
 };
 
+const crumbs = [{ name: 'Wszystkie realizacje' }];
+
 export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
-  // TODO: moze wydzielic taki podstawowy template, Container + Typography (uzywane tu i w /kontakt)
-
   return (
-    <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
-      <NextSeo title="Realizacje" />
-
-      <Typography variant="h3">Realizacje</Typography>
+    <PageTemplate title="Realizacje" crumbs={crumbs}>
+      <Typography>Zobacz nasze najlepsze realizacje auto detailingu</Typography>
 
       <Button
         LinkComponent={Link}
@@ -56,7 +53,7 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
           ))}
         </Grid>
       )}
-    </Container>
+    </PageTemplate>
   );
 };
 

@@ -8,12 +8,9 @@ import { BlogPostTemplate } from 'src/common/components/BlogPostTemplate';
 export const ServicePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   service,
 }) => {
-  return (
-    <BlogPostTemplate
-      data={service}
-      breadcrumbsProps={{ type: 'offers', lastCrumbName: service.title }}
-    />
-  );
+  const crumbs = [{ name: 'Usługi', href: '/#uslugi' }, { name: service.title || '' }];
+
+  return <BlogPostTemplate data={service} crumbs={crumbs} />;
 };
 
 type Props = {

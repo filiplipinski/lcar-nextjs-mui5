@@ -5,12 +5,12 @@ import { getRealization } from 'src/lib/contentful/api';
 import { Realization } from 'src/lib/contentful/types';
 
 export const RealizationPage: NextPage<Props> = ({ realization }) => {
-  return (
-    <BlogPostTemplate
-      data={realization}
-      breadcrumbsProps={{ type: 'realizations', lastCrumbName: realization.title }}
-    />
-  );
+  const crumbs = [
+    { name: 'Realizacje', href: '/wszystkie-realizacje' },
+    { name: realization.title || '' },
+  ];
+
+  return <BlogPostTemplate data={realization} crumbs={crumbs} />;
 };
 
 type Props = {

@@ -1,35 +1,27 @@
-import { Typography, Container, Box, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
-import { NextSeo } from 'next-seo';
 
 import { Service, Realization } from 'src/lib/contentful/types';
-import { navigationHeight } from 'src/common/components/navbar/Navbar';
+import { PageTemplate } from 'src/common/components/PageTemplate';
 import { renderRichText } from 'src/lib/contentful/richTextEditor/render';
 import { buildUrl } from 'src/lib/contentful/utils';
-import { Breadcrumbs, BreadcrumbsProps } from 'src/common/components/Breadcrumbs';
+import { Crumbs } from 'src/common/components/Breadcrumbs';
 
 type Props = {
   data: Service | Realization;
-  breadcrumbsProps: BreadcrumbsProps;
+  crumbs: Crumbs;
 };
 
-export const BlogPostTemplate = ({ data, breadcrumbsProps }: Props) => {
+export const BlogPostTemplate = ({ data, crumbs }: Props) => {
   const { title, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
 
   return (
-    <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 8 }} maxWidth="lg">
-      <Breadcrumbs {...breadcrumbsProps} />
+    <PageTemplate title={title || ''} crumbs={crumbs}>
+      {/* TODO: SEO: uzyc short opisu który bedzie do SEO i do karty realizacji w homepage. */}
 
-      {/* TODO: uzyc short opisu który bedzie do SEO i do karty realizacji w homepage. */}
-      <NextSeo title={title} />
-
-      <Typography variant="h3" sx={{ mb: 4 }}>
-        {title}
-      </Typography>
-
-      <Grid container direction="row" sx={{ mb: 4 }}>
+      <Grid container direction="row" sx={{ mt: 2, mb: 4 }}>
         <Grid item xs={12} sm={7} sx={{ pb: { xs: 2, sm: 0 }, pr: { xs: 0, sm: 2 } }}>
           {renderRichText(introduction)}
         </Grid>
@@ -85,6 +77,6 @@ export const BlogPostTemplate = ({ data, breadcrumbsProps }: Props) => {
           </Grid>
         </SRLWrapper>
       )}
-    </Container>
+    </PageTemplate>
   );
 };
