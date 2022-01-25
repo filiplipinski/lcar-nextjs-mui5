@@ -20,7 +20,7 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
   return (
     <PageTemplate title={title || ''} description={shortDescription} crumbs={crumbs}>
       <Grid container direction="row" sx={{ mt: 2, mb: 4 }}>
-        <Grid item xs={12} sm={7} sx={{ pb: { xs: 2, sm: 0 }, pr: { xs: 0, sm: 2 } }}>
+        <Grid item xs={12} sm={7} sx={{ pb: { xs: 2, sm: 0 }, pr: { xs: 0, sm: 4 } }}>
           {renderRichText(introduction)}
         </Grid>
 
