@@ -77,7 +77,6 @@ export const Navbar = () => {
                 {navItems.map(({ title, href }) => (
                   <MenuItem
                     key={href}
-                    tabIndex={0}
                     sx={{
                       p: 0,
                       fontWeight: 'bold',
