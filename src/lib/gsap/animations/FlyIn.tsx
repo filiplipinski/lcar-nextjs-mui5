@@ -1,5 +1,5 @@
 import { Box, SxProps } from '@mui/material';
-import { useRef, memo, ReactNode } from 'react';
+import { useRef, ReactNode } from 'react';
 import { gsap, useIsomorphicLayoutEffect } from '..';
 import { getOffScreenLength } from '../utils/getOffScreen';
 
@@ -68,4 +68,4 @@ const FlyInRaw = ({
   );
 };
 
-export const FlyIn = memo(FlyInRaw);
+export const FlyIn = FlyInRaw;

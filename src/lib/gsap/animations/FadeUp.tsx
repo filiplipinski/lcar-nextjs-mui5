@@ -1,5 +1,5 @@
 import { Box, SxProps } from '@mui/material';
-import { useRef, memo, ReactNode } from 'react';
+import { useRef, ReactNode } from 'react';
 import { gsap, useIsomorphicLayoutEffect } from '..';
 
 type Props = {
@@ -50,4 +50,4 @@ const FadeUpRaw = ({ children, duration, delay, y, triggerOnScroll, sx }: Props)
   );
 };
 
-export const FadeUp = memo(FadeUpRaw);
+export const FadeUp = FadeUpRaw;

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { useRef, memo, ReactNode } from 'react';
+import { useRef, ReactNode } from 'react';
 import { gsap, useIsomorphicLayoutEffect } from '..';
 
 type Props = {
@@ -61,6 +61,4 @@ const FadeInRaw = ({
   );
 };
 
-// TODO rozkmina: czy potrzebne memo, jezeli przekazujemy obiekt - children
-
-export const FadeIn = memo(FadeInRaw);
+export const FadeIn = FadeInRaw;

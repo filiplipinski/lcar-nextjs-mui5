@@ -12,19 +12,11 @@ export const EmbeddedAsset: NodeRenderer = ({ data }: Props) => {
     target: { fields },
   } = data;
 
-  // TODO later: ogarnac video jezeli potrzebne
-  //   const isVideo = fields.file.contentType.includes('video');
-  //   if (isVideo) {
-  //     return (
-  //       <Video
-  //         sys={sys}
-  //         // Change fields format to what <Image /> expects
-  //         fields={fields as any}
-  //         toPlainObject={noop as any}
-  //         update={noop as any}
-  //       />
-  //     );
-  //   }
+  // TODO pomysl: ogarnac video jezeli potrzebne
+  // const isVideo = fields.file.contentType.includes('video');
+  // if (isVideo) {
+  //   return <Video />;
+  // }
 
   const isImage = fields.file.contentType.includes('image');
 
