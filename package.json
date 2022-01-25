@@ -38,6 +38,7 @@
     "swiper": "^7.4.1"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.8",
     "@types/react": "17.0.38",
     "@types/simple-react-lightbox": "^3.6.1",
     "@types/smoothscroll-polyfill": "^0.3.1",

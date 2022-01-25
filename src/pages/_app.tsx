@@ -17,6 +17,7 @@ import { Navbar } from 'src/common/components/navbar/Navbar';
 import { Footer } from 'src/common/components/Footer';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
+import * as gtag from 'src/lib/gtag';
 
 import { defaultSeo } from '../next-seo.config';
 
@@ -35,6 +36,16 @@ const MyApp = (props: MyAppProps) => {
     // do not use classic import, it's won't work because of library problem in nextjs project (window object undefined)
     import('smoothscroll-polyfill').then(({ polyfill }) => polyfill());
   }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   useEffect(() => {
     if (router.asPath.includes('#')) {

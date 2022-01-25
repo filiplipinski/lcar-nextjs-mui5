@@ -3,6 +3,9 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 
 import { createEmotionCache } from 'src/styles/createEmotionCache';
+import { GA_TRACKING_ID } from 'src/lib/gtag';
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 export default class MyDocument extends Document {
   render() {
@@ -10,6 +13,7 @@ export default class MyDocument extends Document {
       <Html lang="pl">
         <Head>
           <meta charSet="UTF-8" />
+          {/* Icons for meta tags */}
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -18,6 +22,7 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#e21010" />
           <meta name="theme-color" content="#ffffff" />
 
+          {/* Fonts */}
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Sen:300,400,500,700,800&subset=latin,latin-ext&display=swap"
@@ -27,6 +32,25 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Russo+One:400&subset=latin,latin-ext&display=block"
           />
+
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          {isProduction && (
+            <>
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${GA_TRACKING_ID}', {
+                      page_path: window.location.pathname,
+                    });
+                  `,
+                }}
+              />
+            </>
+          )}
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}

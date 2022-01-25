@@ -13,6 +13,8 @@ import {
 } from '@mui/material';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
+import * as gtag from 'src/lib/gtag';
+
 type FormValues = {
   name: string;
   email: string;
@@ -50,6 +52,8 @@ export const ContactForm = () => {
     phone,
     message,
   }) => {
+    gtag.event({ action: 'send_email' });
+
     try {
       setSubmitLoading(true);
       const emailjsSend = (await import('@emailjs/browser')).send;
