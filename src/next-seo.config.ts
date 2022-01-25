@@ -12,7 +12,7 @@ export const defaultSeo: DefaultSeoProps = {
     title,
     description,
     type: 'website',
-    url: 'https://www.lcar.pl/',
+    url: 'https://lcar.pl/',
     site_name: 'Lcar',
     images: [
       {

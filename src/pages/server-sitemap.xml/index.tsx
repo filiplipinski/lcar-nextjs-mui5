@@ -6,7 +6,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const realizations = await getAllRealizations();
 
   const fields = realizations.map((realization) => ({
-    loc: `https://www.lcar.pl/realizacje/${realization.slug}`,
+    loc: `https://lcar.pl/realizacje/${realization.slug}`,
     lastmod: new Date().toISOString(),
   }));
 

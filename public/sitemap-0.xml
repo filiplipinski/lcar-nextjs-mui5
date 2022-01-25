@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.lcar.pl</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.506Z</lastmod></url>
-<url><loc>https://www.lcar.pl/kontakt</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/wszystkie-realizacje</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/detailing-wnetrza</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/korekta-lakieru</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/powloki-ochronne</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/usuwanie-wgniecen-pdr</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/renowacja-tapicerki-skorzanej</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/uslugi-tapicerskie</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/wyciszanie-auta</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
-<url><loc>https://www.lcar.pl/uslugi/uslugi-dodatkowe</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-24T19:11:57.507Z</lastmod></url>
+<url><loc>https://lcar.pl</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.847Z</lastmod></url>
+<url><loc>https://lcar.pl/kontakt</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/wszystkie-realizacje</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/detailing-wnetrza</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/korekta-lakieru</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/powloki-ochronne</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/usuwanie-wgniecen-pdr</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/renowacja-tapicerki-skorzanej</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/uslugi-tapicerskie</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/wyciszanie-auta</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
+<url><loc>https://lcar.pl/uslugi/uslugi-dodatkowe</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-01-25T07:23:50.848Z</lastmod></url>
 </urlset>

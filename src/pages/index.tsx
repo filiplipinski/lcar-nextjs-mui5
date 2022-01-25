@@ -40,8 +40,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   // DOCS: https://plaiceholder.co/docs/examples/next
   const offers = await Promise.all(
     offersData.map(async (offer) => {
-      const { base64 } = await getPlaiceholder(offer.imgSrc);
-      return { ...offer, blurDataURL: base64 };
+      try {
+        const { base64 } = await getPlaiceholder(offer.imgSrc);
+        return { ...offer, blurDataURL: base64 };
+      } catch (err) {
+        console.error('error in index.tsx -> getStaticProps', err);
+        return offer;
+      }
     })
   );
 

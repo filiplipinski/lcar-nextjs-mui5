@@ -3,9 +3,9 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.lcar.pl
+Host: https://lcar.pl
 
 # Sitemaps
-Sitemap: https://www.lcar.pl/sitemap.xml
-Sitemap: https://www.lcar.pl/sitemap-0.xml
-Sitemap: https://www.lcar.pl/server-sitemap.xml
+Sitemap: https://lcar.pl/sitemap.xml
+Sitemap: https://lcar.pl/sitemap-0.xml
+Sitemap: https://lcar.pl/server-sitemap.xml

@@ -16,11 +16,17 @@ export const getService = async (slug: string): Promise<Service | null> => {
     'fields.slug': slug,
   };
 
-  // TODO later: add try/catch i obsluge bledow
   // TODO: buildUrl() po stronie API a nie w kliencie
-  const { items } = await client.getEntries<Service>(query);
+  // TODO: moze usprawnic jakos try/catche
+  try {
+    const { items } = await client.getEntries<Service>(query);
 
-  return items.length ? items[0].fields : null;
+    return items.length ? items[0].fields : null;
+  } catch (err) {
+    console.error('error in api.ts -> getService', err);
+
+    return null;
+  }
 };
 
 export const getRealization = async (slug: string): Promise<Realization | null> => {
@@ -30,9 +36,16 @@ export const getRealization = async (slug: string): Promise<Realization | null> 
     content_type: ContentTypeEnum.Realization,
     'fields.slug': slug,
   };
-  const { items } = await client.getEntries<Realization>(query);
 
-  return items.length ? items[0].fields : null;
+  try {
+    const { items } = await client.getEntries<Realization>(query);
+
+    return items.length ? items[0].fields : null;
+  } catch (err) {
+    console.error('error in api.ts -> getRealization', err);
+
+    return null;
+  }
 };
 
 export const getHomePageRealizations = async (): Promise<Realization[]> => {
@@ -52,17 +65,25 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
     'fields.isMainRealization': false, // najnowszy nie moze byc "best", bo juz tam bedzie :)
   };
 
-  const [bestRealizationsEntry, newestRealizationEntry] = await Promise.all([
-    client.getEntries<Realization>(bestRealizationsQuery),
-    client.getEntries<Realization>(newestRealizationQuery),
-  ]);
+  try {
+    const [bestRealizationsEntry, newestRealizationEntry] = await Promise.all([
+      client.getEntries<Realization>(bestRealizationsQuery),
+      client.getEntries<Realization>(newestRealizationQuery),
+    ]);
 
-  const realizations = [
-    ...bestRealizationsEntry.items.map((item) => item.fields),
-    ...(newestRealizationEntry.items?.[0]?.fields ? [newestRealizationEntry.items[0].fields] : []),
-  ];
+    const realizations = [
+      ...bestRealizationsEntry.items.map((item) => item.fields),
+      ...(newestRealizationEntry.items?.[0]?.fields
+        ? [newestRealizationEntry.items[0].fields]
+        : []),
+    ];
 
-  return realizations;
+    return realizations;
+  } catch (err) {
+    console.error('error in api.ts -> getHomePageRealizations', err);
+
+    return [];
+  }
 };
 
 export const getAllRealizations = async (): Promise<Realization[]> => {
@@ -73,9 +94,14 @@ export const getAllRealizations = async (): Promise<Realization[]> => {
     content_type: ContentTypeEnum.Realization,
   };
 
-  const { items } = await client.getEntries<Realization>(query);
+  try {
+    const { items } = await client.getEntries<Realization>(query);
 
-  const realizations = items.map((item) => item.fields);
+    const realizations = items.map((item) => item.fields);
 
-  return realizations;
+    return realizations;
+  } catch (err) {
+    console.error('error in api.ts -> getAllRealizations', err);
+    return [];
+  }
 };
