@@ -21,7 +21,11 @@ export const Breadcrumbs = ({ crumbs }: Props) => {
 
       {crumbs.map((crumb, index) => {
         if (crumb.name && index + 1 === crumbs.length) {
-          return <Typography color="text.primary">{crumb.name}</Typography>;
+          return (
+            <Typography key={crumb.name} color="text.primary">
+              {crumb.name}
+            </Typography>
+          );
         }
 
         if (crumb.href) {

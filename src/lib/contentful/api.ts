@@ -11,7 +11,7 @@ const client = createClient({
 export const getService = async (slug: string): Promise<Service | null> => {
   const query = {
     limit: 1,
-    include: 10, // to jest chyba liczba zagniezdzen
+    include: 1, // to jest liczba zagniezdzen
     content_type: ContentTypeEnum.Service,
     'fields.slug': slug,
   };
@@ -32,7 +32,7 @@ export const getService = async (slug: string): Promise<Service | null> => {
 export const getRealization = async (slug: string): Promise<Realization | null> => {
   const query = {
     limit: 1,
-    include: 10,
+    include: 1,
     content_type: ContentTypeEnum.Realization,
     'fields.slug': slug,
   };
@@ -51,7 +51,7 @@ export const getRealization = async (slug: string): Promise<Realization | null> 
 export const getHomePageRealizations = async (): Promise<Realization[]> => {
   const bestRealizationsQuery = {
     limit: 3,
-    include: 10,
+    include: 1,
     order: '-sys.createdAt', // 3 newest best, jezeli ktos zapomni usunac isMainRealization
     content_type: ContentTypeEnum.Realization,
     'fields.isMainRealization': true,
@@ -59,7 +59,7 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
 
   const newestRealizationQuery = {
     limit: 1,
-    include: 10,
+    include: 1,
     order: '-sys.createdAt', // newest
     content_type: ContentTypeEnum.Realization,
     'fields.isMainRealization': false, // najnowszy nie moze byc "best", bo juz tam bedzie :)
@@ -89,7 +89,7 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
 export const getAllRealizations = async (): Promise<Realization[]> => {
   const query = {
     limit: 100,
-    include: 10,
+    include: 1,
     order: '-sys.createdAt',
     content_type: ContentTypeEnum.Realization,
   };
@@ -102,6 +102,27 @@ export const getAllRealizations = async (): Promise<Realization[]> => {
     return realizations;
   } catch (err) {
     console.error('error in api.ts -> getAllRealizations', err);
+    return [];
+  }
+};
+
+export const getRealizationSlugs = async (): Promise<string[]> => {
+  const query = {
+    limit: 100,
+    include: 0,
+    order: '-sys.createdAt',
+    content_type: ContentTypeEnum.Realization,
+    'fields.slug[exists]': true, // slug musi istnieć
+  };
+
+  try {
+    const { items } = await client.getEntries<Realization>(query);
+
+    const slugs = items.map((item) => item.fields.slug).filter(Boolean);
+
+    return slugs;
+  } catch (err) {
+    console.error('error in api.ts -> getRealizationSlugs', err);
     return [];
   }
 };

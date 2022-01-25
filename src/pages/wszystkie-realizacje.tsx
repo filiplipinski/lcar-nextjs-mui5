@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import { Grid, Typography, Button } from '@mui/material';
 
 import { Card } from 'src/common/components/Card';
@@ -57,7 +57,7 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const realizations = await getAllRealizations();
 
   return {
