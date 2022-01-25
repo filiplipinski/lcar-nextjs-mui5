@@ -52,7 +52,7 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
   const bestRealizationsQuery = {
     limit: 3,
     include: 1,
-    order: '-sys.createdAt', // 3 newest best, jezeli ktos zapomni usunac isMainRealization
+    order: 'sys.createdAt', // 3 best from oldest, 3 bo jezeli ktos zapomni usunac isMainRealization
     content_type: ContentTypeEnum.Realization,
     'fields.isMainRealization': true,
   };
