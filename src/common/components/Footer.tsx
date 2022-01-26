@@ -36,7 +36,13 @@ export const Footer = () => {
                 <Phone sx={{ fontSize: 40, color: 'common.white', mr: 2 }} />
 
                 <div>
-                  <Typography variant="h5" color="secondary2" component="a" href="tel:+48539943336">
+                  <Typography
+                    variant="h5"
+                    color="secondary2"
+                    component="a"
+                    href="tel:+48539943336"
+                    sx={{ textDecoration: 'none' }}
+                  >
                     <Typography variant="h5" component="span" color="secondary">
                       +48
                     </Typography>{' '}

@@ -29,7 +29,16 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
       </Typography>
 
       {mainImageSrc && (
-        <Box sx={{ position: 'relative', height: 450, width: 'auto', maxWidth: 750, mt: 2, mb: 4 }}>
+        <Box
+          sx={{
+            position: 'relative',
+            height: { xs: 250, sm: 450 },
+            width: 'auto',
+            maxWidth: 750,
+            mt: 2,
+            mb: 4,
+          }}
+        >
           <Image src={mainImageSrc} alt={slug} priority layout="fill" objectFit="cover" />
         </Box>
       )}
@@ -69,6 +78,7 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
                     alt={description}
                     width={file.details.image?.width ?? 300}
                     height={file.details.image?.height ?? 200}
+                    // TODO: moze jeszcze zejsc z quality?
                     quality={70}
                     layout="responsive"
                     objectFit="cover"

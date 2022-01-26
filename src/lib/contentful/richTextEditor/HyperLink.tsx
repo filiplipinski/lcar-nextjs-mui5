@@ -27,8 +27,9 @@ export const HyperLink: NodeRenderer = ({ data, content }: Props) => {
   return (
     <Link
       href={href}
+      underline="hover"
       {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
-      sx={{ color: blue['600'], ':hover': { textDecoration: 'underline !important' } }} // important because it also in theme.ts
+      sx={{ color: blue['600'] }}
     >
       {linkText}
     </Link>
