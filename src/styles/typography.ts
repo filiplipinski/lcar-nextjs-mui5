@@ -41,7 +41,7 @@ export const typography = (palette: Palette): TypographyOptions => ({
   subtitle1: {
     color: palette.primary.main,
     fontSize: '1.125rem', // 18px
-    fontWeight: 'bold',
+    fontWeight: 700,
   },
   subtitle2: {
     color: palette.primary.main,

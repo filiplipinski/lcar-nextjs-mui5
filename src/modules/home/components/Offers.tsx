@@ -88,14 +88,15 @@ export const Offers = ({ offers }: Props) => {
                   </Box>
 
                   <Typography
-                    variant={isDesktop ? 'h5' : 'h6'}
+                    variant="h6"
                     color="secondary2"
                     align="center"
                     sx={{
                       opacity: areImagesLoaded ? 1 : 0,
-                      mt: isDesktop ? 2 : 1,
+                      mt: { xs: 1, sm: 2 },
                       textShadow: '0px 0px 4px rgba(0, 0, 0, .5)',
-                      fontSize: 14,
+                      fontSize: (theme) => ({ xs: 14, sm: theme.typography.h6.fontSize }),
+                      px: 1,
                     }}
                   >
                     {item.title}
@@ -129,7 +130,7 @@ const ShadowAndTextContainer = styled(Link)({
   '& > div': {
     transition: 'transform .8s ease-in-out',
   },
-  '& h5': {
+  '& h6': {
     transition: 'transform .3s ease-in-out',
   },
 
@@ -140,7 +141,7 @@ const ShadowAndTextContainer = styled(Link)({
       transform: 'rotate(360deg)',
     },
 
-    '& h5': {
+    '& h6': {
       transform: 'scale(1.1)',
     },
   },

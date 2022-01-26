@@ -19,10 +19,10 @@ export const HeroBanner = () => {
     <Box sx={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
         <FlyIn manualTriggerMode triggerManually={isImgLoaded}>
-          <CustomText variant={isDesktop ? 'h1' : 'h2'}>Z miłości</CustomText>{' '}
+          <CustomText variant="h1">Z miłości</CustomText>{' '}
         </FlyIn>
         <FlyIn manualTriggerMode triggerManually={isImgLoaded} delay={0.8}>
-          <CustomText variant={isDesktop ? 'h1' : 'h2'}>
+          <CustomText variant="h1">
             do{' '}
             <Box
               component="span"
@@ -75,6 +75,15 @@ const CustomText = styled(Typography)(({ theme }) => ({
   fontFamily: 'Russo One',
   fontWeight: 'regular',
   pointerEvents: 'none',
+  fontSize: 40,
+
+  [theme.breakpoints.up('sm')]: {
+    fontSize: 56,
+  },
+
+  [theme.breakpoints.up('md')]: {
+    fontSize: 64,
+  },
 
   color: 'transparent',
   WebkitTextStroke: `1px ${theme.palette.primary.main}`,
