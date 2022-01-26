@@ -69,7 +69,7 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
                     alt={description}
                     width={file.details.image?.width ?? 300}
                     height={file.details.image?.height ?? 200}
-                    quality={50}
+                    quality={70}
                     layout="responsive"
                     objectFit="cover"
                   />
