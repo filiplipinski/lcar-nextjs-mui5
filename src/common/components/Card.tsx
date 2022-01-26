@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { styled } from '@mui/system';
 
 import { Link } from 'src/common/components/Link';
+import { truncate } from '../utils/string';
 
 export type CardProps = {
   slug: string;
@@ -21,6 +22,8 @@ export type CardProps = {
 };
 
 export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps) => {
+  const truncatedDescription = truncate(description, 130);
+
   return (
     <MuiCard key={slug} sx={{ height: '100%' }}>
       <CardActionArea
@@ -40,10 +43,9 @@ export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps
           {withRibbon && (
             <Ribbon>
               <Typography
-                variant="subtitle1"
                 color="common.white"
                 align="center"
-                sx={{ fontWeight: 700, fontSize: 24 }}
+                sx={{ height: '100%', lineHeight: '40px', fontSize: 20, fontWeight: 'bold' }} // lineHeight = Ribbon height
               >
                 NOWE
               </Typography>
@@ -71,7 +73,7 @@ export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps
             {title}
           </Typography>
           <Typography variant="body1" component="p">
-            {description}
+            {truncatedDescription}
           </Typography>
 
           {/* mr:-1 to have the same spaces in X and Y */}

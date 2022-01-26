@@ -45,7 +45,7 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
                 <Card
                   slug={realization.slug}
                   title={realization?.title || ''}
-                  description={realization?.shortDescription || ''}
+                  description={realization?.introduction || ''}
                   imgSrc={buildUrl(realization.mainImage?.fields.file.url)}
                 />
               </FlyIn>

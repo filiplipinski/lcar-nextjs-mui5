@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 
@@ -7,6 +7,7 @@ import { PageTemplate } from 'src/common/components/PageTemplate';
 import { renderRichText } from 'src/lib/contentful/richTextEditor/render';
 import { buildUrl } from 'src/lib/contentful/utils';
 import { Crumbs } from 'src/common/components/Breadcrumbs';
+import { truncate } from '../utils/string';
 
 type Props = {
   data: Service | Realization;
@@ -14,22 +15,24 @@ type Props = {
 };
 
 export const BlogPostTemplate = ({ data, crumbs }: Props) => {
-  const { title, shortDescription, introduction, slug, mainImage, content, gallery } = data;
+  const { title, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
 
   return (
-    <PageTemplate title={title || ''} description={shortDescription} crumbs={crumbs}>
-      <Grid container direction="row" sx={{ mt: 2, mb: 4 }}>
-        <Grid item xs={12} sm={6} sx={{ pb: { xs: 2, sm: 0 }, pr: { xs: 0, sm: 6 } }}>
-          {renderRichText(introduction)}
-        </Grid>
+    <PageTemplate
+      title={title || ''}
+      description={truncate(introduction || '', 160)}
+      crumbs={crumbs}
+    >
+      <Typography variant="subtitle1" sx={{ pb: 2 }}>
+        {introduction}
+      </Typography>
 
-        {mainImageSrc && (
-          <Grid item xs={12} sm={6} sx={{ position: 'relative', minHeight: 300 }}>
-            <Image src={mainImageSrc} alt={slug} priority layout="fill" objectFit="cover" />
-          </Grid>
-        )}
-      </Grid>
+      {mainImageSrc && (
+        <Box sx={{ position: 'relative', height: 450, width: 'auto', maxWidth: 750, mt: 2, mb: 4 }}>
+          <Image src={mainImageSrc} alt={slug} priority layout="fill" objectFit="cover" />
+        </Box>
+      )}
 
       <Box sx={{ mb: 6 }}>{renderRichText(content)}</Box>
 
@@ -66,6 +69,7 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
                     alt={description}
                     width={file.details.image?.width ?? 300}
                     height={file.details.image?.height ?? 200}
+                    quality={50}
                     layout="responsive"
                     objectFit="cover"
                   />

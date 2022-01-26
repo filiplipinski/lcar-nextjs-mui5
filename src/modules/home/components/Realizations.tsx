@@ -33,7 +33,7 @@ export const Realizations = ({ realizations }: Props) => {
               <Card
                 slug={realization.slug}
                 title={realization?.title || ''}
-                description={realization?.shortDescription || ''}
+                description={realization?.introduction || ''}
                 imgSrc={buildUrl(realization?.mainImage?.fields.file.url)}
                 withRibbon={!realization?.isMainRealization} // bo są 3 glowne i jedna najnowsza
               />

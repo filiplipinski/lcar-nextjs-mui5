@@ -10,9 +10,8 @@ export enum ContentTypeEnum {
 // then those properties are undefined in code and build fails
 export type Service = {
   slug: string;
-  shortDescription?: string; // only for SEO
   title?: string;
-  introduction?: Document;
+  introduction?: string;
   mainImage?: Asset;
   content?: Document;
   gallery?: Asset[];
@@ -21,9 +20,8 @@ export type Service = {
 export type Realization = {
   slug: string;
   isMainRealization?: boolean; // only for homepage
-  shortDescription?: string; // only for homepage and SEO
   title?: string;
-  introduction?: Document;
+  introduction?: string;
   mainImage?: Asset;
   content?: Document;
   gallery?: Asset[];
