@@ -11,10 +11,11 @@ import { truncate } from '../utils/string';
 
 type Props = {
   data: Service | Realization;
+  mainImageBlurDataURL?: string;
   crumbs: Crumbs;
 };
 
-export const BlogPostTemplate = ({ data, crumbs }: Props) => {
+export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs }: Props) => {
   const { title, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
 
@@ -39,7 +40,15 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
             mb: 4,
           }}
         >
-          <Image src={mainImageSrc} alt={slug} priority layout="fill" objectFit="cover" />
+          <Image
+            src={mainImageSrc}
+            alt={slug}
+            priority
+            placeholder={mainImageBlurDataURL ? 'blur' : undefined}
+            blurDataURL={mainImageBlurDataURL}
+            layout="fill"
+            objectFit="cover"
+          />
         </Box>
       )}
 
