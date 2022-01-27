@@ -68,17 +68,14 @@ export const BlogPostTemplate = ({ data, crumbs }: Props) => {
                   item
                   key={`${file.url}-${index}`}
                   sx={{
-                    position: 'relative',
                     cursor: 'pointer',
-                    m: 0,
                   }}
                 >
                   <Image
                     src={buildUrl(file.url)}
                     alt={description}
-                    width={file.details.image?.width ?? 300}
-                    height={file.details.image?.height ?? 200}
-                    // TODO: moze jeszcze zejsc z quality?
+                    width={300}
+                    height={200}
                     quality={70}
                     layout="responsive"
                     objectFit="cover"

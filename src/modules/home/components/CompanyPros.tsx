@@ -58,7 +58,7 @@ export const CompanyPros = () => {
               <Stack spacing={2} sx={{ height: { xs: 260, md: 280, lg: 240, xl: 220 } }}>
                 <Image src={iconSrc} alt="" height={55} width={55} />
 
-                <Typography variant="h4" align="center">
+                <Typography variant="h5" align="center" sx={{ textTransform: 'uppercase' }}>
                   {title}
                 </Typography>
 

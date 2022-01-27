@@ -75,7 +75,7 @@ const CustomText = styled(Typography)(({ theme }) => ({
   fontFamily: 'Russo One',
   fontWeight: 'regular',
   pointerEvents: 'none',
-  fontSize: 40,
+  fontSize: 36,
 
   [theme.breakpoints.up('sm')]: {
     fontSize: 56,
