@@ -49,7 +49,7 @@ export const HeroBanner = () => {
         </FadeIn>
       </Box>
 
-      {/* TODO: onError other image */}
+      {/* TODO moze: onError other image */}
       <Image
         src="/img/hero.jpeg"
         alt=""

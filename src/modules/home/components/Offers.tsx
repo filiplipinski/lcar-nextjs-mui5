@@ -77,7 +77,6 @@ export const Offers = ({ offers }: Props) => {
                     objectFit="cover"
                     placeholder={item.blurDataURL ? 'blur' : undefined}
                     blurDataURL={item.blurDataURL}
-                    // TODO: onLoad sie wykonuje dla kazdego zdjecia osobno
                     onLoadingComplete={() => setImagesLoaded(true)}
                   />
                 </ImageContainer>

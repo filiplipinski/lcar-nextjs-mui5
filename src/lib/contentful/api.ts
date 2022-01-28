@@ -16,8 +16,6 @@ export const getService = async (slug: string): Promise<Service | null> => {
     'fields.slug': slug,
   };
 
-  // TODO: buildUrl() po stronie API a nie w kliencie
-  // TODO: moze usprawnic jakos try/catche
   try {
     const { items } = await client.getEntries<Service>(query);
 
