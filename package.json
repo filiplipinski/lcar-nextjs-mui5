@@ -19,6 +19,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
+    "@googlemaps/js-api-loader": "^1.13.2",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.3.1",
     "@plaiceholder/next": "^2.2.0",
@@ -38,6 +39,7 @@
     "swiper": "^7.4.1"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.47.3",
     "@types/gtag.js": "^0.0.8",
     "@types/react": "17.0.38",
     "@types/simple-react-lightbox": "^3.6.1",

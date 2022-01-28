@@ -1,13 +1,36 @@
-import { Stack, Typography } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import { Stack, Typography, Box } from '@mui/material';
 import { styled } from '@mui/system';
+import { Loader as GoogleMapsLoader } from '@googlemaps/js-api-loader';
 
 import { ContactForm } from 'src/modules/kontakt/components/ContactForm';
 import { ContactInfo } from 'src/modules/kontakt/components/ContactInfo';
 import { PageTemplate } from 'src/common/components/PageTemplate';
 
 const crumbs = [{ name: 'Kontakt' }];
+const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS;
 
 const ContactPage = () => {
+  const googleMapsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const loader = new GoogleMapsLoader({
+      apiKey: googleMapsApiKey,
+      version: 'weekly',
+      libraries: ['places'],
+    });
+
+    loader.load().then(() => {
+      if (!googleMapsRef.current) {
+        return;
+      }
+      new window.google.maps.Map(googleMapsRef.current, {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+    });
+  }, []);
+
   return (
     <PageTemplate title="Kontakt" crumbs={crumbs}>
       <Typography>
@@ -21,6 +44,8 @@ const ContactPage = () => {
 
         <ContactForm />
       </StyledStack>
+
+      <Box ref={googleMapsRef} sx={{ height: 300, mt: 4 }} />
     </PageTemplate>
   );
 };
