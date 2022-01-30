@@ -31,7 +31,7 @@ export const getAllServices = async (limit?: number, omitSlug?: string): Promise
   const query = {
     limit: limit ?? 10,
     include: 1,
-    order: '-sys.createdAt',
+    order: 'sys.createdAt', // from oldest
     content_type: ContentTypeEnum.Service,
     ...(omitSlug ? { 'fields.slug[nin]': omitSlug } : {}),
   };
