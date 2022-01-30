@@ -51,8 +51,8 @@ export const ContactInfo = () => {
             sx={{ textTransform: 'lowercase', textDecoration: 'none' }}
           >
             <Typography
-              variant="h5"
               component="span"
+              variant="h5"
               color="secondary"
               sx={{ textTransform: 'inherit' }}
             >
@@ -70,12 +70,19 @@ export const ContactInfo = () => {
 
 const IconContainer = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
-  width: 80,
-  height: 80,
+  width: 60,
+  height: 60,
+  minWidth: 60,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   marginRight: 16,
+
+  [theme.breakpoints.up('sm')]: {
+    width: 80,
+    height: 80,
+    minWidth: 80,
+  },
 
   [theme.breakpoints.up('md')]: {
     marginRight: 32,
