@@ -67,7 +67,7 @@ export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps
             gutterBottom
             color="secondary"
             variant="h6"
-            component="h2"
+            component="h3"
             sx={{ textTransform: 'uppercase' }}
           >
             {title}

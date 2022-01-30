@@ -1,5 +1,5 @@
 import { Typography, Container, useMediaQuery, useTheme, Stack, Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { styled, lighten } from '@mui/material/styles';
 import { ExpandLess, Phone } from '@mui/icons-material';
 import Image from 'next/image';
 
@@ -18,7 +18,13 @@ export const Footer = () => {
         {isDesktop && (
           <Stack direction="row" justifyContent="space-between">
             <div>
-              <Typography variant="h5" align="center" color="secondary2" sx={{ mb: 3 }}>
+              <Typography
+                variant="h5"
+                component="h4"
+                align="center"
+                color="secondary2"
+                sx={{ mb: 3 }}
+              >
                 Media
               </Typography>
 
@@ -28,7 +34,13 @@ export const Footer = () => {
             </div>
 
             <div>
-              <Typography variant="h5" align="center" color="secondary2" sx={{ mb: 3 }}>
+              <Typography
+                variant="h5"
+                component="h4"
+                align="center"
+                color="secondary2"
+                sx={{ mb: 3 }}
+              >
                 Kontakt
               </Typography>
 
@@ -43,7 +55,11 @@ export const Footer = () => {
                     href="tel:+48539943336"
                     sx={{ textDecoration: 'none' }}
                   >
-                    <Typography variant="h5" component="span" color="secondary">
+                    <Typography
+                      variant="h5"
+                      component="span"
+                      sx={(theme) => ({ color: lighten(theme.palette.secondary.light, 0.06) })}
+                    >
                       +48
                     </Typography>{' '}
                     539 943 336
@@ -66,7 +82,7 @@ export const Footer = () => {
 
         {!isDesktop && (
           <Stack direction="column" alignItems="center" spacing={2}>
-            <Typography variant="h5" color="secondary2">
+            <Typography variant="h5" component="h4" color="secondary2">
               Media
             </Typography>
 
@@ -94,7 +110,11 @@ export const Footer = () => {
 
         <Typography align="center" color="secondary2" sx={{ mt: 4 }}>
           <span style={{ fontWeight: 800 }}>
-            <Typography component="span" fontWeight="inherit" color="secondary">
+            <Typography
+              component="span"
+              fontWeight="inherit"
+              sx={(theme) => ({ color: lighten(theme.palette.secondary.light, 0.06) })}
+            >
               LCAR.PL
             </Typography>{' '}
             ® 2021

@@ -54,7 +54,7 @@ export const Navbar = () => {
               height: '100%',
             }}
           >
-            <ImageContainer href="/">
+            <ImageContainer href="/" aria-label="Lcar logo">
               <Image
                 src="/img/logo.png"
                 alt=""

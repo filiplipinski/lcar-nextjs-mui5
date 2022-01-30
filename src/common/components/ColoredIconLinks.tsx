@@ -12,32 +12,34 @@ type Props = {
 
 export const FacebookIconLink = ({ sx, iconFontSize = 24, noPaddings }: Props) => {
   return (
-    <Link
+    <IconButton
+      LinkComponent={Link}
       href="https://www.facebook.com/Lcar-Autodetailing-Radom-105024021544930"
       target="_blank"
       rel="noopener noreferrer"
-      sx={sx}
+      aria-label="Facebook"
+      size="small"
+      sx={{ ...sx, p: noPaddings ? 0 : '3px' }}
     >
-      <IconButton size="small" sx={{ p: noPaddings ? 0 : '3px' }}>
-        <FacebookIcon sx={{ fontSize: iconFontSize }} />
-      </IconButton>
-    </Link>
+      <FacebookIcon sx={{ fontSize: iconFontSize }} />
+    </IconButton>
   );
 };
 
 export const InstagramIconLink = ({ sx, iconFontSize = 24, noPaddings }: Props) => {
   return (
-    <Link
+    <IconButton
+      LinkComponent={Link}
       href="https://www.instagram.com/lcarradom"
       target="_blank"
       rel="noopener noreferrer"
-      sx={sx}
+      aria-label="Instagram"
+      size="small"
+      sx={{ ...sx, p: noPaddings ? 0 : '5px' }}
     >
-      <IconButton size="small" sx={{ p: noPaddings ? 0 : '5px' }}>
-        {/* 0.75 because i want to scale icon to be the same as facebook */}
-        <InstagramIcon sx={{ fontSize: iconFontSize * 0.8 }} />
-      </IconButton>
-    </Link>
+      {/* 0.75 because i want to scale icon to be the same as facebook */}
+      <InstagramIcon sx={{ fontSize: iconFontSize * 0.8 }} />
+    </IconButton>
   );
 };
 

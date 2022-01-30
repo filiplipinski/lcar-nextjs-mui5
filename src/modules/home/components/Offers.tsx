@@ -29,7 +29,7 @@ export const Offers = ({ offers }: Props) => {
   return (
     <Box id={scrollToElementsId.offer} sx={{ pt: 8 }}>
       <FadeUp triggerOnScroll>
-        <Typography variant="h3" align="center" sx={{ mb: 2 }}>
+        <Typography variant="h3" component="h2" align="center" sx={{ mb: 2 }}>
           Usługi
         </Typography>
       </FadeUp>
@@ -88,6 +88,7 @@ export const Offers = ({ offers }: Props) => {
 
                   <Typography
                     variant="h6"
+                    component="h3"
                     color="secondary2"
                     align="center"
                     sx={{

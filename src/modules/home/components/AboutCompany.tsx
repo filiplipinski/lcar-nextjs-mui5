@@ -8,7 +8,7 @@ export const AboutCompany = () => {
   return (
     <Container id={scrollToElementsId.aboutCompany} sx={{ pt: 8 }}>
       <FadeUp triggerOnScroll>
-        <Typography variant="h3" align="center" sx={{ mb: 4 }}>
+        <Typography variant="h3" component="h2" align="center" sx={{ mb: 4 }}>
           O firmie
         </Typography>
       </FadeUp>

@@ -15,7 +15,7 @@ export const Realizations = ({ realizations }: Props) => {
   return (
     <Container id={scrollToElementsId.realizations} sx={{ pt: 8, mb: 8 }}>
       <FadeUp triggerOnScroll>
-        <Typography variant="h3" align="center" sx={{ mb: 2 }}>
+        <Typography variant="h3" component="h2" align="center" sx={{ mb: 2 }}>
           Realizacje
         </Typography>
       </FadeUp>

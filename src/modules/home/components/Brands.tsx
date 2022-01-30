@@ -39,7 +39,12 @@ export const Brands = () => {
     <Box sx={{ my: 8 }}>
       <Container>
         <FadeUp triggerOnScroll y={30}>
-          <Typography variant="h5" align="center" sx={{ mb: 1, textTransform: 'uppercase' }}>
+          <Typography
+            component="h3"
+            variant="h5"
+            align="center"
+            sx={{ mb: 1, textTransform: 'uppercase' }}
+          >
             Marki na których pracujemy
           </Typography>
         </FadeUp>
