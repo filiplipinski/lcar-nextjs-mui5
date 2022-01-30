@@ -1,5 +1,5 @@
 import { SxProps, IconButton } from '@mui/material';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 import { Facebook, Instagram } from '@mui/icons-material';
 
 import { Link } from 'src/common/components/Link';

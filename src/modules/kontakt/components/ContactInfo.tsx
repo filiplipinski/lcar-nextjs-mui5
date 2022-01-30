@@ -1,6 +1,6 @@
 import { Home, PhoneAndroid, MailOutline } from '@mui/icons-material';
 import { Stack, Typography } from '@mui/material';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 export const ContactInfo = () => {
   return (
@@ -69,7 +69,7 @@ export const ContactInfo = () => {
 };
 
 const IconContainer = styled('div')(({ theme }) => ({
-  backgroundColor: 'white',
+  backgroundColor: theme.palette.background.default,
   width: 80,
   height: 80,
   display: 'flex',

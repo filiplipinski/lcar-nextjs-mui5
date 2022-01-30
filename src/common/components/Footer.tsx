@@ -1,5 +1,5 @@
 import { Typography, Container, useMediaQuery, useTheme, Stack, Box } from '@mui/material';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 import { ExpandLess, Phone } from '@mui/icons-material';
 import Image from 'next/image';
 

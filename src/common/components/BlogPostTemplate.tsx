@@ -8,14 +8,16 @@ import { renderRichText } from 'src/lib/contentful/richTextEditor/render';
 import { buildUrl } from 'src/lib/contentful/utils';
 import { Crumbs } from 'src/common/components/Breadcrumbs';
 import { truncate } from '../utils/string';
+import { AsideProps } from './AsideMenu';
 
 type Props = {
   data: Service | Realization;
   mainImageBlurDataURL?: string;
   crumbs: Crumbs;
+  asideProps: AsideProps;
 };
 
-export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs }: Props) => {
+export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProps }: Props) => {
   const { title, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
 
@@ -24,6 +26,7 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs }: Props) 
       title={title || ''}
       description={truncate(introduction || '', 160)}
       crumbs={crumbs}
+      asideProps={asideProps}
     >
       <Typography variant="subtitle1" sx={{ pb: 2 }}>
         {introduction}

@@ -59,7 +59,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           border: `1px solid ${palette.background.default}`,
-          backgroundColor: '#fafafa',
+          backgroundColor: palette.common.white,
         },
       },
     },

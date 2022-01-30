@@ -9,7 +9,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import Image from 'next/image';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';

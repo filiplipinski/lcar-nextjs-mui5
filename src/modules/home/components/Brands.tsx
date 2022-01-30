@@ -58,7 +58,7 @@ export const Brands = () => {
           sx={{
             backgroundColor: 'common.white',
             py: 2,
-            borderRadius: isTablet ? 5 : 0,
+            borderRadius: isTablet ? '10px' : 0,
             maxWidth: isTablet ? 600 : 'none',
             margin: '0 auto',
             boxShadow: 'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px',

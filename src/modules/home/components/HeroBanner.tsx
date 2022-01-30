@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import NextImage from 'next/image';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';

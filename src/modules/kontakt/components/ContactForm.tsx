@@ -79,7 +79,8 @@ export const ContactForm = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'common.white',
+        backgroundColor: 'background.default',
+        borderRadius: '10px',
         p: { xs: '32px 16px', sm: '32px' },
         mt: { xs: 4, md: 0 },
       }}

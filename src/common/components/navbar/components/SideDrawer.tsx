@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Stack, Drawer, IconButton, Divider, Button, Box } from '@mui/material';
 import { Menu as MenuIcon, Phone as PhoneIcon } from '@mui/icons-material';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
 

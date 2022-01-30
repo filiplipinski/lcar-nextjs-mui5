@@ -27,6 +27,27 @@ export const getService = async (slug: string): Promise<Service | null> => {
   }
 };
 
+export const getAllServices = async (limit?: number, omitSlug?: string): Promise<Realization[]> => {
+  const query = {
+    limit: limit ?? 10,
+    include: 1,
+    order: '-sys.createdAt',
+    content_type: ContentTypeEnum.Service,
+    ...(omitSlug ? { 'fields.slug[nin]': omitSlug } : {}),
+  };
+
+  try {
+    const { items } = await client.getEntries<Service>(query);
+
+    const services = items.map((item) => item.fields);
+
+    return services;
+  } catch (err) {
+    console.error('error in api.ts -> getAllServices', err);
+    return [];
+  }
+};
+
 export const getRealization = async (slug: string): Promise<Realization | null> => {
   const query = {
     limit: 1,
@@ -84,12 +105,16 @@ export const getHomePageRealizations = async (): Promise<Realization[]> => {
   }
 };
 
-export const getAllRealizations = async (): Promise<Realization[]> => {
+export const getAllRealizations = async (
+  limit?: number,
+  omitSlug?: string
+): Promise<Realization[]> => {
   const query = {
-    limit: 100,
+    limit: limit ?? 100,
     include: 1,
     order: '-sys.createdAt',
     content_type: ContentTypeEnum.Realization,
+    ...(omitSlug ? { 'fields.slug[nin]': omitSlug } : {}),
   };
 
   try {

@@ -2,11 +2,16 @@ import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { getPlaiceholder } from 'plaiceholder';
 
 import { BlogPostTemplate } from 'src/common/components/BlogPostTemplate';
-import { getRealization, getRealizationSlugs } from 'src/lib/contentful/api';
+import { getRealization, getRealizationSlugs, getAllRealizations } from 'src/lib/contentful/api';
 import { Realization } from 'src/lib/contentful/types';
 import { buildUrl } from 'src/lib/contentful/utils';
+import { AsideProps } from 'src/common/components/AsideMenu';
 
-export const RealizationPage: NextPage<Props> = ({ realization, mainImageBlurDataURL }) => {
+export const RealizationPage: NextPage<Props> = ({
+  realization,
+  mainImageBlurDataURL,
+  asideProps,
+}) => {
   const crumbs = [
     { name: 'Realizacje', href: '/wszystkie-realizacje' },
     { name: realization.title || '' },
@@ -17,6 +22,7 @@ export const RealizationPage: NextPage<Props> = ({ realization, mainImageBlurDat
       data={realization}
       mainImageBlurDataURL={mainImageBlurDataURL}
       crumbs={crumbs}
+      asideProps={asideProps}
     />
   );
 };
@@ -24,6 +30,7 @@ export const RealizationPage: NextPage<Props> = ({ realization, mainImageBlurDat
 type Props = {
   realization: Realization;
   mainImageBlurDataURL?: string;
+  asideProps: AsideProps;
 };
 
 export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (context) => {
@@ -35,6 +42,19 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (co
       notFound: true,
     };
   }
+
+  const otherRealizations = await getAllRealizations(9, slug);
+  const asideProps: AsideProps = {
+    type: 'realizacje',
+    data: otherRealizations.map(({ slug, title, introduction, mainImage }) => {
+      return {
+        slug,
+        title: title || '',
+        description: introduction || '',
+        imgSrc: buildUrl(mainImage?.fields.file.url) || '',
+      };
+    }),
+  };
 
   const mainImageUrl = buildUrl(realization.mainImage?.fields.file.url);
   let mainImageBlurDataURL: string | undefined;
@@ -49,7 +69,7 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (co
   }
 
   return {
-    props: { realization, mainImageBlurDataURL },
+    props: { realization, mainImageBlurDataURL, asideProps },
     revalidate: 60,
   };
 };

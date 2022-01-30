@@ -45,6 +45,9 @@ export const typography = (palette: Palette): TypographyOptions => ({
   },
   subtitle2: {
     color: palette.primary.main,
+    fontSize: '1rem', // 16px
+    fontWeight: 700,
+    // lineHeight: 1.57 // default lineHeight
   },
   body1: {
     color: palette.primary.main,
@@ -53,7 +56,8 @@ export const typography = (palette: Palette): TypographyOptions => ({
     color: palette.primary.main,
   },
   caption: {
-    color: palette.primary.main,
+    fontSize: 13,
+    color: palette.grey['700'],
   },
   button: {
     color: palette.primary.main,

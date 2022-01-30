@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box, Stack } from '@mui/material';
 import { Phone as PhoneIcon } from '@mui/icons-material';
 import Image from 'next/image';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
 import { FadeUp } from 'src/lib/gsap/animations';
