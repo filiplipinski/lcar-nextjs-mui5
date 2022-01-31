@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
+import { NextSeoProps } from 'next-seo';
 
 import { Service, Realization } from 'src/lib/contentful/types';
 import { PageTemplate } from 'src/common/components/PageTemplate';
@@ -9,6 +10,7 @@ import { buildUrl } from 'src/lib/contentful/utils';
 import { Crumbs } from 'src/common/components/Breadcrumbs';
 import { truncate } from '../utils/string';
 import { AsideProps } from './AsideMenu';
+import { useRouter } from 'next/router';
 
 type Props = {
   data: Service | Realization;
@@ -20,12 +22,34 @@ type Props = {
 export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProps }: Props) => {
   const { title, introduction, slug, mainImage, content, gallery } = data;
   const mainImageSrc = buildUrl(mainImage?.fields.file.url);
+  const router = useRouter();
+
+  const nextSeoProps: NextSeoProps = {
+    title: title,
+    description: truncate(introduction || '', 160),
+    openGraph: {
+      title: `${title} - Lcar Auto Detailing`,
+      description: truncate(introduction || '', 160),
+      type: 'website',
+      locale: 'pl_PL',
+      site_name: 'Lcar',
+      url: `https://lcar.pl${router.asPath}`,
+      images: [
+        {
+          url: mainImageSrc,
+          alt: title,
+          width: 1200,
+          height: 627,
+        },
+      ],
+    },
+  };
 
   return (
     <PageTemplate
       title={title || ''}
-      description={truncate(introduction || '', 160)}
       crumbs={crumbs}
+      nextSeoProps={nextSeoProps}
       asideProps={asideProps}
     >
       <Typography variant="subtitle1" sx={{ pb: 2 }}>

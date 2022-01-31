@@ -95,7 +95,7 @@ export const Offers = ({ offers }: Props) => {
                       opacity: areImagesLoaded ? 1 : 0,
                       mt: { xs: 1, sm: 2 },
                       textShadow: '0px 0px 4px rgba(0, 0, 0, .5)',
-                      fontSize: (theme) => ({ xs: 14, sm: theme.typography.h6.fontSize }),
+                      fontSize: { xs: 14, sm: 20 },
                       px: 1,
                     }}
                   >

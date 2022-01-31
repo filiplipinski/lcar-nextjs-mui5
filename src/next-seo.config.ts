@@ -12,6 +12,7 @@ export const defaultSeo: DefaultSeoProps = {
     title,
     description,
     type: 'website',
+    locale: 'pl_PL',
     url: 'https://lcar.pl/',
     site_name: 'Lcar',
     images: [

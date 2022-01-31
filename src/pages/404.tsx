@@ -4,7 +4,7 @@ import { Link } from 'src/common/components/Link';
 
 const NotFoundPage = () => {
   return (
-    <PageTemplate title="Nie znaleziono" withSeo={false}>
+    <PageTemplate title="Nie znaleziono">
       <Typography sx={{ mt: 2, mb: 1 }}>
         <strong>404</strong> | Strona nie została znaleziona :(
       </Typography>

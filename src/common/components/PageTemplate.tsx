@@ -1,5 +1,5 @@
 import { Container, Typography, Box, Grid } from '@mui/material';
-import { NextSeo } from 'next-seo';
+import { NextSeo, NextSeoProps } from 'next-seo';
 import { ReactNode } from 'react';
 
 import { navigationHeight } from 'src/common/components/navbar/Navbar';
@@ -9,20 +9,12 @@ import { AsideMenu, AsideProps } from './AsideMenu';
 type Props = {
   children: ReactNode;
   title: string;
-  description?: string;
-  withSeo?: boolean;
+  nextSeoProps?: NextSeoProps;
   asideProps?: AsideProps;
   crumbs?: Crumbs;
 };
 
-export const PageTemplate = ({
-  title,
-  description,
-  withSeo = true,
-  asideProps,
-  crumbs,
-  children,
-}: Props) => {
+export const PageTemplate = ({ title, nextSeoProps, asideProps, crumbs, children }: Props) => {
   return (
     <Container sx={{ pt: `${navigationHeight}px`, mb: 6, mt: 4 }} maxWidth="xl">
       <Grid container spacing={4}>
@@ -35,7 +27,7 @@ export const PageTemplate = ({
               borderRadius: '10px',
             }}
           >
-            {withSeo && <NextSeo title={title} description={description} />}
+            {nextSeoProps && <NextSeo {...nextSeoProps} />}
 
             {crumbs && <Breadcrumbs crumbs={crumbs} />}
 

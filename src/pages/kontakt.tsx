@@ -12,8 +12,7 @@ const ContactPage = () => {
     <PageTemplate title="Kontakt" crumbs={crumbs}>
       <Typography>
         Potrzebujesz wsparcia, profesjonalną poradę lub chcesz się jescze o coś dopytać? <br />{' '}
-        Skontaktuj się z nami w wygodnej dla siebie formie. Odpowiemy z przyjemnością najszybciej
-        jak możemy
+        Skontaktuj się z nami w wygodnej dla siebie formie. Odpowiemy z najszybciej jak możemy
       </Typography>
 
       <StyledStack sx={{ mt: 4 }}>
