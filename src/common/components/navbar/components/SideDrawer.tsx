@@ -28,7 +28,6 @@ export const SideDrawer = () => {
       </IconButton>
 
       <Drawer anchor="right" open={isOpen} onClose={closeDrawer}>
-        {/* TODO later: ewentualnie ogarnac to jako ul/li */}
         <Stack
           sx={{
             width: 250,
