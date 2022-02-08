@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
       type: 'website',
       locale: 'pl_PL',
       site_name: 'Lcar',
-      url: `https://lcar.pl${router.asPath}`,
+      url: `https://www.lcar.pl${router.asPath}`,
       images: [
         {
           url: mainImageSrc,
