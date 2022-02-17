@@ -14,25 +14,51 @@ type Props = {
 
 export const Breadcrumbs = ({ crumbs }: Props) => {
   return (
-    <MuiBreadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
-      <Link underline="hover" color="inherit" href="/">
+    <MuiBreadcrumbs
+      aria-label="breadcrumb"
+      itemScope
+      itemType="https://schema.org/BreadcrumbList"
+      sx={{ mb: 2 }}
+    >
+      <Link
+        underline="hover"
+        color="inherit"
+        href="/"
+        itemProp="itemListElement"
+        itemScope
+        itemType="https://schema.org/ListItem"
+      >
         <HomeIcon sx={{ display: 'block' }} />
+        <meta itemProp="name" content="home" />
+        <meta itemProp="position" content="1" />
       </Link>
 
       {crumbs.map((crumb, index) => {
         if (crumb.name && index + 1 === crumbs.length) {
           return (
-            <Typography key={crumb.name} color="text.primary">
-              {crumb.name}
-            </Typography>
+            <>
+              <Typography key={crumb.name} color="text.primary" itemProp="name">
+                {crumb.name}
+              </Typography>
+              <meta itemProp="position" content={`${index + 2}`} />
+            </>
           );
         }
 
         if (crumb.href) {
           return (
-            <Link key={crumb.name} underline="hover" color="inherit" href={crumb.href}>
-              {crumb.name}
-            </Link>
+            <>
+              <Link
+                key={crumb.name}
+                underline="hover"
+                color="inherit"
+                href={crumb.href}
+                itemProp="name"
+              >
+                {crumb.name}
+              </Link>
+              <meta itemProp="position" content={`${index + 2}`} />
+            </>
           );
         }
 

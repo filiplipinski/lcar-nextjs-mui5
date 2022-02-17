@@ -21,6 +21,8 @@ export const PageTemplate = ({ title, nextSeoProps, asideProps, crumbs, children
         <Grid item xs={12} md={asideProps ? 9 : undefined}>
           <Box
             component="article"
+            itemScope
+            itemType="http://schema.org/Article"
             sx={{
               backgroundColor: 'common.white',
               px: { xs: 2, md: 6 },
@@ -32,7 +34,7 @@ export const PageTemplate = ({ title, nextSeoProps, asideProps, crumbs, children
 
             {crumbs && <Breadcrumbs crumbs={crumbs} />}
 
-            <Typography variant="h3" sx={{ pb: 2 }}>
+            <Typography variant="h3" itemProp="name headline" sx={{ pb: 2 }}>
               {title}
             </Typography>
 

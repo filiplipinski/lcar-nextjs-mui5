@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from '@mui/material';
-import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { NextSeoProps } from 'next-seo';
 import { useRouter } from 'next/router';
@@ -53,7 +52,7 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
       nextSeoProps={nextSeoProps}
       asideProps={asideProps}
     >
-      <Typography variant="subtitle1" sx={{ pb: 2 }}>
+      <Typography variant="subtitle1" itemProp="description" sx={{ pb: 2 }}>
         {introduction}
       </Typography>
 
@@ -76,11 +75,16 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
             blurDataURL={mainImageBlurDataURL}
             layout="fill"
             objectFit="cover"
+            itemProp="image"
+            itemScope
+            itemType="https://schema.org/ImageObject"
           />
         </Box>
       )}
 
-      <Box sx={{ mb: 6 }}>{renderRichText(content)}</Box>
+      <Box itemProp="articleBody" sx={{ mb: 6 }}>
+        {renderRichText(content)}
+      </Box>
 
       {gallery && (
         <SRLWrapper

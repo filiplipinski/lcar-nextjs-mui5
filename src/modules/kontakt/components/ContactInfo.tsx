@@ -4,17 +4,26 @@ import { styled } from '@mui/material/styles';
 
 export const ContactInfo = () => {
   return (
-    <Stack spacing={4} sx={{ mt: { md: 6 } }}>
+    <Stack spacing={4} itemScope itemType="http://schema.org/LocalBusiness" sx={{ mt: { md: 6 } }}>
+      <meta itemProp="name" content="Lcar Auto Detailing" />
+
       <Stack direction="row" alignItems="center">
         <IconContainer>
           <Home sx={{ color: 'secondary.main', fontSize: 48 }} />
         </IconContainer>
         <div>
-          <Typography variant="h5" sx={{ textTransform: 'capitalize' }}>
+          <Typography variant="h5" itemProp="founder" sx={{ textTransform: 'capitalize' }}>
             Karol Lipiński
           </Typography>
-          <Typography variant="body2">
-            ul. Złota 48 <br /> 26-604 Radom
+          <Typography
+            variant="body2"
+            itemProp="address"
+            itemScope
+            itemType="http://schema.org/PostalAddress"
+          >
+            <span itemProp="streetAddress">ul. Złota 48</span> <br />{' '}
+            <span itemProp="postalCode">26-604</span> <span itemProp="addressLocality">Radom</span>
+            <meta itemProp="addressRegion" content="mazowieckie" />
           </Typography>
         </div>
       </Stack>
@@ -33,7 +42,7 @@ export const ContactInfo = () => {
             <Typography variant="h5" component="span" color="secondary">
               +48
             </Typography>{' '}
-            539 943 336
+            <span itemProp="telephone">539 943 336</span>
           </Typography>
           <Typography variant="body2">Telefon komórkowy</Typography>
         </div>
@@ -57,6 +66,7 @@ export const ContactInfo = () => {
               sx={{ textTransform: 'inherit' }}
             >
               karol.lipinski
+              <meta itemProp="email" content="karol.lipinski@lcar.pl" />
             </Typography>
             @lcar.pl
           </Typography>

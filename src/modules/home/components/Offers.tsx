@@ -55,7 +55,7 @@ export const Offers = ({ offers }: Props) => {
         </FlyIn>
       </Container>
 
-      <FadeIn triggerOnScroll delay={0.5}>
+      <FadeIn triggerOnScroll duration={1} delay={0.5}>
         <ImageList
           sx={{
             mt: 4,
