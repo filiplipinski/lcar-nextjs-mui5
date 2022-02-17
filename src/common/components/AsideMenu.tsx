@@ -1,9 +1,9 @@
 import { Typography, Box, Stack } from '@mui/material';
-import Image from 'next/image';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
+import { LazyImage } from './LazyImage';
 
 export type AsideProps = {
   type: 'realizacje' | 'uslugi';
@@ -44,7 +44,7 @@ export const AsideMenu = ({ type, data }: AsideProps) => {
                   backgroundColor: 'grey.600',
                 }}
               >
-                <Image src={item.imgSrc} alt="" layout="fill" objectFit="cover" />
+                <LazyImage src={item.imgSrc} alt="" layout="fill" objectFit="cover" />
               </Box>
 
               {/* Minus image width and image margin-right */}

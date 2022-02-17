@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { NextSeoProps } from 'next-seo';
+import { useRouter } from 'next/router';
 
 import { Service, Realization } from 'src/lib/contentful/types';
 import { PageTemplate } from 'src/common/components/PageTemplate';
@@ -10,7 +11,7 @@ import { buildUrl } from 'src/lib/contentful/utils';
 import { Crumbs } from 'src/common/components/Breadcrumbs';
 import { truncate } from '../utils/string';
 import { AsideProps } from './AsideMenu';
-import { useRouter } from 'next/router';
+import { LazyImage } from './LazyImage';
 
 type Props = {
   data: Service | Realization;
@@ -67,7 +68,7 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
             mb: 4,
           }}
         >
-          <Image
+          <LazyImage
             src={mainImageSrc}
             alt={slug}
             priority
@@ -107,7 +108,7 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
                     cursor: 'pointer',
                   }}
                 >
-                  <Image
+                  <LazyImage
                     src={buildUrl(file.url)}
                     alt={description}
                     width={300}

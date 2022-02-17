@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AppBar, Toolbar, MenuItem, MenuList, Container, Button, Box, Stack } from '@mui/material';
 import { Phone as PhoneIcon } from '@mui/icons-material';
-import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
@@ -11,6 +10,7 @@ import { SideDrawer } from './components/SideDrawer';
 import { BackToTop } from './components/BackToTop';
 import { navItems } from './Navbar.types';
 import { FacebookIconLink, InstagramIconLink } from '../ColoredIconLinks';
+import { LazyImage } from '../LazyImage';
 
 export const navigationHeight = 80;
 
@@ -55,7 +55,7 @@ export const Navbar = () => {
             }}
           >
             <ImageContainer href="/" aria-label="Lcar logo">
-              <Image
+              <LazyImage
                 src="/img/logo.png"
                 alt=""
                 width={180}

@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
+import { LazyImage } from 'src/common/components/LazyImage';
 
 import { moveXAnimation } from '../utils/keyframes';
 
@@ -50,7 +51,7 @@ export const HeroBanner = () => {
       </Box>
 
       {/* TODO moze: onError other image */}
-      <Image
+      <LazyImage
         src="/img/hero.jpeg"
         alt=""
         layout="fill"

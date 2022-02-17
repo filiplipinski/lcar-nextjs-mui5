@@ -1,6 +1,7 @@
-import Image from 'next/image';
 import { NodeRenderer } from '@contentful/rich-text-react-renderer';
 import { NodeData } from '@contentful/rich-text-types';
+
+import { LazyImage } from 'src/common/components/LazyImage';
 import { buildUrl } from '../utils';
 
 type Props = {
@@ -25,7 +26,7 @@ export const EmbeddedAsset: NodeRenderer = ({ data }: Props) => {
 
     const src = buildUrl(file.url);
 
-    return <Image src={src} alt={title} width={300} height={200} />;
+    return <LazyImage src={src} alt={title} width={300} height={200} />;
   }
 
   // Ignore all other asset types, e.g. PDFs, other docs etc.

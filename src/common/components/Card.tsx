@@ -7,11 +7,11 @@ import {
   CardActions,
   Button,
 } from '@mui/material';
-import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
 import { truncate } from '../utils/string';
+import { LazyImage } from './LazyImage';
 
 export type CardProps = {
   slug: string;
@@ -38,7 +38,7 @@ export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps
         }}
       >
         <CardMedia sx={{ height: 200, width: '100%', position: 'relative' }}>
-          {imgSrc && <Image layout="fill" src={imgSrc} alt={title} objectFit="cover" />}
+          {imgSrc && <LazyImage layout="fill" src={imgSrc} alt={title} objectFit="cover" />}
 
           {withRibbon && (
             <Ribbon>

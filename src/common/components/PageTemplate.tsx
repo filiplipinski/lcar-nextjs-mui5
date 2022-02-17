@@ -20,6 +20,7 @@ export const PageTemplate = ({ title, nextSeoProps, asideProps, crumbs, children
       <Grid container spacing={4}>
         <Grid item xs={12} md={asideProps ? 9 : undefined}>
           <Box
+            component="article"
             sx={{
               backgroundColor: 'common.white',
               px: { xs: 2, md: 6 },

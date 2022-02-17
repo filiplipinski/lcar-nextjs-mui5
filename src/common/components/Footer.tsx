@@ -1,12 +1,12 @@
 import { Typography, Container, useMediaQuery, useTheme, Stack, Box } from '@mui/material';
 import { styled, lighten } from '@mui/material/styles';
 import { ExpandLess, Phone } from '@mui/icons-material';
-import Image from 'next/image';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { FacebookIconLink, InstagramIconLink } from './ColoredIconLinks';
+import { LazyImage } from './LazyImage';
 
 export const Footer = () => {
   const theme = useTheme();
@@ -69,7 +69,7 @@ export const Footer = () => {
               </Box>
             </div>
 
-            <Image
+            <LazyImage
               src="/img/logo-white.png"
               alt="lcar logo"
               width={180}
@@ -97,7 +97,7 @@ export const Footer = () => {
               sx={{ color: 'common.white', fontSize: 96, mb: 4 }}
             />
 
-            <Image
+            <LazyImage
               src="/img/logo-white.png"
               alt="lcar logo"
               width={180}

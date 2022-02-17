@@ -1,8 +1,8 @@
 import { Container, Typography, Stack, Box } from '@mui/material';
-import Image from 'next/image';
 
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { FadeUp, FlyIn } from 'src/lib/gsap/animations';
+import { LazyImage } from 'src/common/components/LazyImage';
 
 export const AboutCompany = () => {
   return (
@@ -42,7 +42,7 @@ export const AboutCompany = () => {
 
         <FlyIn direction="right" triggerOnScroll delay={0.2}>
           <Box>
-            <Image
+            <LazyImage
               src="/img/cars.png"
               alt="cars"
               layout="responsive"

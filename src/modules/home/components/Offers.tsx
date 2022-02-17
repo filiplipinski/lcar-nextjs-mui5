@@ -8,12 +8,12 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 
 import { Link } from 'src/common/components/Link';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { FadeIn, FadeUp, FlyIn } from 'src/lib/gsap/animations';
+import { LazyImage } from 'src/common/components/LazyImage';
 
 type Props = {
   offers: Offer[];
@@ -55,7 +55,7 @@ export const Offers = ({ offers }: Props) => {
         </FlyIn>
       </Container>
 
-      <FadeIn triggerOnScroll>
+      <FadeIn triggerOnScroll delay={0.5}>
         <ImageList
           sx={{
             mt: 4,
@@ -70,7 +70,7 @@ export const Offers = ({ offers }: Props) => {
             return (
               <ImageListItem key={item.title}>
                 <ImageContainer>
-                  <Image
+                  <LazyImage
                     src={item.imgSrc}
                     alt={item.title}
                     layout="fill"
@@ -83,7 +83,12 @@ export const Offers = ({ offers }: Props) => {
 
                 <ShadowAndTextContainer href={`/uslugi/${item.slug}`}>
                   <Box sx={{ opacity: areImagesLoaded ? 1 : 0 }}>
-                    <Image src={item.iconSrc} alt={item.title} width={iconSize} height={iconSize} />
+                    <LazyImage
+                      src={item.iconSrc}
+                      alt={item.title}
+                      width={iconSize}
+                      height={iconSize}
+                    />
                   </Box>
 
                   <Typography

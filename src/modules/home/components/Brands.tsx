@@ -1,8 +1,9 @@
 import { Typography, Paper, useMediaQuery, useTheme, Container, Box } from '@mui/material';
 import { Navigation, Autoplay, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
+
 import { FadeIn, FadeUp } from 'src/lib/gsap/animations';
+import { LazyImage } from 'src/common/components/LazyImage';
 
 const brands = [
   {
@@ -87,7 +88,7 @@ export const Brands = () => {
                   alignItems: 'center',
                 }}
               >
-                <Image src={src} alt={alt} height={80} width={150} unselectable="on" />
+                <LazyImage src={src} alt={alt} height={80} width={150} unselectable="on" />
               </SwiperSlide>
             ))}
           </Swiper>

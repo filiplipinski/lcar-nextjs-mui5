@@ -1,9 +1,9 @@
 import { Typography, Stack, useMediaQuery, useTheme, Container } from '@mui/material';
 import { Pagination, Autoplay, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image';
 
 import { FadeIn } from 'src/lib/gsap/animations';
+import { LazyImage } from 'src/common/components/LazyImage';
 
 const items = [
   {
@@ -56,7 +56,7 @@ export const CompanyPros = () => {
           <SwiperSlide key={title}>
             <FadeIn triggerOnScroll delay={index / 3}>
               <Stack spacing={2} sx={{ height: { xs: 260, md: 280, lg: 240, xl: 220 } }}>
-                <Image src={iconSrc} alt="" height={55} width={55} />
+                <LazyImage src={iconSrc} alt="" height={55} width={55} />
 
                 <Typography
                   variant="h5"
