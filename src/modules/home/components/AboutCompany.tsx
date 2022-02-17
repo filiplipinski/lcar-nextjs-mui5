@@ -6,7 +6,7 @@ import { LazyImage } from 'src/common/components/LazyImage';
 
 export const AboutCompany = () => {
   return (
-    <Container id={scrollToElementsId.aboutCompany} sx={{ pt: 8 }}>
+    <Container id={scrollToElementsId.aboutCompany} sx={{ pt: 10 }}>
       <FadeUp triggerOnScroll>
         <Typography variant="h3" component="h2" align="center" sx={{ mb: 4 }}>
           O firmie

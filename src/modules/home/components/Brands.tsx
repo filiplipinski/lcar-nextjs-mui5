@@ -37,14 +37,14 @@ export const Brands = () => {
   const isTablet = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <Box sx={{ my: 8 }}>
+    <Box sx={{ mt: 10 }}>
       <Container>
         <FadeUp triggerOnScroll y={30}>
           <Typography
             component="h3"
             variant="h5"
             align="center"
-            sx={{ mb: 1, textTransform: 'uppercase' }}
+            sx={{ mb: 4, textTransform: 'uppercase' }}
           >
             Marki na których pracujemy
           </Typography>

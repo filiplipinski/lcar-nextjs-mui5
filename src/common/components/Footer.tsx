@@ -13,7 +13,7 @@ export const Footer = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <FooterContainer>
+    <FooterContainer sx={{ mt: 10 }}>
       <Container maxWidth="lg">
         {isDesktop && (
           <Stack direction="row" justifyContent="space-between">

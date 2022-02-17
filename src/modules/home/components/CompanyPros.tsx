@@ -43,7 +43,7 @@ export const CompanyPros = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
-    <Container sx={{ mt: 10 }}>
+    <Container sx={{ mt: 12 }}>
       <Swiper
         modules={[Autoplay, Pagination, A11y]}
         spaceBetween={25}

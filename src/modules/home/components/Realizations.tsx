@@ -13,20 +13,20 @@ type Props = {
 
 export const Realizations = ({ realizations }: Props) => {
   return (
-    <Container id={scrollToElementsId.realizations} sx={{ pt: 8, mb: 8 }}>
+    <Container id={scrollToElementsId.realizations} sx={{ pt: 10 }}>
       <FadeUp triggerOnScroll>
-        <Typography variant="h3" component="h2" align="center" sx={{ mb: 2 }}>
+        <Typography variant="h3" component="h2" align="center" sx={{ mb: 4 }}>
           Realizacje
         </Typography>
       </FadeUp>
 
       <FadeUp triggerOnScroll>
-        <Typography align="center">
+        <Typography align="center" sx={{ mb: 4 }}>
           Sprawdź nasze najlepsze oraz najnowsze realizacje detailingu samochodów.
         </Typography>
       </FadeUp>
 
-      <Grid container direction="row" spacing={4} sx={{ mt: 4 }}>
+      <Grid container direction="row" spacing={4}>
         {realizations.map((realization, index) => (
           <Grid item xs={12} sm={6} md={3} key={realization.slug}>
             <FlyIn direction="right" triggerOnScroll delay={index / 3} sx={{ height: '100%' }}>

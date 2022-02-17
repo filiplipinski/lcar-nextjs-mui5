@@ -27,9 +27,9 @@ export const Offers = ({ offers }: Props) => {
   const iconSize = isDesktop ? 64 : 48;
 
   return (
-    <Box id={scrollToElementsId.offer} sx={{ pt: 8 }}>
+    <Box id={scrollToElementsId.offer} sx={{ pt: 10 }}>
       <FadeUp triggerOnScroll>
-        <Typography variant="h3" component="h2" align="center" sx={{ mb: 2 }}>
+        <Typography variant="h3" component="h2" align="center" sx={{ mb: 4 }}>
           Usługi
         </Typography>
       </FadeUp>
