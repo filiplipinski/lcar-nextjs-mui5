@@ -11,6 +11,7 @@ import { Crumbs } from 'src/common/components/Breadcrumbs';
 import { truncate } from '../utils/string';
 import { AsideProps } from './AsideMenu';
 import { LazyImage } from './LazyImage';
+import { mediaQueries } from 'src/styles/theme';
 
 type Props = {
   data: Service | Realization;
@@ -74,6 +75,7 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
             placeholder={mainImageBlurDataURL ? 'blur' : undefined}
             blurDataURL={mainImageBlurDataURL}
             layout="fill"
+            sizes={`${mediaQueries.lg} 100vw, 60vw`}
             objectFit="cover"
             itemProp="image"
             itemScope

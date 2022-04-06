@@ -8,6 +8,7 @@ import { buildUrl } from 'src/lib/contentful/utils';
 import { getAllRealizations } from 'src/lib/contentful/api';
 import { Link } from 'src/common/components/Link';
 import { PageTemplate } from 'src/common/components/PageTemplate';
+import { mediaQueries } from 'src/styles/theme';
 
 type Props = {
   realizations: Realization[];
@@ -47,6 +48,7 @@ export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
                   title={realization?.title || ''}
                   description={realization?.introduction || ''}
                   imgSrc={buildUrl(realization.mainImage?.fields.file.url)}
+                  imgSizes={`${mediaQueries.sm} 100vw, ${mediaQueries.md} 50vw, 25vw`}
                 />
               </FlyIn>
             </Grid>

@@ -14,6 +14,7 @@ import { Link } from 'src/common/components/Link';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { FadeIn, FadeUp, FlyIn } from 'src/lib/gsap/animations';
 import { LazyImage } from 'src/common/components/LazyImage';
+import { mediaQueries } from 'src/styles/theme';
 
 type Props = {
   offers: Offer[];
@@ -74,6 +75,7 @@ export const Offers = ({ offers }: Props) => {
                     src={item.imgSrc}
                     alt={item.title}
                     layout="fill"
+                    sizes={`${mediaQueries.md} 50vw, 25vw`}
                     objectFit="cover"
                     placeholder={item.blurDataURL ? 'blur' : undefined}
                     blurDataURL={item.blurDataURL}
@@ -88,6 +90,7 @@ export const Offers = ({ offers }: Props) => {
                       alt={item.title}
                       width={iconSize}
                       height={iconSize}
+                      unoptimized
                     />
                   </Box>
 

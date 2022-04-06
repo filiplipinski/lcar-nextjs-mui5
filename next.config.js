@@ -17,9 +17,12 @@ const pwaPlugin = withPWA({
   },
 });
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    minimumCacheTTL: 3600,
+  },
 };
 
-/** @type {import('next').NextConfig} */
 module.exports = withPlugins([plaiceholderPlugin, pwaPlugin], nextConfig);

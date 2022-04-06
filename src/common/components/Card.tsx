@@ -18,10 +18,11 @@ export type CardProps = {
   title: string;
   description: string;
   imgSrc: string;
+  imgSizes: string;
   withRibbon?: boolean;
 };
 
-export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps) => {
+export const Card = ({ slug, title, description, imgSrc, imgSizes, withRibbon }: CardProps) => {
   const truncatedDescription = truncate(description, 130);
 
   return (
@@ -38,7 +39,9 @@ export const Card = ({ slug, title, description, imgSrc, withRibbon }: CardProps
         }}
       >
         <CardMedia sx={{ height: 200, width: '100%', position: 'relative' }}>
-          {imgSrc && <LazyImage layout="fill" src={imgSrc} alt={title} objectFit="cover" />}
+          {imgSrc && (
+            <LazyImage layout="fill" src={imgSrc} sizes={imgSizes} alt={title} objectFit="cover" />
+          )}
 
           {withRibbon && (
             <Ribbon>

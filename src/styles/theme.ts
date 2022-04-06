@@ -3,11 +3,32 @@ import { typography } from './typography';
 import { palette } from './palette';
 import { navigationHeight } from 'src/common/components/navbar/Navbar';
 
+const mediaQ = (size: number): string => `(max-width: ${size}px)`;
+
+// MUI default ones
+const breakpoints = {
+  xs: 0,
+  sm: 600,
+  md: 900,
+  lg: 1200,
+  xl: 1536,
+};
+
+export const mediaQueries = {
+  sm: mediaQ(breakpoints.sm),
+  md: mediaQ(breakpoints.md),
+  lg: mediaQ(breakpoints.lg),
+  xl: mediaQ(breakpoints.xl),
+};
+
 // color palette: https://mui.com/customization/color/#color-palette
 // default theme: https://mui.com/customization/default-theme/
 export const theme = createTheme({
   palette,
   typography,
+  breakpoints: {
+    values: breakpoints,
+  },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
@@ -81,11 +102,3 @@ export const theme = createTheme({
     },
   },
 });
-
-/**
- * xs:0,
- * sm: 600,
- * md: 900,
- * lg: 1200,
- * xl: 1536
- */

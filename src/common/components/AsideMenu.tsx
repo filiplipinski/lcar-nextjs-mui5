@@ -44,7 +44,7 @@ export const AsideMenu = ({ type, data }: AsideProps) => {
                   backgroundColor: 'grey.600',
                 }}
               >
-                <LazyImage src={item.imgSrc} alt="" layout="fill" objectFit="cover" />
+                <LazyImage src={item.imgSrc} alt="" layout="fill" sizes="80px" objectFit="cover" />
               </Box>
 
               {/* Minus image width and image margin-right */}

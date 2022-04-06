@@ -56,7 +56,7 @@ export const CompanyPros = () => {
           <SwiperSlide key={title}>
             <FadeIn triggerOnScroll delay={index / 3}>
               <Stack spacing={2} sx={{ height: { xs: 260, md: 280, lg: 240, xl: 220 } }}>
-                <LazyImage src={iconSrc} alt="" height={55} width={55} />
+                <LazyImage src={iconSrc} alt="" height={55} width={55} unoptimized />
 
                 <Typography
                   variant="h5"

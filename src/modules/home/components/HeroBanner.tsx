@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import { Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
-import NextImage from 'next/image';
 import { styled } from '@mui/material/styles';
 
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { scrollToElement } from 'src/common/utils/scroll';
 import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
 import { LazyImage } from 'src/common/components/LazyImage';
-
-import { moveXAnimation } from '../utils/keyframes';
 
 export const HeroBanner = () => {
   const theme2 = useTheme();
@@ -66,10 +63,6 @@ export const HeroBanner = () => {
     </Box>
   );
 };
-
-const Image = styled(NextImage)({
-  animation: `${moveXAnimation} 10s 1s ease-in-out infinite alternate`,
-});
 
 const CustomText = styled(Typography)(({ theme }) => ({
   textTransform: 'lowercase',

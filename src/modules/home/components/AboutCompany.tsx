@@ -3,6 +3,7 @@ import { Container, Typography, Stack, Box } from '@mui/material';
 import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 import { FadeUp, FlyIn } from 'src/lib/gsap/animations';
 import { LazyImage } from 'src/common/components/LazyImage';
+import { mediaQueries } from 'src/styles/theme';
 
 export const AboutCompany = () => {
   return (
@@ -48,6 +49,7 @@ export const AboutCompany = () => {
               layout="responsive"
               width={560}
               height={220}
+              sizes={`${mediaQueries.md} 100vw, 560px`}
               objectFit="contain"
             />
           </Box>

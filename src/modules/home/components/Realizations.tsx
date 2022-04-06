@@ -6,6 +6,7 @@ import { Realization } from 'src/lib/contentful/types';
 import { FadeUp, FlyIn } from 'src/lib/gsap/animations';
 import { buildUrl } from 'src/lib/contentful/utils';
 import { Link } from 'src/common/components/Link';
+import { mediaQueries } from 'src/styles/theme';
 
 type Props = {
   realizations: Realization[];
@@ -35,6 +36,7 @@ export const Realizations = ({ realizations }: Props) => {
                 title={realization?.title || ''}
                 description={realization?.introduction || ''}
                 imgSrc={buildUrl(realization?.mainImage?.fields.file.url)}
+                imgSizes={`${mediaQueries.sm} 100vw, ${mediaQueries.md} 50vw, 25vw`}
                 withRibbon={!realization?.isMainRealization} // bo są 3 glowne i jedna najnowsza
               />
             </FlyIn>
