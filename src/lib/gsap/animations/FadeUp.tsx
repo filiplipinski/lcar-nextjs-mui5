@@ -28,7 +28,7 @@ const FadeUpRaw = ({ children, duration, delay, y, triggerOnScroll, sx }: Props)
         opacity: 1,
         y: 0,
         ease: 'power4.out',
-        delay: delay ?? 0.5,
+        delay: delay ?? 0,
         scrollTrigger: triggerOnScroll
           ? {
               trigger: elementRef.current,

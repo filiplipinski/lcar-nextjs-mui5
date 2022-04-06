@@ -16,10 +16,10 @@ export const HeroBanner = () => {
   return (
     <Box sx={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
-        <FlyIn manualTriggerMode triggerManually={isImgLoaded}>
+        <FlyIn manualTriggerMode duration={0.6} triggerManually={isImgLoaded}>
           <CustomText variant="h1">Z miłości</CustomText>{' '}
         </FlyIn>
-        <FlyIn manualTriggerMode triggerManually={isImgLoaded} delay={0.8}>
+        <FlyIn manualTriggerMode triggerManually={isImgLoaded} duration={0.6} delay={0.6}>
           <CustomText variant="h1">
             do{' '}
             <Box
@@ -34,7 +34,7 @@ export const HeroBanner = () => {
           </CustomText>
         </FlyIn>
 
-        <FadeIn manualTriggerMode triggerManually={isImgLoaded} duration={2} delay={1.6}>
+        <FadeIn manualTriggerMode triggerManually={isImgLoaded} duration={1.2} delay={1.2}>
           <Button
             variant="contained"
             color="secondary"
@@ -55,7 +55,7 @@ export const HeroBanner = () => {
         objectFit="cover"
         objectPosition="0% bottom"
         unselectable="on"
-        quality={100}
+        quality={90}
         priority
         loading="eager"
         onLoadingComplete={() => setImgLoaded(true)}
