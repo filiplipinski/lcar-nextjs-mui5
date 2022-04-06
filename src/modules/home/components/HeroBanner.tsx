@@ -8,6 +8,8 @@ import { scrollToElement } from 'src/common/utils/scroll';
 import { FlyIn, FadeIn } from 'src/lib/gsap/animations';
 import { LazyImage } from 'src/common/components/LazyImage';
 
+import { moveXAnimation } from '../utils/keyframes';
+
 export const HeroBanner = () => {
   const theme2 = useTheme();
   const isDesktop = useMediaQuery(theme2.breakpoints.up('md'));
@@ -48,7 +50,7 @@ export const HeroBanner = () => {
       </Box>
 
       {/* TODO moze: onError other image */}
-      <LazyImage
+      <Image
         src="/img/hero.jpeg"
         alt=""
         layout="fill"
@@ -63,6 +65,10 @@ export const HeroBanner = () => {
     </Box>
   );
 };
+
+const Image = styled(LazyImage)({
+  animation: `${moveXAnimation} 10s 1s ease-in-out infinite alternate`,
+});
 
 const CustomText = styled(Typography)(({ theme }) => ({
   textTransform: 'lowercase',
