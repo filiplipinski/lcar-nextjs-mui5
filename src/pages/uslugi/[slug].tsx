@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { getPlaiceholder } from 'plaiceholder';
 
-import { getAllServices, getService } from 'src/lib/contentful/api';
+import { getAllServices, getService, getServiceSlugs } from 'src/lib/contentful/api';
 import { offersData } from 'src/modules/home/components/Offers';
 import { Service } from 'src/lib/contentful/types';
 import { BlogPostTemplate } from 'src/common/components/BlogPostTemplate';
@@ -75,9 +75,9 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (co
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const offerSlugs = offersData.map((offer) => offer.slug);
+  const slugs = await getServiceSlugs();
 
-  const paths = offerSlugs.map((slug) => {
+  const paths = slugs.map((slug) => {
     return {
       params: { slug },
     };

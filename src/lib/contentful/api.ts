@@ -29,7 +29,7 @@ export const getService = async (slug: string): Promise<Service | null> => {
 
 export const getAllServices = async (limit?: number, omitSlug?: string): Promise<Realization[]> => {
   const query = {
-    limit: limit ?? 10,
+    limit: limit ?? 15,
     include: 1,
     order: 'sys.createdAt', // from oldest
     content_type: ContentTypeEnum.Service,
@@ -44,6 +44,27 @@ export const getAllServices = async (limit?: number, omitSlug?: string): Promise
     return services;
   } catch (err) {
     console.error('error in api.ts -> getAllServices', err);
+    return [];
+  }
+};
+
+export const getServiceSlugs = async (): Promise<string[]> => {
+  const query = {
+    limit: 100,
+    include: 0,
+    order: '-sys.createdAt',
+    content_type: ContentTypeEnum.Service,
+    'fields.slug[exists]': true, // slug musi istnieć
+  };
+
+  try {
+    const { items } = await client.getEntries<Realization>(query);
+
+    const slugs = items.map((item) => item.fields.slug).filter(Boolean);
+
+    return slugs;
+  } catch (err) {
+    console.error('error in api.ts -> getServiceSlugs', err);
     return [];
   }
 };
