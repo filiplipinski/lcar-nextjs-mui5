@@ -24,7 +24,7 @@
     "@plaiceholder/next": "^2.3.0",
     "contentful": "^9.1.18",
     "gsap": "^3.10.2",
-    "next": "12.1.4",
+    "next": "13.5.0",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.4.7",
     "next-seo": "^5.4.0",
