@@ -8,7 +8,7 @@ import { AsideMenu, AsideProps } from './AsideMenu';
 
 type Props = {
   children: ReactNode;
-  title: string;
+  title?: string;
   nextSeoProps?: NextSeoProps;
   asideProps?: AsideProps;
   crumbs?: Crumbs;
@@ -34,9 +34,11 @@ export const PageTemplate = ({ title, nextSeoProps, asideProps, crumbs, children
 
             {crumbs && <Breadcrumbs crumbs={crumbs} />}
 
-            <Typography variant="h3" itemProp="name headline" sx={{ pb: 2 }}>
-              {title}
-            </Typography>
+            {title && (
+              <Typography variant="h3" itemProp="name headline" sx={{ pb: 2 }}>
+                {title}
+              </Typography>
+            )}
 
             {children}
           </Box>

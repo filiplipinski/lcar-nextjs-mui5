@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Breadcrumbs as MuiBreadcrumbs, Typography } from '@mui/material';
 import { Home as HomeIcon } from '@mui/icons-material';
 
@@ -35,17 +34,6 @@ export const Breadcrumbs = ({ crumbs }: Props) => {
       </Link>
 
       {crumbs.map((crumb, index) => {
-        if (crumb.name && index + 1 === crumbs.length) {
-          return (
-            <div key={crumb.name}>
-              <Typography color="text.primary" itemProp="name">
-                {crumb.name}
-              </Typography>
-              <meta itemProp="position" content={`${index + 2}`} />
-            </div>
-          );
-        }
-
         if (crumb.href) {
           return (
             <div key={crumb.name}>
@@ -57,7 +45,14 @@ export const Breadcrumbs = ({ crumbs }: Props) => {
           );
         }
 
-        return null;
+        return (
+          <div key={crumb.name}>
+            <Typography color="text.primary" itemProp="name">
+              {crumb.name}
+            </Typography>
+            <meta itemProp="position" content={`${index + 2}`} />
+          </div>
+        );
       })}
     </MuiBreadcrumbs>
   );

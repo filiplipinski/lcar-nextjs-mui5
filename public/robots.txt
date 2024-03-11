@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 
+# Disallow indexing for specific page
+Disallow: /oferta
+
 # Host
 Host: https://www.lcar.pl
 

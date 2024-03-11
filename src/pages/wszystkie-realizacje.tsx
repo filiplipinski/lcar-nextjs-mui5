@@ -14,7 +14,7 @@ type Props = {
   realizations: Realization[];
 };
 
-const crumbs = [{ name: 'Wszystkie realizacje' }];
+const crumbs = [{ name: 'Realizacje' }];
 
 export const AllRealizationsPage: NextPage<Props> = ({ realizations }) => {
   return (
