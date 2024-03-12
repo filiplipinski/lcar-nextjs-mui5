@@ -48,6 +48,10 @@ export const theme = createTheme({
         main: {
           flexGrow: 1,
         },
+        ol: {
+          margin: 0,
+          padding: 0,
+        },
       },
     },
     MuiContainer: {

@@ -10,11 +10,18 @@ import { offersData } from 'src/modules/home/components/Offers';
 import { LazyImage } from 'src/common/components/LazyImage';
 import { mediaQueries } from 'src/styles/theme';
 
-const OrderedList = styled('ol')({
+const OrderedList = styled('ol')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: 16,
-});
+  fontSize: '1.125rem', // 18px subtitle1
+  fontWeight: 700,
+  paddingLeft: 8,
+
+  [theme.breakpoints.up('md')]: {
+    paddingLeft: 0,
+  },
+}));
 
 const crumbs = [{ name: 'Oferta' }, { name: 'Skoda' }];
 
@@ -47,21 +54,16 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             O nas – lcar to wiedza, pasja, doświadczenie oraz niesamowita precyzja
           </Typography>
 
-          <Typography mb={1}>
-            <Typography component="span" variant="subtitle1" fontWeight="bold">
-              KAROL LIPIŃSKI
-            </Typography>{' '}
-            – właściciel firmy manager, trener i konsultant serwisowy.
-          </Typography>
-
           <Typography>
-            Doświadczenie zawodowe zbudowane na 15 letniej pracy w Autoryzowanych Serwisach
-            czołowych marek, na różnych szczeblach, w tym 6 letnie doświadczenie w prowadzeniu i
-            zarządzaniu serwisem posprzedażnym (pojazdów osobowych, dostawczych, ciężarowych i
-            autobusów). Absolwent Wojskowej Akademii Technicznej Wydział Mechaniczny – Cywilny, oraz
-            Wojskowy, Oficer i żołnierz Wojska Polskiego oraz ekspert w dziedzinie detailingu,
-            nieinwazyjnych napraw powłok lakierowych najnowszymi technologiami Smart Repair.
-            Pasjonat motoryzacji, sportów wodnych i sztuk walki.
+            <strong>Firma LCAR</strong> działa na rynku radomskim od czterech lat w dziedzinie
+            autodetailingu oraz usuwania zewnętrznych uszkodzeń nadwozi pojazdów jak i wyciszenia
+            ich wnętrza. Właściciel - Karol Lipiński to manager, trener i konsultant serwisowy.
+            Zdobyte doświadczenie zawodowe zbudowane na 15 letniej pracy w Autoryzowanych Serwisach
+            czołowych marek, na różnych szczeblach (począwszy od magazynu, przygotowania pojazdów
+            nowych, serwisu i napraw, po zarządzanie serwisem posprzedażnym), pozwoliło na szersze
+            spojrzenie na biznes dealerski oraz potrzeby Autoryzowanych Stacji Obsługi oferując
+            nowatorskie usługi nieinwazyjnych napraw powłok lakierowych Smart Repair oraz szeroko
+            pojętego detailingu, a także wszelkich usług pielęgnacji pojazdu.
           </Typography>
 
           <Box
@@ -87,24 +89,41 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
 
         <li>
           <Typography variant="subtitle1" mb={1}>
-            Myjnia, a detailing?
+            Efect „WOW”
           </Typography>
 
           <Typography>
-            Myjnia na celu utrzymać samochód w czystości zewnętrznej oraz wewnętrznej. Najczęściej w
-            serwisach Autoryzowanych jest wąskim gardłem oraz niestety znaczącym kosztem serwisowym.{' '}
-            <br />
-            <Typography component="span" fontWeight="bold">
-              Detailing
-            </Typography>{' '}
-            to szczególnie rozbudowany proces mycia, czyszczenia, polerowania oraz konserwacji auta.{' '}
-            <Typography component="span" fontWeight="bold">
-              Celem tych działań jest
-            </Typography>{' '}
-            jest zabezpieczenie karoserii oraz wnętrza, usunięcie niedoskonałości lakierniczych i
-            zabezpieczenie powłok pojazdu przed wpływami czynników zewnętrznych, eksploatacyjnych.
-            Detailing znacząco podnosi wygląd wizualny często cenę samochodu, a przede wszystkim
-            prestiż.
+            Jak wiemy pierwsze wrażenie jest zazwyczaj kluczowe. Stąd w wielu obszarach kładziony
+            jest bardzo duży nacisk na efekt „WOW” i zachwyt klienta. Nawet najlepiej wykonana
+            praca, jeśli nie będzie odpowiednio sprzedana - nie uzyska swojej wartości i tym samym
+            ceny. W LCAR dbamy o to, aby efekt „WOW” towarzyszył nieustająco i pozostał w pamięci
+            klienta na długo.
+          </Typography>
+        </li>
+
+        <li>
+          <Typography variant="subtitle1" mb={1}>
+            Myjnia a detailing?
+          </Typography>
+
+          <Typography>
+            Kluczowym dla zadowolenia klienta jest finalne przygotowanie pojazdu do wydania, czy to
+            auta nowego, czy auta po naprawie w serwisie. <strong>Myjnia</strong> ma więc na celu
+            utrzymać samochód w czystości zewnętrznej oraz wewnętrznej, jednakże najczęściej jest
+            wąskim gardłem w procesie wydania pojazdu, co wpływa na finalną oceną jakości usługi,
+            zwłaszcza jeśli zostanie pominięta.
+          </Typography>
+          <br />
+          <Typography>
+            <strong>Detailing</strong> to szczególnie rozbudowany proces mycia, czyszczenia,
+            polerowania oraz konserwacji auta z dbałością o każdy detal. Celem tych działań jest nie
+            tylko idealna czystość zewnętrzna i wewnętrzna, ale przede wszystkim usunięcie
+            niedoskonałości lakierniczych oraz zabezpieczenie powłok zewnętrznych i wewnętrznych
+            pojazdu przed wpływami czynników zewnętrznych czy eksploatacyjnych.{' '}
+            <strong>Detailing</strong> znacząco podnosi efekt wizualny, często też cenę samochodu, a
+            przede wszystkim nadaje prestiż. W ramach detailingu mogą być wykonywane również
+            dodatkowe usługi: jak renowacja i wyciszenia wnętrza, oklejanie nadwozia czy jego
+            poszczególnych elementów jak szyby, reflektory itp.
           </Typography>
         </li>
 
@@ -138,12 +157,13 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
 
           <Typography mb={1}>
-            Rozwiązania, które oferuje nasza firma zapewniają nie tylko oszczędność czasu i kosztów,
-            ale przede wszystkim komfort zarządzania. LCAR bierze na siebie pełną odpowiedzialność
-            związaną z prowadzeniem tego działu. Dzięki czemu dealerzy mogą skupić się na swojej
-            podstawowej działalności, mając pewność, że wszelkie problemy związane z myjnią zostaną
-            rozwiązane przez profesjonalistów, co wpłynie na wydajności całego biznesu. Dodatkowo
-            gwarantując jakość wykonanych usług na miarę najwyższych oczekiwań klienta.
+            Rozwiązania, które oferuje nasza firma zapewniają nie tylko komfort zarządzania procesem
+            przygotowania pojazdu do wydania, ale przede wszystkim daje gwarancję efektu finalnego.
+            <strong>LCAR</strong> bierze na siebie pełną odpowiedzialność związaną z prowadzeniem
+            tego działu. Dzięki czemu dealerzy mogą skupić się na swojej podstawowej działalności,
+            mając pewność, że wszelkie kwestie związane z przygotowaniem estetycznym pojazdu zostaną
+            rozwiązane przez profesjonalistów, co wpłynie na wydajności całego biznesu i satysfakcję
+            klientów, gwarantując jakość wykonanych usług na miarę najwyższych oczekiwań klienta.
           </Typography>
 
           <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
@@ -152,11 +172,10 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
 
           <Typography mb={1}>
             W czasach, gdy pozyskanie dobrych pracowników jest nie tylko czasochłonne, ale także
-            kosztowne, odciążamy naszych Partnerów, biorąc na siebie proces rekrutacji, zatrudnienia
-            i szkolenia pracowników. Gwarantujemy stabilność bieżącej pracy w przypadku
-            nieplanowanych sytuacji (choroba, rezygnacja z pracy itp.). W ramach współpracy Dealer
-            nie ponosi kosztów związanych ze sprzętem oraz chemią niezbędną do wykonywania usług
-            (nie dotyczy myjni automatycznej).
+            kosztowne, odciążamy naszych Partnerów, biorąc na siebie proces rekrutacji,
+            zatrudnienia, szkolenia i dopilnowania pracowników. Gwarantujemy stabilność bieżącej
+            pracy w przypadku nieplanowanych sytuacji (choroba, okres urlopowy, rezygnacja z pracy
+            itp.).
           </Typography>
 
           <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
@@ -164,11 +183,11 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
 
           <Typography mb={1}>
-            Współpraca z LCAR to rozpoczęcie innowacyjnego programu skierowanego do dealerów
-            samochodowych. Założeniem systemu jest kompensowanie kosztów myjni po przez sprzedaż
-            usług detailingowych do klientów ze wszystkich działów dealera. Cały proces sprzedaży
-            usług detailingowych oraz chemii leży po stronie LCAR, a dla Dealera pozostaje dodatkowy
-            bonus.
+            Współpraca z <strong>LCAR</strong> to rozpoczęcie innowacyjnego programu skierowanego do
+            dealerów samochodowych. Założeniem systemu jest kompensowanie podstawowych kosztów myjni
+            poprzez sprzedaż dodatkowych usług detailingowych klientom ze wszystkich działów
+            Dealera. Cały proces sprzedaży usług detailingowych oraz chemii leży po stronie LCAR, a
+            dla Dealera pozostaje bonus obniżający koszty bieżącej działalności myjni.
           </Typography>
 
           <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
@@ -176,11 +195,11 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
 
           <Typography mb={1}>
-            Współpraca z LCAR daje naszym klientom pełną kontrolę nad kosztami. Dzięki stałej
-            współpracy koszty mogą być łatwiej prognozowane i kontrolowane, co pozwala na uzyskanie
-            oszczędności oraz lepsze wykorzystanie zasobów finansowych firmy. Dodatkowo LCAR
-            gwarantuje dodatkowe wsparcie marketingowe wykonując zdjęcia oraz krótkie filmy na media
-            społecznościowe.
+            Współpraca z <strong>LCAR</strong> daje Dealerom pełną kontrolę nad kosztami tego
+            działu. Dzięki stałej współpracy i przejrzystej ofercie koszty mogą być łatwiej
+            prognozowane i kontrolowane, co pozwala na uzyskanie oszczędności oraz lepsze
+            wykorzystanie zasobów finansowych firmy. Dodatkowo LCAR gwarantuje dodatkowe wsparcie
+            marketingowe wykonując zdjęcia oraz krótkie filmy na media społecznościowe.
           </Typography>
         </li>
       </OrderedList>
