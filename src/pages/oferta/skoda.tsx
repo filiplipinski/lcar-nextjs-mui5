@@ -5,10 +5,11 @@ import { getAllServices } from 'src/lib/contentful/api';
 import { buildUrl } from 'src/lib/contentful/utils';
 import { AsideProps } from 'src/common/components/AsideMenu';
 import { PageTemplate } from 'src/common/components/PageTemplate';
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { offersData } from 'src/modules/home/components/Offers';
 import { LazyImage } from 'src/common/components/LazyImage';
 import { mediaQueries } from 'src/styles/theme';
+import { SRLWrapper } from 'simple-react-lightbox';
 
 const OrderedList = styled('ol')(({ theme }) => ({
   display: 'flex',
@@ -112,9 +113,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             utrzymać samochód w czystości zewnętrznej oraz wewnętrznej, jednakże najczęściej jest
             wąskim gardłem w procesie wydania pojazdu, co wpływa na finalną oceną jakości usługi,
             zwłaszcza jeśli zostanie pominięta.
-          </Typography>
-          <br />
-          <Typography>
+            <br />
             <strong>Detailing</strong> to szczególnie rozbudowany proces mycia, czyszczenia,
             polerowania oraz konserwacji auta z dbałością o każdy detal. Celem tych działań jest nie
             tylko idealna czystość zewnętrzna i wewnętrzna, ale przede wszystkim usunięcie
@@ -144,7 +143,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             }}
           >
             <LazyImage
-              src="/img/lcar-graph.png"
+              src="/img/offer/lcar-graph.png"
               alt="Graf LCAR"
               layout="fill"
               sizes={`${mediaQueries.lg} 100vw, 60vw`}
@@ -202,6 +201,210 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             marketingowe wykonując zdjęcia oraz krótkie filmy na media społecznościowe.
           </Typography>
         </li>
+
+        <li>
+          <Typography variant="subtitle1" mb={1}>
+            Warunki handlowe oraz opis usługi zewnętrznej
+          </Typography>
+
+          <Typography>
+            Zakres mycia ręcznego w LCAR został podzielony na 7 wariantów: od mycia podstawowego
+            (serwisowego), aż po mycie detailingowe z procesem dekontaminacji i konserwacji ceramiki
+            lub folii.
+            <br />
+            Równorzędnie na potrzeby tej oferty został przygotowany uproszczony cennik uśredniający
+            zakres i cenę usług niezależny od wielkości pojazdu oraz stopnia jego zanieczyszczenia,
+            oparty o uśrednioną czasochłonność wykonania usługi. Uproszczony cennik na pewno będzie
+            pomocny podczas rozliczeń na koniec miesiąca, bazując na ilości zleconych pojazdów.
+          </Typography>
+
+          <SRLWrapper
+            options={{
+              buttons: {
+                showAutoplayButton: false,
+                showDownloadButton: false,
+                showFullscreenButton: false,
+                showThumbnailsButton: false,
+              },
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                height: { xs: 250, sm: 300, lg: 480 },
+                width: 'auto',
+                maxWidth: 850,
+                mt: 1,
+                mb: 0.5,
+                ml: 'auto',
+                mr: 'auto',
+                cursor: 'pointer',
+              }}
+            >
+              <LazyImage
+                src="/img/offer/cennik-skoda-1.jpg"
+                alt="Cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
+                layout="fill"
+                sizes={`${mediaQueries.lg} 100vw, 60vw`}
+                objectFit="contain"
+              />
+            </Box>
+          </SRLWrapper>
+          <Typography variant="caption" sx={{ textAlign: 'center', display: 'block', mb: 2 }}>
+            Kliknij aby zobaczyć w na cały ekran ⤴
+          </Typography>
+
+          <Typography>
+            Z doświadczenia wiemy, że najlepsze rozwiązania biznesowe to najprostsze rozwiązania,
+            takie które na wstępie eliminują możliwość popełnienia błędów technicznych czy
+            komunikacyjnych. Wychodząc naprzeciw - poniżej przedstawiamy uproszczony cennik poprzez
+            ujednolicenie zakresów mycia oraz opłat z tym związanych.
+          </Typography>
+
+          <SRLWrapper
+            options={{
+              buttons: {
+                showAutoplayButton: false,
+                showDownloadButton: false,
+                showFullscreenButton: false,
+                showThumbnailsButton: false,
+              },
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                height: { xs: 150, md: 200 },
+                width: 'auto',
+                maxWidth: 850,
+                mt: 1,
+                mb: 0.5,
+                ml: 'auto',
+                mr: 'auto',
+                cursor: 'pointer',
+              }}
+            >
+              <LazyImage
+                src="/img/offer/cennik-skoda-2.jpg"
+                alt="Uproszczony cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
+                layout="fill"
+                sizes={`${mediaQueries.lg} 100vw, 60vw`}
+                objectFit="contain"
+              />
+            </Box>
+          </SRLWrapper>
+
+          <Typography variant="caption" sx={{ textAlign: 'center', display: 'block', mb: 2 }}>
+            Kliknij aby zobaczyć w na cały ekran ⤴
+          </Typography>
+
+          <Typography>
+            Wielu klientów zabezpiecza swoje nowe auto zarówno powłokami jak i foliami ochronnymi
+            PPF. W dzisiejszej dobie nie jest to wcale proste umyć dokładnie samochód, odpowiednio
+            zakonserwować, bez wykwalifikowanej wiedzy oraz detergentów do tego celu przewidzianych.
+            Dlatego warto jest przekazanie działu myjni fachowcom w tej dziecinie, ponieważ
+            ograniczy to ryzyko, stres, reklamacje oraz zmniejszy ilość niezadowolonych klientów.
+            Natomiast korzystając z profesjonalistów w zakresie autodetailinu spotęguje to efekt
+            pierwszego wrażenia po odbiorze nowego samochodu, czy auta po usłudze serwisowej.
+            Zadowolenie Państwa klientów zdecydowanie zwiększy wskaźnik polecenia serwisu.
+          </Typography>
+        </li>
+
+        <li>
+          <Typography variant="subtitle1" mb={1}>
+            Minimalna ilość zleceń
+          </Typography>
+
+          <Typography>
+            Gwarantując Państwu, dostępność na stałe jednego pracownika firmy LCAR w wymiarze
+            minimum: 8 godzin dziennie, pięć dni w tygodniu, trzeba się liczyć z kosztami stałymi,
+            jakie musimy ponieść. Koszty stałe wynikają z kosztów zatrudnienia pracownika na umowę o
+            pracę oraz opłatami ZUS, polisy OC firmy jaki i kosztami związanymi ze środkami
+            chemicznymi. Jeśli ilość zleceń z Państwa strony będzie niewystarczająca dla osiągniecia
+            obrotu pozwalającego pokryć te koszty stałe musimy przewidzieć minimalny koszt
+            miesięczny jakim Państwa zafakturujemy. Tym samym kwota za wykonane usługi oraz gotowość
+            do ich wykonania wyniesie{' '}
+            <strong>minimum 9 500 tysięcy złotych netto miesięcznie</strong>, a w przypadku
+            zabezpieczenia dwóch zmian dziennie, czyli na stałe dwóch pracowników jest to kwota 19
+            000 zł netto.
+          </Typography>
+        </li>
+
+        <li>
+          <Typography variant="subtitle1" mb={1}>
+            Ograniczenia w ofercie
+          </Typography>
+
+          <Typography>
+            W wyżej przedstawionych propozycjach finansowych nie uwzględniono ponoszenia przez LCAR
+            kosztów takich jak:
+            <ul>
+              <li>Media (woda, prąd, środki do konserwacji pomieszczeń myjni</li>
+              <li>Podatki lokalowe (podatek od gruntu, pomieszczeń)</li>
+              <li>
+                Koszt zapewnienia i utrzymania stacjonarnych (dealerskich) urządzeń myjących i
+                odkurzających
+              </li>
+              <li>Amortyzacji oraz serwisu pomieszczenia myjni</li>
+            </ul>
+          </Typography>
+        </li>
+
+        <li>
+          <Typography variant="subtitle1" mb={1}>
+            Rozszerzenie usług i bonus dealerski
+          </Typography>
+
+          <Typography>
+            Mając w ofercie ogromny wachlarz profesjonalnych usług detailingowych podnoszących
+            walory estetyczne i ochronne samochodów, uważam, że nie wystąpią takie miesiące gdzie
+            Państwo nie zapewnicie ilości zleceń i będziecie zobowiązani wypłacić minimalną kwotę
+            stałą z umowy. Tym samym po stronie LCAR będzie przygotowanie prostych w opisie oraz
+            atrakcyjnych ofert pakietowych dla usług dodatkowych. Doświadczenie nasze wskazuje, że
+            każdy posiadacz nowego samochodu lub klient serwisu będzie chciał skorzystać z usługi
+            premium zabezpieczającej pojazd na miejscu u Państwa w serwisie lub co najmniej
+            konserwacji powłok lub folii już założonych.
+          </Typography>
+
+          <Typography
+            variant="subtitle2"
+            sx={{ mt: 2, textTransform: 'uppercase', textDecoration: 'underline' }}
+          >
+            Dla Państwa popłyną z tego dodatkowe korzyści ponieważ, proponujemy utworzenie systemu
+            bonusowego dla Dealera, za każde rozszerzenie usług ponad wymagany standard. Oferujemy
+            zatem rabat od każdej dodatkowej usługi, abyście mieli Państwo narzędzie do motywacji
+            swoich handlowców. Rabat wyniesie 10% wartości zafakturowanej klientowi przez LCAR
+            usługi i może być odejmowany z miesięcznego rozliczenia lub przekazywany jako voucher na
+            inne zlecenia.
+          </Typography>
+
+          <Typography sx={{ mt: 2, mb: 2 }}>
+            Współpracując z LCAR dajesz możliwość swoim klientom skorzystania z następujących usług
+            dodatkowych:
+          </Typography>
+
+          <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
+            Korekta lakieru
+          </Typography>
+
+          {/* TODO FILIP: ogarnac inaczej, pozbyc sie style */}
+          <ul style={{ fontWeight: 'normal' }}>
+            <li>polerowanie wykonujemy w celu usunięcia zarysowań oraz hologramów na lakierze</li>
+            <li>
+              jednoetapową tzw. One step odświeża lakier nadaje głębi kolorystycznej oraz znika
+              całkowicie hologram (usuwa zarysowania do 50% rys)
+            </li>
+            <li>
+              dwuetapowa korekta lakieru, proces ten usuwa od 60 do 80 % zarysowań nadając niezwykły
+              blask lakieru
+            </li>
+            <li>wieloetapowa korekta lakieru;</li>
+          </ul>
+        </li>
+
+        {/* <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
+            Zabezpieczenie lakieru
+          </Typography> */}
       </OrderedList>
     </PageTemplate>
   );
