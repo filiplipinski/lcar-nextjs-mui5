@@ -5,7 +5,7 @@ import { getAllServices } from 'src/lib/contentful/api';
 import { buildUrl } from 'src/lib/contentful/utils';
 import { AsideProps } from 'src/common/components/AsideMenu';
 import { PageTemplate } from 'src/common/components/PageTemplate';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { offersData } from 'src/modules/home/components/Offers';
 import { LazyImage } from 'src/common/components/LazyImage';
 import { mediaQueries } from 'src/styles/theme';
@@ -37,17 +37,22 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
         Oferta na usługi outsourcingu myjni samochodowej <br /> oraz autodetailingu
       </Typography>
 
-      <Typography variant="body2" sx={{ mb: 2, textAlign: 'right' }}>
-        Radom 11.03.2024r.
-      </Typography>
-
-      <Typography variant="subtitle2" sx={{ textAlign: 'right' }}>
-        AMD Auto Centrum Autoryzowany Salon i Serwis
-        <br />
-        Ul. Wernera 59
-        <br />
-        26-600 Radom
-      </Typography>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mt={4} mb={4} pl="6%">
+        <LazyImage
+          src="/img/skoda-logo.png"
+          alt="Skoda"
+          height={150}
+          width={150}
+          objectFit="contain"
+        />
+        <Typography variant="subtitle2" sx={{ textAlign: 'right' }}>
+          AMD Auto Centrum Autoryzowany Salon i Serwis
+          <br />
+          Ul. Wernera 59
+          <br />
+          26-600 Radom
+        </Typography>
+      </Box>
 
       <OrderedList>
         <li>
@@ -67,21 +72,13 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             pojętego detailingu, a także wszelkich usług pielęgnacji pojazdu.
           </Typography>
 
-          <Box
-            sx={{
-              position: 'relative',
-              height: { xs: 250, sm: 350 },
-              width: 'auto',
-              maxWidth: 600,
-              mt: 2,
-              ml: 'auto',
-              mr: 'auto',
-            }}
-          >
+          <Box maxWidth={600} mt={1} ml="auto" mr="auto">
             <LazyImage
               src="/img/trzy-samochody-przed-garazem.jpg"
               alt="Trzy samochody stojące przed garażem"
-              layout="fill"
+              width={1151}
+              height={770}
+              // layout="fill"
               sizes={`${mediaQueries.lg} 100vw, 60vw`}
               objectFit="cover"
             />
@@ -131,21 +128,12 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             Dlaczego LCAR?
           </Typography>
 
-          <Box
-            sx={{
-              position: 'relative',
-              height: { xs: 250, sm: 350 },
-              width: 'auto',
-              maxWidth: 350,
-
-              ml: 'auto',
-              mr: 'auto',
-            }}
-          >
+          <Box maxWidth={250} ml="auto" mr="auto">
             <LazyImage
               src="/img/offer/lcar-graph.png"
               alt="Graf LCAR"
-              layout="fill"
+              width={384}
+              height={392}
               sizes={`${mediaQueries.lg} 100vw, 60vw`}
               objectFit="contain"
             />
@@ -223,28 +211,24 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
               buttons: {
                 showAutoplayButton: false,
                 showDownloadButton: false,
-                showFullscreenButton: false,
+                showFullscreenButton: true,
                 showThumbnailsButton: false,
+              },
+              thumbnails: {
+                showThumbnails: false,
+              },
+              caption: {
+                showCaption: false,
               },
             }}
           >
-            <Box
-              sx={{
-                position: 'relative',
-                height: { xs: 250, sm: 300, lg: 480 },
-                width: 'auto',
-                maxWidth: 850,
-                mt: 1,
-                mb: 0.5,
-                ml: 'auto',
-                mr: 'auto',
-                cursor: 'pointer',
-              }}
-            >
+            <Box mt={1}>
               <LazyImage
                 src="/img/offer/cennik-skoda-1.jpg"
                 alt="Cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
-                layout="fill"
+                height={705}
+                width={1290}
+                layout="responsive"
                 sizes={`${mediaQueries.lg} 100vw, 60vw`}
                 objectFit="contain"
               />
@@ -266,28 +250,24 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
               buttons: {
                 showAutoplayButton: false,
                 showDownloadButton: false,
-                showFullscreenButton: false,
+                showFullscreenButton: true,
                 showThumbnailsButton: false,
+              },
+              thumbnails: {
+                showThumbnails: false,
+              },
+              caption: {
+                showCaption: false,
               },
             }}
           >
-            <Box
-              sx={{
-                position: 'relative',
-                height: { xs: 150, md: 200 },
-                width: 'auto',
-                maxWidth: 850,
-                mt: 1,
-                mb: 0.5,
-                ml: 'auto',
-                mr: 'auto',
-                cursor: 'pointer',
-              }}
-            >
+            <Box mt={1}>
               <LazyImage
                 src="/img/offer/cennik-skoda-2.jpg"
                 alt="Uproszczony cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
-                layout="fill"
+                height={382}
+                width={1304}
+                layout="responsive"
                 sizes={`${mediaQueries.lg} 100vw, 60vw`}
                 objectFit="contain"
               />
@@ -378,12 +358,12 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             inne zlecenia.
           </Typography>
 
-          <Typography sx={{ mt: 2, mb: 2 }}>
+          <Typography mt={2}>
             Współpracując z LCAR dajesz możliwość swoim klientom skorzystania z następujących usług
             dodatkowych:
           </Typography>
 
-          <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
+          <Typography variant="h6" sx={{ mt: 2, textDecoration: 'underline' }}>
             Korekta lakieru
           </Typography>
 
@@ -400,11 +380,62 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             </li>
             <li>wieloetapowa korekta lakieru;</li>
           </ul>
-        </li>
 
-        {/* <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
+          <Typography variant="h6" sx={{ mt: 2, textDecoration: 'underline' }}>
             Zabezpieczenie lakieru
-          </Typography> */}
+          </Typography>
+
+          <Typography>
+            Najnowsze powłoki ceramiczne zachowują doskonały wygląd twojego samochodu. Dodatkowo
+            chronią go przed ptasimi odchodami, mocną chemia i oksydacją. Certyfikowana trwałość 10
+            H ogranicza powstawanie mikro zarysowań. Wysoka szklistość oraz połysk wyróżnią z tłumu
+            Twój samochód. Hydrofobowość na najwyższym poziomie gwarantuje łatwe i przyjemne mycie.
+            <br />
+            <br /> Wybór powłoki należy do Ciebie
+          </Typography>
+
+          <Box mt={1}>
+            <LazyImage
+              src="/img/karol1.jpg"
+              alt="Dokładne polerowanie lakieru"
+              height={305}
+              width={1387}
+              layout="responsive"
+              sizes={`${mediaQueries.lg} 100vw, 60vw`}
+              objectFit="contain"
+            />
+          </Box>
+
+          <Typography variant="h6" sx={{ mt: 2, textDecoration: 'underline' }}>
+            Zabezpieczenie ochronne foliami PPF
+          </Typography>
+
+          <Typography>
+            Folie PPF to najlepsza ochrona i doskonałe właściwości estetyczne. Jest bardzo
+            elastyczna, dzięki czemu łatwo się aplikuje, a innowacyjny top coat chroni przed
+            odplamieniami i zapewnia hydrofobowość. Wyróżnia się doskonałą klarownością, nadaje
+            lakierowi niepowtarzalną szklistość i połysk, świetnie się regeneruje, jednocześnie
+            gwarantując najlepsze właściwości ochronne. Już teraz jest to najszybciej rozwijający
+            się system zabezpieczenia lakieru przed zarysowaniami oraz odpryskami od kamieni.
+          </Typography>
+
+          <Box display="flex" alignItems="center" justifyContent="space-around">
+            <LazyImage
+              src="/img/skoda-logo.png"
+              alt="Skoda"
+              height={120}
+              width={120}
+              objectFit="contain"
+            />
+            <LazyImage
+              src="/img/logo.png"
+              alt="Lcar"
+              height={120}
+              width={150}
+              objectFit="contain"
+            />
+          </Box>
+        </li>
       </OrderedList>
     </PageTemplate>
   );
