@@ -222,7 +222,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
               },
             }}
           >
-            <Box mt={1}>
+            <Box mt={1} sx={{ cursor: 'pointer' }}>
               <LazyImage
                 src="/img/offer/cennik-skoda-1.jpg"
                 alt="Cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
@@ -261,7 +261,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
               },
             }}
           >
-            <Box mt={1}>
+            <Box mt={1} sx={{ cursor: 'pointer' }}>
               <LazyImage
                 src="/img/offer/cennik-skoda-2.jpg"
                 alt="Uproszczony cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
