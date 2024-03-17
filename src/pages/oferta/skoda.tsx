@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps } from 'next';
 import { styled } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
 
 import { getAllServices } from 'src/lib/contentful/api';
 import { buildUrl } from 'src/lib/contentful/utils';
@@ -9,8 +10,53 @@ import { Box, Typography } from '@mui/material';
 import { offersData } from 'src/modules/home/components/Offers';
 import { LazyImage } from 'src/common/components/LazyImage';
 import { mediaQueries } from 'src/styles/theme';
-import { SRLWrapper } from 'simple-react-lightbox';
 import { PhotoView } from 'react-photo-view';
+import { Link } from 'src/common/components/Link';
+
+const scrollToId = 'scrollto'; // TODO FILIP: to jest to samo co w Navbar.types.ts i _app. Sprobuj to ujednolicic
+
+const sections = {
+  oNas: {
+    title: 'O nas – lcar to wiedza, pasja, doświadczenie oraz niesamowita precyzja',
+    id: `${scrollToId}-offer-skoda-o-nas`,
+    href: '#offer-skoda-o-nas',
+  },
+  efektWow: {
+    title: 'Efekt „WOW”',
+    id: `${scrollToId}-efekt-wow`,
+    href: '#efekt-wow',
+  },
+  myjniaADetailing: {
+    title: 'Myjnia a detailing?',
+    id: `${scrollToId}-myjnia-a-detailing`,
+    href: '#myjnia-a-detailing',
+  },
+  dlaczegoLcar: {
+    title: 'Dlaczego LCAR?',
+    id: `${scrollToId}-dlaczego-lcar`,
+    href: '#dlaczego-lcar',
+  },
+  warunkiHandlowe: {
+    title: 'Warunki handlowe oraz opis usługi zewnętrznej',
+    id: `${scrollToId}-warunki-handlowe`,
+    href: '#warunki-handlowe',
+  },
+  iloscZlecen: {
+    title: 'Minimalna ilość zleceń',
+    id: `${scrollToId}-minimalna-ilosc-zlecen`,
+    href: '#minimalna-ilosc-zlecen',
+  },
+  ograniczenia: {
+    title: 'Ograniczenia w ofercie',
+    id: `${scrollToId}-ograniczenia-w-ofercie`,
+    href: '#ograniczenia-w-ofercie',
+  },
+  rozszerzenieUslug: {
+    title: 'Rozszerzenie usług i bonus dealerski',
+    id: `${scrollToId}-rozszerzenie-uslug`,
+    href: '#rozszerzenie-uslug',
+  },
+};
 
 const OrderedList = styled('ol')(({ theme }) => ({
   display: 'flex',
@@ -55,10 +101,39 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
         </Typography>
       </Box>
 
+      <Typography variant="subtitle1" sx={{ textAlign: 'center' }}>
+        Spis treści
+      </Typography>
+      <Box
+        component="div"
+        sx={{
+          mb: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        {Object.values(sections).map((section) => (
+          <Link
+            href={section.href}
+            key={section.id}
+            // onClick={() => scrollToElement(section.id)}
+            sx={{
+              display: 'inline-block',
+              color: grey['600'],
+              textDecoration: 'underline',
+              ':hover': { color: grey['800'], cursor: 'pointer' },
+            }}
+          >
+            {section.title}
+          </Link>
+        ))}
+      </Box>
+
       <OrderedList>
-        <li>
+        <li id={sections.oNas.id}>
           <Typography variant="subtitle1" mb={1}>
-            O nas – lcar to wiedza, pasja, doświadczenie oraz niesamowita precyzja
+            {sections.oNas.title}
           </Typography>
 
           <Typography>
@@ -86,9 +161,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Box>
         </li>
 
-        <li>
+        <li id={sections.efektWow.id}>
           <Typography variant="subtitle1" mb={1}>
-            Efect „WOW”
+            {sections.efektWow.title}
           </Typography>
 
           <Typography>
@@ -100,9 +175,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
         </li>
 
-        <li>
+        <li id={sections.myjniaADetailing.id}>
           <Typography variant="subtitle1" mb={1}>
-            Myjnia a detailing?
+            {sections.myjniaADetailing.title}
           </Typography>
 
           <Typography>
@@ -124,9 +199,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
         </li>
 
-        <li>
+        <li id={sections.dlaczegoLcar.id}>
           <Typography variant="subtitle1" mb={1}>
-            Dlaczego LCAR?
+            {sections.dlaczegoLcar.title}
           </Typography>
 
           <Box maxWidth={250} ml="auto" mr="auto">
@@ -191,9 +266,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
         </li>
 
-        <li>
+        <li id={sections.warunkiHandlowe.id}>
           <Typography variant="subtitle1" mb={1}>
-            Warunki handlowe oraz opis usługi zewnętrznej
+            {sections.warunkiHandlowe.title}
           </Typography>
 
           <Typography>
@@ -261,9 +336,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
         </li>
 
-        <li>
+        <li id={sections.iloscZlecen.id}>
           <Typography variant="subtitle1" mb={1}>
-            Minimalna ilość zleceń
+            {sections.iloscZlecen.title}
           </Typography>
 
           <Typography>
@@ -281,9 +356,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
         </li>
 
-        <li>
+        <li id={sections.ograniczenia.id}>
           <Typography variant="subtitle1" mb={1}>
-            Ograniczenia w ofercie
+            {sections.ograniczenia.title}
           </Typography>
 
           <Typography>
@@ -301,9 +376,9 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
         </li>
 
-        <li>
+        <li id={sections.rozszerzenieUslug.id}>
           <Typography variant="subtitle1" mb={1}>
-            Rozszerzenie usług i bonus dealerski
+            {sections.rozszerzenieUslug.title}
           </Typography>
 
           <Typography>
@@ -338,8 +413,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             Korekta lakieru
           </Typography>
 
-          {/* TODO FILIP: ogarnac inaczej, pozbyc sie style */}
-          <ul style={{ fontWeight: 'normal' }}>
+          <Box component="ul" sx={{ fontWeight: 'normal' }}>
             <li>polerowanie wykonujemy w celu usunięcia zarysowań oraz hologramów na lakierze</li>
             <li>
               jednoetapową tzw. One step odświeża lakier nadaje głębi kolorystycznej oraz znika
@@ -350,7 +424,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
               blask lakieru
             </li>
             <li>wieloetapowa korekta lakieru;</li>
-          </ul>
+          </Box>
 
           <Typography variant="h6" sx={{ mt: 2, textDecoration: 'underline' }}>
             Zabezpieczenie lakieru
