@@ -110,6 +110,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          gap: '4px',
         }}
       >
         {Object.values(sections).map((section) => (
@@ -121,6 +122,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
               color: grey['600'],
               textDecoration: 'underline',
               textAlign: 'center',
+              lineHeight: 1.25,
               ':hover': { color: grey['800'], cursor: 'pointer' },
             }}
           >
