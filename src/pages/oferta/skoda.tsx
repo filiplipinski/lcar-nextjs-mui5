@@ -206,35 +206,6 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             oparty o uśrednioną czasochłonność wykonania usługi. Uproszczony cennik na pewno będzie
             pomocny podczas rozliczeń na koniec miesiąca, bazując na ilości zleconych pojazdów.
           </Typography>
-          {/* 
-          <SRLWrapper
-            options={{
-              buttons: {
-                showAutoplayButton: false,
-                showDownloadButton: false,
-                showFullscreenButton: true,
-                showThumbnailsButton: false,
-              },
-              thumbnails: {
-                showThumbnails: false,
-              },
-              caption: {
-                showCaption: false,
-              },
-            }}
-          >
-            <Box mt={1} sx={{ cursor: 'pointer' }}>
-              <LazyImage
-                src="/img/offer/cennik-skoda-1.jpg"
-                alt="Cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
-                height={705}
-                width={1290}
-                layout="responsive"
-                sizes={`${mediaQueries.lg} 100vw, 60vw`}
-                objectFit="contain"
-              />
-            </Box>
-          </SRLWrapper> */}
 
           <PhotoView src="/img/offer/cennik-skoda-1.jpg">
             <Box mt={1} sx={{ cursor: 'pointer' }}>
@@ -260,22 +231,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             ujednolicenie zakresów mycia oraz opłat z tym związanych.
           </Typography>
 
-          <SRLWrapper
-            options={{
-              buttons: {
-                showAutoplayButton: false,
-                showDownloadButton: false,
-                showFullscreenButton: true,
-                showThumbnailsButton: false,
-              },
-              thumbnails: {
-                showThumbnails: false,
-              },
-              caption: {
-                showCaption: false,
-              },
-            }}
-          >
+          <PhotoView src="/img/offer/cennik-skoda-2.jpg">
             <Box mt={1} sx={{ cursor: 'pointer' }}>
               <LazyImage
                 src="/img/offer/cennik-skoda-2.jpg"
@@ -287,7 +243,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
                 objectFit="contain"
               />
             </Box>
-          </SRLWrapper>
+          </PhotoView>
 
           <Typography variant="caption" sx={{ textAlign: 'center', display: 'block', mb: 2 }}>
             Kliknij aby zobaczyć w na cały ekran ⤴
