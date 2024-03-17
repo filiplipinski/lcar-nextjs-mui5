@@ -105,7 +105,6 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
         Spis treści
       </Typography>
       <Box
-        component="div"
         sx={{
           mb: 2,
           display: 'flex',
@@ -117,11 +116,11 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           <Link
             href={section.href}
             key={section.id}
-            // onClick={() => scrollToElement(section.id)}
             sx={{
               display: 'inline-block',
               color: grey['600'],
               textDecoration: 'underline',
+              textAlign: 'center',
               ':hover': { color: grey['800'], cursor: 'pointer' },
             }}
           >
