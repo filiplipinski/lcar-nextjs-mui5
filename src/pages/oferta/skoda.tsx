@@ -10,6 +10,7 @@ import { offersData } from 'src/modules/home/components/Offers';
 import { LazyImage } from 'src/common/components/LazyImage';
 import { mediaQueries } from 'src/styles/theme';
 import { SRLWrapper } from 'simple-react-lightbox';
+import { PhotoView } from 'react-photo-view';
 
 const OrderedList = styled('ol')(({ theme }) => ({
   display: 'flex',
@@ -205,7 +206,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             oparty o uśrednioną czasochłonność wykonania usługi. Uproszczony cennik na pewno będzie
             pomocny podczas rozliczeń na koniec miesiąca, bazując na ilości zleconych pojazdów.
           </Typography>
-
+          {/* 
           <SRLWrapper
             options={{
               buttons: {
@@ -233,7 +234,21 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
                 objectFit="contain"
               />
             </Box>
-          </SRLWrapper>
+          </SRLWrapper> */}
+
+          <PhotoView src="/img/offer/cennik-skoda-1.jpg">
+            <Box mt={1} sx={{ cursor: 'pointer' }}>
+              <LazyImage
+                src="/img/offer/cennik-skoda-1.jpg"
+                alt="Cennik usług zewnętrznych na prowadzenie profesjonalnej myjni"
+                height={705}
+                width={1290}
+                layout="responsive"
+                sizes={`${mediaQueries.lg} 100vw, 60vw`}
+                objectFit="contain"
+              />
+            </Box>
+          </PhotoView>
           <Typography variant="caption" sx={{ textAlign: 'center', display: 'block', mb: 2 }}>
             Kliknij aby zobaczyć w na cały ekran ⤴
           </Typography>

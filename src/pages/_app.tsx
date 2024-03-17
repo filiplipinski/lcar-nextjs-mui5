@@ -6,10 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { useRouter } from 'next/router';
 import SimpleReactLightbox from 'simple-react-lightbox';
+import { PhotoProvider } from 'react-photo-view';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'src/styles/global.css';
+import 'react-photo-view/dist/react-photo-view.css';
 
 import { theme } from 'src/styles/theme';
 import { createEmotionCache } from 'src/styles/createEmotionCache';
@@ -63,18 +65,20 @@ const MyApp = (props: MyAppProps) => {
       <DefaultSeo {...defaultSeo} />
 
       <SimpleReactLightbox>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <PhotoProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
 
-          <Navbar />
-          <div id={scrollToElementsId.top} />
+            <Navbar />
+            <div id={scrollToElementsId.top} />
 
-          <main>
-            <Component {...pageProps} />
-          </main>
+            <main>
+              <Component {...pageProps} />
+            </main>
 
-          <Footer />
-        </ThemeProvider>
+            <Footer />
+          </ThemeProvider>
+        </PhotoProvider>
       </SimpleReactLightbox>
     </CacheProvider>
   );
