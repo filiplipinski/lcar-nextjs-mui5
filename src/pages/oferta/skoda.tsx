@@ -393,10 +393,11 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             konserwacji powłok lub folii już założonych.
           </Typography>
 
-          <Typography
-            variant="subtitle2"
-            sx={{ mt: 2, textTransform: 'uppercase', textDecoration: 'underline' }}
-          >
+          <Typography variant="subtitle2" sx={{ mt: 2, textDecoration: 'underline' }}>
+            DODATKOWE KORZYŚCI DLA PAŃSTWA
+          </Typography>
+
+          <Typography variant="subtitle2" color="secondary">
             Dla Państwa popłyną z tego dodatkowe korzyści ponieważ, proponujemy utworzenie systemu
             bonusowego dla Dealera, za każde rozszerzenie usług ponad wymagany standard. Oferujemy
             zatem rabat od każdej dodatkowej usługi, abyście mieli Państwo narzędzie do motywacji
@@ -414,8 +415,13 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
             Korekta lakieru
           </Typography>
 
+          <Typography>
+            Korekta lakieru to jeden z najbardziej spektakularnych zabiegów detailingowych. Podczas
+            procesu polerowania usuwamy różnego rodzaju rysy, skazy i zmatowania, co przywraca i
+            wzmacnia głębię koloru, nadając karoserii szklisty blask. Rozróżniamy korektę:
+          </Typography>
+
           <Box component="ul" sx={{ fontWeight: 'normal' }}>
-            <li>polerowanie wykonujemy w celu usunięcia zarysowań oraz hologramów na lakierze</li>
             <li>
               jednoetapową tzw. One step odświeża lakier nadaje głębi kolorystycznej oraz znika
               całkowicie hologram (usuwa zarysowania do 50% rys)
