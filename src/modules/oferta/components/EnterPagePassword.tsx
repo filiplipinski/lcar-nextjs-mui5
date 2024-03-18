@@ -24,7 +24,7 @@ export const EnterPagePassword = ({ onPasswordConfirm }: Props) => {
   } = useForm<{ password: string }>();
 
   return (
-    <Modal open BackdropProps={{ sx: { background: 'background' } }} disableAutoFocus>
+    <Modal open BackdropProps={{ sx: { backgroundColor: 'background.default' } }} disableAutoFocus>
       <Box
         sx={{
           position: 'absolute',

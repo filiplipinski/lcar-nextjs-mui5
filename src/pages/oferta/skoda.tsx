@@ -13,7 +13,7 @@ import { mediaQueries } from 'src/styles/theme';
 import { PhotoView } from 'react-photo-view';
 import { Link } from 'src/common/components/Link';
 import { useState } from 'react';
-import { EnterPagePassword } from 'src/modules/oferta/components/EnterPin';
+import { EnterPagePassword } from 'src/modules/oferta/components/EnterPagePassword';
 
 const scrollToId = 'scrollto'; // TODO FILIP: to jest to samo co w Navbar.types.ts i _app. Sprobuj to ujednolicic
 
