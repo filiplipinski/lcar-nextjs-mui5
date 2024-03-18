@@ -12,6 +12,8 @@ import { LazyImage } from 'src/common/components/LazyImage';
 import { mediaQueries } from 'src/styles/theme';
 import { PhotoView } from 'react-photo-view';
 import { Link } from 'src/common/components/Link';
+import { useState } from 'react';
+import { EnterPagePassword } from 'src/modules/oferta/components/EnterPin';
 
 const scrollToId = 'scrollto'; // TODO FILIP: to jest to samo co w Navbar.types.ts i _app. Sprobuj to ujednolicic
 
@@ -74,6 +76,12 @@ const OrderedList = styled('ol')(({ theme }) => ({
 const crumbs = [{ name: 'Oferta' }, { name: 'Skoda' }];
 
 export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
+  const [isPasswordConfirmed, setIsPasswordConfirmed] = useState(false);
+
+  if (!isPasswordConfirmed) {
+    return <EnterPagePassword onPasswordConfirm={() => setIsPasswordConfirmed(true)} />;
+  }
+
   return (
     <PageTemplate
       crumbs={crumbs}
