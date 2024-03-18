@@ -28,7 +28,7 @@ export const EnterPagePassword = ({ onPasswordConfirm }: Props) => {
       <Box
         sx={{
           position: 'absolute',
-          width: '80%',
+          width: '90%',
           maxWidth: 500,
           left: '50%',
           top: '50%',
