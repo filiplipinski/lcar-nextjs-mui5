@@ -14,6 +14,8 @@ import { PhotoView } from 'react-photo-view';
 import { Link } from 'src/common/components/Link';
 import { useState } from 'react';
 import { EnterPagePassword } from 'src/modules/oferta/components/EnterPagePassword';
+import { scrollToElement } from 'src/common/utils/scroll';
+import { scrollToElementsId } from 'src/common/components/navbar/Navbar.types';
 
 const scrollToId = 'scrollto'; // TODO FILIP: to jest to samo co w Navbar.types.ts i _app. Sprobuj to ujednolicic
 
@@ -79,7 +81,14 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
   const [isPasswordConfirmed, setIsPasswordConfirmed] = useState(false);
 
   if (!isPasswordConfirmed) {
-    return <EnterPagePassword onPasswordConfirm={() => setIsPasswordConfirmed(true)} />;
+    return (
+      <EnterPagePassword
+        onPasswordConfirm={() => {
+          setIsPasswordConfirmed(true);
+          scrollToElement(scrollToElementsId.top);
+        }}
+      />
+    );
   }
 
   return (
