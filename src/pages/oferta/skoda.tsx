@@ -255,7 +255,7 @@ export const SkodaOfferPage: NextPage<Props> = ({ asideProps }) => {
           </Typography>
 
           <Typography variant="h6" sx={{ textDecoration: 'underline' }}>
-            Osczędność
+            Oszczędność
           </Typography>
 
           <Typography mb={1}>
