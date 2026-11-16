@@ -10,7 +10,8 @@ import { styled } from '@mui/material/styles';
 const Anchor = styled('a')({});
 
 interface NextLinkComposedProps
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
+  extends
+    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
     Omit<NextLinkProps, 'href' | 'as'> {
   to: NextLinkProps['href'];
   linkAs?: NextLinkProps['as'];
@@ -29,6 +30,7 @@ export const NextLinkComposed = React.forwardRef<HTMLAnchorElement, NextLinkComp
         replace={replace}
         scroll={scroll}
         shallow={shallow}
+        legacyBehavior
         passHref
         locale={locale}
       >

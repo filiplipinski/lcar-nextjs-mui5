@@ -30,9 +30,22 @@ export const LazyImage = (props: ImageProps) => {
   return <NextImage loading={loading} {...props} />;
 };
 
+type NetworkConnection = {
+  type?: string;
+  effectiveType?: string;
+  saveData?: boolean;
+};
+
 const isMobileConnection = () => {
-  const navigator = window.navigator as any;
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const navigatorWithConnection = window.navigator as Navigator & {
+    connection?: NetworkConnection;
+    mozConnection?: NetworkConnection;
+    webkitConnection?: NetworkConnection;
+  };
+  const connection =
+    navigatorWithConnection.connection ||
+    navigatorWithConnection.mozConnection ||
+    navigatorWithConnection.webkitConnection;
   return (
     connection?.type === 'cellular' ||
     connection?.effectiveType === 'slow-2g' ||

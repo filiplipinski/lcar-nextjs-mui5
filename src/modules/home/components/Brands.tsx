@@ -1,5 +1,5 @@
 import { Typography, Paper, useMediaQuery, useTheme, Container, Box } from '@mui/material';
-import { Navigation, Autoplay, A11y } from 'swiper';
+import { Navigation, Autoplay, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { FadeIn, FadeUp } from 'src/lib/gsap/animations';

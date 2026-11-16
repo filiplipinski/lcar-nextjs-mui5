@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material';
-import { SRLWrapper } from 'simple-react-lightbox';
+import { PhotoView } from 'react-photo-view';
 import { NextSeoProps } from 'next-seo';
 import { useRouter } from 'next/router';
 
@@ -89,45 +89,37 @@ export const BlogPostTemplate = ({ data, mainImageBlurDataURL, crumbs, asideProp
       </Box>
 
       {gallery && (
-        <SRLWrapper
-          options={{
-            buttons: {
-              showAutoplayButton: false,
-              showDownloadButton: false,
-              showFullscreenButton: false,
-              showThumbnailsButton: false,
-            },
-          }}
-        >
-          <Grid container spacing={1}>
-            {gallery.map(({ fields }, index) => {
-              const { file, description } = fields;
+        <Grid container spacing={1}>
+          {gallery.map(({ fields }, index) => {
+            const { file, description } = fields;
+            const src = buildUrl(file.url);
 
-              return (
-                <Grid
-                  xs={6}
-                  sm={4}
-                  md={3}
-                  item
-                  key={`${file.url}-${index}`}
-                  sx={{
-                    cursor: 'pointer',
-                  }}
-                >
-                  <LazyImage
-                    src={buildUrl(file.url)}
-                    alt={description}
-                    width={300}
-                    height={200}
-                    quality={70}
-                    layout="responsive"
-                    objectFit="cover"
-                  />
-                </Grid>
-              );
-            })}
-          </Grid>
-        </SRLWrapper>
+            return (
+              <Grid
+                xs={6}
+                sm={4}
+                md={3}
+                item
+                key={`${file.url}-${index}`}
+                sx={{ cursor: 'pointer' }}
+              >
+                <PhotoView src={src}>
+                  <Box>
+                    <LazyImage
+                      src={src}
+                      alt={description}
+                      width={300}
+                      height={200}
+                      quality={70}
+                      layout="responsive"
+                      objectFit="cover"
+                    />
+                  </Box>
+                </PhotoView>
+              </Grid>
+            );
+          })}
+        </Grid>
       )}
     </PageTemplate>
   );

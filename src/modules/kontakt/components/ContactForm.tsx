@@ -69,7 +69,7 @@ export const ContactForm = () => {
 
       reset();
       setSuccessAlertOpen(true);
-    } catch (err) {
+    } catch {
       setErrorAlertOpen(true);
     } finally {
       setSubmitLoading(false);

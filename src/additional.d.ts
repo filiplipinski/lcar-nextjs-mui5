@@ -9,3 +9,7 @@ declare namespace NodeJS {
     NEXT_PUBLIC_SKODA_OFFER_PASSWORD: string;
   }
 }
+
+interface Window {
+  gtag: Gtag.Gtag;
+}
