@@ -37,7 +37,7 @@ export const AboutCompany = () => {
             przygotujemy auto do sprzedaży lub dopracujemy świeżo zakupione auto. <br /> <br />
             Firma <strong>LCAR</strong> to również wynajem samochodów osobowych, busów oraz
             wywrotek. Prowadzimy usługę <strong>Door to Door</strong>, zostawiając u klienta wybrane
-            auto zastępcze.
+            auto zastępcze.TEST
           </Typography>
         </FadeUp>
 
