@@ -1,8 +1,8 @@
 import { DefaultSeoProps } from 'next-seo';
 
-const title = 'LCAR Auto Detailing - Radom';
+const title = 'Kosmetyka samochodowa w Radomiu';
 const description =
-  'Specjalizujemy się w naprawach bezinwazyjnych PDR (wyciąganie wgnieceń), wykonujemy korekty lakieru, polerowanie reflektorów, nanoszenie powłok i wosków ochronnych.';
+  'Detailing samochodowy w Radomiu i okolicach– korekta lakieru, powłoki ochronne, detailing wnętrza, PDR i renowacja tapicerki. Poznaj usługi studia LCAR!';
 
 export const defaultSeo: DefaultSeoProps = {
   defaultTitle: title,
