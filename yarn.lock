@@ -5324,6 +5324,18 @@ scheduler@^0.28.0:
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.28.0.tgz#03d3ca348aeaf8b7502f64468f217b27523f9695"
   integrity sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==
 
+schema-dts-lib@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/schema-dts-lib/-/schema-dts-lib-1.1.0.tgz#43be42d5d0536eacb93844459c42b4307adf0f1a"
+  integrity sha512-Nx00FDPHDimSENMznVpADeYUJDsqlMiO9wcs2S+giggNTm5+ruNkM4m9z9qCk6xUJT+ThDM3NxxpwfHfFk1G+Q==
+
+schema-dts@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-2.1.0.tgz#7f52579c6dd266ad758c5d3f71aba874b6a6b1e7"
+  integrity sha512-Y/NvOvuJUZwrm+EmNqJF3M+bRufERJs1h5GJPLilUuK5D5b53ttU+XZgIjEFaAVRToh+ib+cQawFmxKC5Jt9ow==
+  dependencies:
+    schema-dts-lib "^1.1.0"
+
 schema-utils@^4.6.0, schema-utils@^4.8.1:
   version "4.8.3"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-4.8.3.tgz#128b33e63093a0b225b09570b9ea58ea65150cf2"

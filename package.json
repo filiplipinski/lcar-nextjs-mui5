@@ -57,6 +57,7 @@
     "next-sitemap": "^4.2.3",
     "prettier": "^3.10.1",
     "rollup": "^2.79.2",
+    "schema-dts": "^2.1.0",
     "typescript": "6.0.3",
     "webpack": "^5.112.2"
   },
