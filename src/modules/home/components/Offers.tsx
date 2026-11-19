@@ -115,6 +115,14 @@ export const Offers = ({ offers }: Props) => {
           })}
         </ImageList>
       </FadeIn>
+
+      <Container maxWidth="lg">
+        <FlyIn direction="right" triggerOnScroll>
+          <Typography align="center">
+            Nasze <strong>auto spa</strong> dla klientów z <strong>Radomia</strong> i okolic to usługi dobierane indywidualnie – od pojedynczych zabiegów po kompleksowe przygotowanie samochodu.
+          </Typography>
+        </FlyIn>
+      </Container>
     </Box>
   );
 };
