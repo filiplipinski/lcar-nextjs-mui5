@@ -9,6 +9,9 @@ export const AboutCompany = () => {
   return (
     <Container id={scrollToElementsId.aboutCompany} sx={{ pt: 10 }}>
       <FadeUp triggerOnScroll>
+          <Typography variant="h1" component="h1" align="center" sx={{ mb: 4 }}>
+            Auto detailing Radom – profesjonalna pielęgnacja samochodów w LCAR
+          </Typography>
           <Typography sx={{ mb: 4 }}>
           <strong>Auto detailing</strong> w <strong>Radomiu</strong> i okolicach to specjalność LCAR – studia, w którym zajmujemy się kompleksową pielęgnacją, 
             renowacją i zabezpieczaniem samochodów. Wykonujemy korektę lakieru, kompleksowe czyszczenie wnętrza, aplikację powłok ochronnych, 
