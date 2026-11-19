@@ -1,6 +1,9 @@
 name: CI
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
@@ -27,5 +30,7 @@ jobs:
         run: yarn install
       - name: Run linting
         run: yarn lint
+      - name: Run TypeScript checks
+        run: yarn typecheck
       - name: Run build
         run: yarn build
