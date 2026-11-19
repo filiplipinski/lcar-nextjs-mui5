@@ -12,6 +12,42 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pl">
         <Head>
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "AutoBodyShop",
+            "name": "LCAR - Karol Lipiński",
+            "url": "https://www.lcar.pl/",
+            "logo": "https://www.lcar.pl/_next/image?url=%2Fimg%2Flogo.png&w=256&q=75",
+            "image": "https://www.lcar.pl/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Feefum7iefbyd%2F765SEVGPWBlgD1WJsE3WbO%2F1a9f90ae3734e373cee7e1b42856e664%2Fkorekta-lakieru.jpg&w=1200&q=75",
+            "description": "LCAR Karol Lipiński - profesjonalne usługi lakiernicze i naprawa powłok lakieru w Radomiu. Korekta lakieru, renowacja i pielęgnacja samochodów.",
+            "founder": {
+              "@type": "Person",
+              "name": "Karol Lipiński"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "ul. Złota 48",
+              "postalCode": "26-604",
+              "addressLocality": "Radom",
+              "addressCountry": "PL"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+48 539 943 336",
+              "contactType": "customer service",
+              "email": "karol.lipinski@lcar.pl",
+              "availableLanguage": "Polish"
+            },
+            "telephone": "+48 539 943 336",
+            "email": "karol.lipinski@lcar.pl",
+            "areaServed": {
+              "@type": "City",
+              "name": "Radom"
+            },
+            "priceRange": "$$"
+          }
+          </script>
           <meta charSet="UTF-8" />
           {/* Icons for meta tags */}
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
