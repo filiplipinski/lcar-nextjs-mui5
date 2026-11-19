@@ -22,6 +22,8 @@ import * as gtag from 'src/lib/gtag';
 
 import { defaultSeo } from '../next-seo.config';
 
+const SITE_URL = 'https://www.lcar.pl';
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -34,7 +36,7 @@ const MyApp = (props: MyAppProps) => {
   const router = useRouter();
 
   const canonicalPath = router.asPath.split(/[?#]/)[0];
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${canonicalPath === '/' ? '' : canonicalPath}`;
+  const canonicalUrl = `${SITE_URL}${canonicalPath === '/' ? '' : canonicalPath}`;
 
   useEffect(() => {
     // do not use classic import, it's won't work because of library problem in nextjs project (window object undefined)
@@ -64,7 +66,7 @@ const MyApp = (props: MyAppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <DefaultSeo {...defaultSeo} />
+      <DefaultSeo {...defaultSeo} canonical={canonicalUrl} />
 
       <PhotoProvider>
         <ThemeProvider theme={theme}>
