@@ -33,6 +33,9 @@ const MyApp = (props: MyAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const router = useRouter();
 
+  const canonicalPath = router.asPath.split(/[?#]/)[0];
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${canonicalPath === '/' ? '' : canonicalPath}`;
+
   useEffect(() => {
     // do not use classic import, it's won't work because of library problem in nextjs project (window object undefined)
     import('smoothscroll-polyfill').then(({ polyfill }) => polyfill());
@@ -61,7 +64,7 @@ const MyApp = (props: MyAppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <DefaultSeo {...defaultSeo} />
+      <DefaultSeo {...defaultSeo} canonical={canonicalUrl} />
 
       <PhotoProvider>
         <ThemeProvider theme={theme}>
