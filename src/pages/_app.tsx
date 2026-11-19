@@ -64,7 +64,7 @@ const MyApp = (props: MyAppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <DefaultSeo {...defaultSeo} canonical={canonicalUrl} />
+      <DefaultSeo {...defaultSeo} />
 
       <PhotoProvider>
         <ThemeProvider theme={theme}>
