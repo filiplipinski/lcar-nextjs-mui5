@@ -87,4 +87,4 @@ const CustomText = styled(Typography)(({ theme }) => ({
 
   color: 'transparent',
   WebkitTextStroke: `1px ${theme.palette.primary.main}`,
-}));
+})) as typeof Typography;
