@@ -9,6 +9,11 @@ export const AboutCompany = () => {
   return (
     <Container id={scrollToElementsId.aboutCompany} sx={{ pt: 10 }}>
       <FadeUp triggerOnScroll>
+          <Typography sx={{ mb: 4 }}>
+          <strong>Auto detailing</strong> w <strong>Radomiu</strong> i okolicach to specjalność LCAR – studia, w którym zajmujemy się kompleksową pielęgnacją, 
+            renowacją i zabezpieczaniem samochodów. Wykonujemy korektę lakieru, kompleksowe czyszczenie wnętrza, aplikację powłok ochronnych, 
+            usuwanie wgnieceń oraz prace tapicerskie. Obsługujemy samochody nowe i używane, dobierając zakres usług do stanu pojazdu.
+          </Typography>        
         <Typography variant="h3" component="h2" align="center" sx={{ mb: 4 }}>
           O firmie
         </Typography>
@@ -26,9 +31,10 @@ export const AboutCompany = () => {
       >
         <FadeUp triggerOnScroll>
           <Typography sx={{ mb: { xs: 6, md: 0 }, mr: { xs: 0, md: 4 } }}>
-            Po 15 latach działania w branży motoryzacyjnej przyszła kolej na otwarcie własnego{' '}
-            <strong>STUDIA AUTODETAILIGU</strong>. Doświadczenie zdobyte w autoryzowanych serwisach
-            światowych marek postanowiliśmy przenieść na rynek radomski. <br /> <br />
+            LCAR powstało na bazie ponad 15 lat doświadczenia w branży motoryzacyjnej, zdobywanego między innymi w autoryzowanych serwisach światowych marek. 
+            Wiedzę i praktykę przenieśliśmy do własnego studia, oferując specjalistyczne usługi związane z renowacją samochodów, 
+            w tym <strong>auto detailing</strong> w <strong>Końskim</strong>, <strong>Zwoleniu</strong> i okolicach.<br /> <br />
+            
             Ideą autodetailingu jest holistyczna pielęgnacja samochodu czyli wieloetapowe i
             precyzyjne zabiegi mające na celu odświeżenie wnętrza i karoserii pojazdu. Dzięki niej
             auto zachowuje lub odzyskuje blask nowości – jakby właśnie wyjechało z salonu. <br />{' '}
