@@ -36,7 +36,7 @@ const MyApp = (props: MyAppProps) => {
   const router = useRouter();
 
   const canonicalPath = router.asPath.split(/[?#]/)[0];
-  const canonicalUrl = `${SITE_URL}${canonicalPath === '/' ? '' : canonicalPath}`;
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
 
   useEffect(() => {
     // do not use classic import, it's won't work because of library problem in nextjs project (window object undefined)
