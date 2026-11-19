@@ -41,7 +41,7 @@ export const Brands = () => {
       <Container>
         <FadeUp triggerOnScroll y={30}>
           <Typography
-            component="h3"
+            component="h2"
             variant="h5"
             align="center"
             sx={{ mb: 4, textTransform: 'uppercase' }}
@@ -52,8 +52,9 @@ export const Brands = () => {
 
         <FadeUp triggerOnScroll delay={0.4}>
           <Typography align="center" sx={{ mb: 4 }}>
-            Dobieramy produkty najwyższej jakości, aby zapewnić najlepszą jakość usług, a także
-            największe bezpieczeństwo dla auta!
+            Korzystamy ze specjalistycznych produktów i narzędzi przeznaczonych do profesjonalnego detailingu. 
+            Dobieramy je do rodzaju powierzchni, stanu pojazdu oraz zakresu wykonywanych prac. 
+            Odpowiednie preparaty i sprawdzone techniki stanowią podstawę bezpiecznej <strong>pielęgnacji samochodu</strong>.
           </Typography>
         </FadeUp>
       </Container>
@@ -94,6 +95,28 @@ export const Brands = () => {
           </Swiper>
         </Paper>
       </FadeIn>
+
+      <Container>
+        <FadeUp triggerOnScroll y={30}>
+          <Typography
+            component="h2"
+            variant="h5"
+            align="center"
+            sx={{ mb: 4, textTransform: 'uppercase' }}
+          >
+            LCAR – zadbaj o swój samochód z profesjonalistami
+          </Typography>
+        </FadeUp>
+
+        <FadeUp triggerOnScroll delay={0.4}>
+          <Typography align="center" sx={{ mb: 4 }}>
+            Szukasz profesjonalnego <strong>detailingu samochodowego</strong> w <strong>Radomiu</strong>, <strong>Kozienicach</strong> lub <strong>Puławach</strong>? Skontaktuj się z LCAR, 
+            opowiedz nam o swoim samochodzie i ustal dogodny termin wizyty. Doradzimy, jakie zabiegi warto wykonać, 
+            aby uzyskać oczekiwany efekt.
+          </Typography>
+        </FadeUp>
+      </Container>
+      
     </Box>
   );
 };
