@@ -102,7 +102,7 @@ export const Brands = () => {
             component="h2"
             variant="h5"
             align="center"
-            sx={{ mb: 4, textTransform: 'uppercase' }}
+            sx={{ pt: 4, mb: 4, textTransform: 'uppercase' }}
           >
             LCAR – zadbaj o swój samochód z profesjonalistami
           </Typography>
