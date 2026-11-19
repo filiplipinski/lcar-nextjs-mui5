@@ -19,10 +19,10 @@ export const HeroBanner = () => {
     <Box sx={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Box sx={{ position: 'absolute', zIndex: 1, left: '10%', top: '20%' }}>
         <FlyIn manualTriggerMode duration={0.7} triggerManually={isImgLoaded}>
-          <CustomText variant="h1">Z miłości</CustomText>{' '}
+          <CustomText variant="p">Z miłości</CustomText>{' '}
         </FlyIn>
         <FlyIn manualTriggerMode triggerManually={isImgLoaded} duration={0.7} delay={0.7}>
-          <CustomText variant="h1">
+          <CustomText variant="p">
             do{' '}
             <Box
               component="span"
