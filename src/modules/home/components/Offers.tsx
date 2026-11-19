@@ -31,7 +31,7 @@ export const Offers = ({ offers }: Props) => {
     <Box id={scrollToElementsId.offer} sx={{ pt: 10 }}>
       <FadeUp triggerOnScroll>
         <Typography variant="h3" component="h2" align="center" sx={{ mb: 4 }}>
-          Usługi
+          Usługi – detailing i kosmetyka samochodowa w Radomiu i okolicach
         </Typography>
       </FadeUp>
 
